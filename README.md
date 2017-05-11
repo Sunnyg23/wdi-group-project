@@ -1,2 +1,2 @@
 # wdi-group-project
-WDI Group Project
+Dirty Pants Project
