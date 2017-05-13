@@ -22,11 +22,22 @@ function cuisineShow(req, res, next) {
       return res.status(200).json(cuisines);
     })
     .catch(next);
-
 }
 
+function cuisineNew(req, res, next) {
+  Cuisine
+    .create(req.body)
+    .then(cuisines => {
+      if(!cuisines) {
+        console.log('Could not create cuisine - cuisineNew line 27');
+      }
+      return res.status(201).json(cuisines);
+    })
+    .catch(next);
+}
 
 module.exports = {
   index: cuisineIndex,
-  show: cuisineShow
+  show: cuisineShow,
+  next: cuisineNew
 };
