@@ -203,4 +203,15 @@ describe('Ingredients controllers tests', () => {
 
   }); // end of POST /api/ingredients - new route
 
+  describe('DELETE /api/ingredients/:id', () => {
+
+    it('should return a 204 response after deleting', function(done) {
+      api
+        .delete(`/api/ingredients/${ingredientId}`)
+        .set('Accept', 'application/json')
+        .expect(204, done);
+    });
+
+  }); // end of DELETE /api/ingredients/:id block
+
 });
