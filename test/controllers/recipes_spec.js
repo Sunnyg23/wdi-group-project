@@ -248,5 +248,15 @@ describe('Recipes controllers tests', () => {
 
   }); // end of POST /api/recipes - new route
 
+  describe('DELETE /api/recipes/:id', () => {
+
+    it('should return a 204 response after deleting', function(done) {
+      api
+        .delete(`/api/recipes/${recipeId}`)
+        .set('Accept', 'application/json')
+        .expect(204, done);
+    });
+
+  }); // end of DELETE /api/recipes/:id block
 
 });
