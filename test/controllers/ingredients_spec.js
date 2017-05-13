@@ -127,4 +127,30 @@ describe('Ingredients controllers tests', () => {
 
   }); // end of GET /api/ingredients/:id block
 
+  describe('POST /api/ingredients - new route', () => {
+
+    it('should return a 201 response', function(done) {
+      api.post('/api.ingredients')
+      .set('Accept', 'application/json')
+      .send({
+        ingredient: {
+          name: 'Gefilte Fish',
+          images: {
+            small: '',
+            large: '',
+            others: ['']
+          }
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        console.log(res.headers);
+        console.log(res.body);
+        expect(201);
+        done();
+      });
+    });
+
+  });
+
 });
