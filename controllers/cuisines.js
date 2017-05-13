@@ -17,7 +17,7 @@ function cuisinesShow(req, res, next) {
     .exec()
     .then(cuisine => {
       if(!cuisine) {
-        console.log('No cuisine found - cuisinesShow line 14');
+        return res.status(404).json({message: 'No cuisine found - ingredientShow line 14'});
       }
       return res.status(200).json(cuisine);
     })

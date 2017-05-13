@@ -17,7 +17,7 @@ function ingredientsShow(req, res, next) {
     .exec()
     .then(ingredient => {
       if(!ingredient) {
-        console.log('No ingredient found - ingredientShow line 14');
+        return res.status(404).json({message: 'No ingredient found - ingredientShow line 14'});
       }
       return res.status(200).json(ingredient);
     })
