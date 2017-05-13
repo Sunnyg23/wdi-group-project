@@ -84,6 +84,7 @@ describe('Recipes controllers tests', () => {
   describe('GET /api/recipes/:id', () => {
 
     it('should return a 200 response', function(done) {
+      //this.skip();
       api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -92,7 +93,42 @@ describe('Recipes controllers tests', () => {
         done();
       });
     });
-    
-  });
+
+    it('should return a single object', function(done) {
+      //this.skip();
+      api.get(`/api/recipes/${recipeId}`)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.headers['content-type'])
+        .to.be.eq('application/json; charset=utf-8');
+        done();
+      });
+    });
+
+    it('should return an object with required keys', function(done) {
+      //this.skip();
+      api.get(`/api/recipes/${recipeId}`)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.body)
+        .to.have.all.keys([
+          'name',
+          // 'chef',
+          'instructions',
+          'ingredients',
+          'images',
+          '_id',
+          '__v'
+        ]);
+        done();
+      });
+    });
+
+
+
+  }); // end of -  describe('GET /api/recipes/:id')
+
 
 });
