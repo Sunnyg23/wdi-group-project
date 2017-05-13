@@ -203,6 +203,67 @@ describe('Ingredients controllers tests', () => {
 
   }); // end of POST /api/ingredients - new route
 
+  describe('PUT /api/ingredients - edit route', () => {
+
+    it('should return a 201 response', function(done) {
+      api.put(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .expect(201, done);
+    });
+
+    it('should return the created json object', function(done) {
+      api.put(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.body)
+        .to.have.all.keys([
+          'name',
+          'images',
+          '_id',
+          '__v'
+        ]);
+        done();
+      });
+    });
+
+    it('should return created object with correct keys', function(done) {
+      api.put(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.headers['content-type'])
+        .to.eq('application/json; charset=utf-8');
+        done();
+      });
+    });
+
+  }); // end of PUT /api/ingredients - new route
+
   describe('DELETE /api/ingredients/:id', () => {
 
     it('should return a 204 response after deleting', function(done) {
