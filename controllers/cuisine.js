@@ -5,13 +5,28 @@ function cuisineIndex(req, res, next) {
   Cuisine
   .find()
   .exec()
-  .then(cuisine => {
-    return res.status(200).json(cuisine);
+  .then(cuisines => {
+    return res.status(200).json(cuisines);
   })
   .catch(next);
 }
 
+function cuisineShow(req, res, next) {
+  Cuisine
+    .findById(req.params.id)
+    .exec()
+    .then(cuisines => {
+      if(!cuisines) {
+        console.log('No cuisine found - CuisineShow line 14');
+      }
+      return res.status(200).json(cuisines);
+    })
+    .catch(next);
+
+}
+
 
 module.exports = {
-  index: cuisineIndex
+  index: cuisineIndex,
+  show: cuisineShow
 };
