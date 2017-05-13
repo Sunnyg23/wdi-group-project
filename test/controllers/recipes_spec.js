@@ -1,45 +1,53 @@
 const {api, expect} = require('../spec_helper');
-const Cuisine = require('../../models/cuisine');
+const Recipe = require('../../models/recipe');
 
-describe('Cuisines controllers tests', () => {
-  let cuisineId;
+describe('Recipes controllers tests', () => {
+  let recipeId;
 
   beforeEach(done => {
-    Cuisine
-      .remove()
-      .then(() => done())
-      .catch(done);
+    Recipe
+    .remove()
+    .then(() => done())
+    .catch(done);
   });
   afterEach(done => {
-    Cuisine
-      .remove()
-      .then(() => done())
-      .catch(done);
+    Recipe
+    .remove()
+    .then(() => done())
+    .catch(done);
   });
 
   beforeEach(done => {
-    Cuisine
-      .create({
-        name: 'Indian',
-        // recipies: [{type: mongoose.Schema.ObjectId, ref: 'Recipe'}],
-        images: {
-          small: '',
-          large: '',
-          others: ['']
-        }
-      })
-      .then(cuisine => {
-        cuisineId = cuisine._id;
-        done();
-      })
-      .catch(done);
+    Recipe
+    .create({
+      name: 'Gefilte Fish',
+      // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
+      instructions: [{
+        index: 1,
+        content: 'Some instructions'
+      }],
+      ingredients: [{
+        measurement: 'one fish'
+        // ingredient: {type: mongoose.Schema.ObjectId, ref: 'Ingredient'}
+      }],
+      images: {
+        small: '',
+        large: '',
+        others: ['']
+      }
+    })
+    .then(recipe => {
+      recipeId = recipe._id;
+      done();
+    })
+    .catch(done);
   });
 
-  describe('GET /api/cuisines', () => {
+  describe('GET /api/recipes', () => {
 
     it('should return a 200 response', function(done) {
       // this.skip();
-      api.get('/api/cuisines')
+      api.get('/api/recipes')
       .set('Accept', 'application/json')
       .end((err, res) => {
         if(err) console.log(err);
@@ -50,19 +58,19 @@ describe('Cuisines controllers tests', () => {
 
     it('should return an JSON object', function(done) {
       // this.skip();
-      api.get('/api/cuisines')
-        .set('Accept', 'application/json')
-        .end((err, res) => {
-          if (err) console.log(err);
-          expect(res.headers['content-type'])
-          .to.be.eq('application/json; charset=utf-8');
-          done();
-        });
+      api.get('/api/recipes')
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        if (err) console.log(err);
+        expect(res.headers['content-type'])
+        .to.be.eq('application/json; charset=utf-8');
+        done();
+      });
     });
 
     it('should return an array of objects', function(done) {
       // this.skip();
-      api.get('/api/cuisines')
+      api.get('/api/recipes')
       .set('Accept', 'application/json')
       .end((err, res) => {
         if(err) console.log(err);
@@ -71,12 +79,13 @@ describe('Cuisines controllers tests', () => {
       });
     });
 
-  }); // end of GET /api/cuisines
+  }); // end of GET /api/recipes
 
-  describe('GET /api/cuisines/:id', () => {
+  describe('GET /api/recipes/:id', () => {
 
     it('should return a 200 response', function(done) {
-      api.get(`/api/cuisines/${cuisineId}`)
+      //this.skip();
+      api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if(err) console.log(err);
@@ -86,8 +95,8 @@ describe('Cuisines controllers tests', () => {
     });
 
     it('should return a single object', function(done) {
-      // this.skip();
-      api.get(`/api/cuisines/${cuisineId}`)
+      //this.skip();
+      api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if(err) console.log(err);
@@ -98,15 +107,17 @@ describe('Cuisines controllers tests', () => {
     });
 
     it('should return an object with required keys', function(done) {
-      // this.skip();
-      api.get(`/api/cuisines/${cuisineId}`)
+      //this.skip();
+      api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.body)
         .to.have.all.keys([
           'name',
-          'recipes',
+          // 'chef',
+          'instructions',
+          'ingredients',
           'images',
           '_id',
           '__v'
@@ -116,16 +127,20 @@ describe('Cuisines controllers tests', () => {
     });
 
     it('should not return an object if the id is wrong', function(done) {
-      // this.skip();
-      api.get('/api/cuisines/56cb91bdc3464f14678934ca')
+      //this.skip();
+      api.get('/api/recipes/56cb91bdc3464f14678934ca')
       .set('Accept', 'application/json')
       .end((err, res) => {
         if(err) console.log(err);
-        expect(res.status).to.eq(404);
+        expect(res.status)
+        .to.eq(404);
         done();
       });
     });
 
-  }); // end of GET /api/cuisines/:id block
+
+
+  }); // end of -  describe('GET /api/recipes/:id')
+
 
 });
