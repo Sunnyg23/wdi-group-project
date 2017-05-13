@@ -1,27 +1,30 @@
 const router      = require('express').Router();
-const cuisines    = require('../controllers/cuisine');
-const ingredients = require('../controllers/ingredient');
-const recipes     = require('../controllers/recipe');
+const cuisines    = require('../controllers/cuisines');
+const ingredients = require('../controllers/ingredients');
+const recipes     = require('../controllers/recipes');
 
 router.route('/cuisines')
-.get(cuisines.index);
+.get(cuisines.index)
+.post(cuisines.new);
 router.route('/cuisines/:id')
 .get(cuisines.show)
-.put(cuisines.new)
+.put(cuisines.update)
 .delete(cuisines.delete);
 
 router.route('/ingredients')
-.get(ingredients.index);
+.get(ingredients.index)
+.post(ingredients.new);
 router.route('/ingredients/:id')
 .get(ingredients.show)
-.put(ingredients.new)
+.put(ingredients.update)
 .delete(ingredients.delete);
 
 router.route('/recipes')
-.get(recipes.index);
+.get(recipes.index)
+.post(recipes.new);
 router.route('/recipes/:id')
 .get(recipes.show)
-.put(recipes.new)
+.put(recipes.update)
 .delete(recipes.delete);
 
 module.exports = router;

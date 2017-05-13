@@ -58,7 +58,7 @@ function cuisinesDelete(req, res, next) {
 module.exports = {
   index: cuisinesIndex,
   show: cuisinesShow,
-  next: cuisinesNew,
+  new: cuisinesNew,
   update: cuisinesUpdate,
   delete: cuisinesDelete
 };
