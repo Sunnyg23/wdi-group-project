@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const cuisineSchema = new mongoose.Schema({
-  name: {type: String, trim: true},
+  name: {type: String, trim: true, required: true},
   recipes: [{type: mongoose.Schema.ObjectId, ref: 'Recipe'}],
   images: {
     small: {type: String, trim: true},

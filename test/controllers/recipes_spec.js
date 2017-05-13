@@ -142,5 +142,111 @@ describe('Recipes controllers tests', () => {
 
   }); // end of -  describe('GET /api/recipes/:id')
 
+  describe('POST /api/recipes - new route', () => {
+
+    it('should return a 201 response', function(done) {
+      api.post('/api/recipes')
+      .set('Accept', 'application/json')
+      .send({
+        name: 'Gefilte Fish',
+        // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
+        instructions: [{
+          index: 1,
+          content: 'Some instructions'
+        }],
+        ingredients: [{
+          measurement: 'one fish'
+          // ingredient: {type: mongoose.Schema.ObjectId, ref: 'Ingredient'}
+        }],
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .expect(201, done);
+    });
+
+    it('should return the created json object', function(done) {
+      api.post('/api/recipes')
+      .set('Accept', 'application/json')
+      .send({
+        name: 'Gefilte Fish',
+        // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
+        instructions: [{
+          index: 1,
+          content: 'Some instructions'
+        }],
+        ingredients: [{
+          measurement: 'one fish'
+          // ingredient: {type: mongoose.Schema.ObjectId, ref: 'Ingredient'}
+        }],
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.body)
+        .to.have.all.keys([
+          'name',
+          // 'chef',
+          'instructions',
+          'ingredients',
+          'images',
+          '_id',
+          '__v'
+        ]);
+        done();
+      });
+    });
+
+    it('should return created object with correct keys', function(done) {
+      api.post('/api/recipes')
+      .set('Accept', 'application/json')
+      .send({
+        name: 'Gefilte Fish',
+        // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
+        instructions: [{
+          index: 1,
+          content: 'Some instructions'
+        }],
+        ingredients: [{
+          measurement: 'one fish'
+          // ingredient: {type: mongoose.Schema.ObjectId, ref: 'Ingredient'}
+        }],
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.headers['content-type'])
+        .to.eq('application/json; charset=utf-8');
+        done();
+      });
+    });
+
+    it('should return 500 error if vaildation fails, empty object, name required', function(done) {
+      api.post('/api/recipes')
+      .set('Accept', 'application/json')
+      .send({
+
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status).to.eq(500);
+        expect(res.body.name)
+        .to.eq('ValidationError');
+        done();
+      });
+    });
+
+  }); // end of POST /api/recipes - new route
+
 
 });

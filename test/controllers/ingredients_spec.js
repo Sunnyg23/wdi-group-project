@@ -186,12 +186,11 @@ describe('Ingredients controllers tests', () => {
       });
     });
 
-    it('should return 500 error if vaildation fails', function(done) {
+    it('should return 500 error if vaildation fails, empty object, name required', function(done) {
       api.post('/api/ingredients')
       .set('Accept', 'application/json')
       .send({
-        wrongKey: 'wrong data',
-        images: {others: {}}
+
       })
       .end((err, res) => {
         if(err) console.log(err);
@@ -202,6 +201,6 @@ describe('Ingredients controllers tests', () => {
       });
     });
 
-  });
+  }); // end of POST /api/ingredients - new route
 
 });
