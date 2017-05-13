@@ -3,6 +3,37 @@ const Cuisine = require('../../models/cuisine');
 
 describe('Cuisines controllers tests', () => {
 
+  beforeEach(done => {
+    Cuisine
+      .remove()
+      .then(() => done())
+      .catch(done);
+  });
+  afterEach(done => {
+    Cuisine
+      .remove()
+      .then(() => done())
+      .catch(done);
+  });
+
+  beforeEach(done => {
+    Cuisine
+      .create({
+        name: 'Indian',
+        // recipies: [{type: mongoose.Schema.ObjectId, ref: 'Recipe'}],
+        images: {
+          small: '',
+          large: ''
+          // others: [{type: String, trim: true}]
+        }
+      })
+      .then(cuisine => {
+        console.log(cuisine.name+' created');
+        done();
+      })
+      .catch(done);
+  });
+
   describe('GET /api/cuisines', () => {
 
     it('should return a 200 response', function(done) {
