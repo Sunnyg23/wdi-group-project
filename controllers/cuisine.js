@@ -40,10 +40,18 @@ function cuisineUpdate(req, res, next) {
   Cuisine
     .findByIdAndUpdate(req.params.id, req.body)
     .exec()
-    .then(cuisine => {
-      if(!cuisine) return res.status(404).json({message: 'Failed to create cuisine'});
-      return res.status(201).json(cuisine);
+    .then(cuisines => {
+      if(!cuisines) return res.status(404).json({message: 'Failed to create cuisine.'});
+      return res.status(201).json(cuisines);
     })
+    .catch(err => res.status(500).json(err));
+}
+
+function cuisineDelete(req, res) {
+  Cuisine
+    .findByIdAndRemove(req.params.id)
+    .exec()
+    .then(() => res.status(204)).json({message: 'Deleted!'})
     .catch(err => res.status(500).json(err));
 }
 
@@ -51,5 +59,6 @@ module.exports = {
   index: cuisineIndex,
   show: cuisineShow,
   next: cuisineNew,
-  update: cuisineUpdate
+  update: cuisineUpdate,
+  delete: cuisineDelete
 };
