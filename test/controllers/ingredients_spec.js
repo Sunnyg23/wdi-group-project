@@ -6,7 +6,7 @@ describe('Ingredients controllers tests', () => {
   describe('GET /api/ingredients', () => {
 
     it('should return a 200 response', function(done) {
-      this.skip();
+      // this.skip();
       api.get('/api/ingredients')
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -17,7 +17,7 @@ describe('Ingredients controllers tests', () => {
     });
 
     it('should return an JSON object', function(done) {
-      this.skip();
+      // this.skip();
       api.get('/api/ingredients')
         .set('Accept', 'application/json')
         .end((err, res) => {
@@ -29,7 +29,7 @@ describe('Ingredients controllers tests', () => {
     });
 
     it('should return an array of objects', function(done) {
-      this.skip();
+      // this.skip();
       api.get('/api/ingredients')
       .set('Accept', 'application/json')
       .end((err, res) => {
