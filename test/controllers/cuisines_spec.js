@@ -208,6 +208,53 @@ describe('Cuisines controllers tests', () => {
 
   }); // end of POST /api/cuisines - new route
 
+  describe('PUT /api/cuisines - edit route', () => {
+
+    it('should return a 201 response', function(done) {
+      api.put(`/api/cuisines/${cuisineId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed'
+      })
+      .expect(201, done);
+    });
+
+    it('should return the created json object', function(done) {
+      api.put(`/api/cuisines/${cuisineId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed'
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.body)
+        .to.have.all.keys([
+          'name',
+          'recipes',
+          'images',
+          '_id',
+          '__v'
+        ]);
+        done();
+      });
+    });
+
+    it('should return created object with correct keys', function(done) {
+      api.put(`/api/cuisines/${cuisineId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed'
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.headers['content-type'])
+        .to.eq('application/json; charset=utf-8');
+        done();
+      });
+    });
+
+  }); // end of PUT /api/cuisines - edit route
+
   describe('DELETE /api/cuisines/:id', () => {
 
     it('should return a 204 response after deleting', function(done) {

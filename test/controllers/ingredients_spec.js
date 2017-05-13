@@ -262,7 +262,7 @@ describe('Ingredients controllers tests', () => {
       });
     });
 
-  }); // end of PUT /api/ingredients - new route
+  }); // end of PUT /api/ingredients - edit route
 
   describe('DELETE /api/ingredients/:id', () => {
 
