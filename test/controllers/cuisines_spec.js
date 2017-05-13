@@ -41,4 +41,6 @@ describe('Cuisines controllers tests', () => {
 
   }); // end of GET /api/cuisines
 
+
+
 });
