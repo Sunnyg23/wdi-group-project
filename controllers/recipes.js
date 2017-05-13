@@ -17,7 +17,7 @@ function recipesShow(req, res, next) {
     .exec()
     .then(recipe => {
       if(!recipe) {
-        console.log('No recipe found - recipeShow line 14');
+        return res.status(404).json({ message: 'No recipe found - recipeShow line 14' });
       }
       return res.status(200).json(recipe);
     })

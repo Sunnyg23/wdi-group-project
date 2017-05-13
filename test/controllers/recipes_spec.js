@@ -126,6 +126,18 @@ describe('Recipes controllers tests', () => {
       });
     });
 
+    it('should not return an object if the id is wrong', function(done) {
+      //this.skip();
+      api.get('/api/recipes/56cb91bdc3464f14678934ca')
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(404);
+        done();
+      });
+    });
+
 
 
   }); // end of -  describe('GET /api/recipes/:id')
