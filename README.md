@@ -1,6 +1,7 @@
 # wdi-group-project
-WDI Group Project
-Sunny Ghag
-Danai Nanou
-Louis
-Dirty pants
+
+Dirty Pants Project
+
+Obective 1.
+
+Collect dirty pants
