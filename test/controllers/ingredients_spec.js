@@ -2,6 +2,7 @@ const {api, expect} = require('../spec_helper');
 const Ingredient = require('../../models/ingredient');
 
 describe('Ingredients controllers tests', () => {
+  let ingredientId;
 
   beforeEach(done => {
     Ingredient
@@ -27,6 +28,7 @@ describe('Ingredients controllers tests', () => {
         }
       })
       .then(ingredient => {
+        ingredientId = ingredient._id;
         done();
       })
       .catch(done);
@@ -70,6 +72,18 @@ describe('Ingredients controllers tests', () => {
 
   }); // end of GET /api/ingredients
 
+  describe('GET /api/ingredients/:id', () => {
 
+    it('should return a 200 response', function(done) {
+      api.get(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status).to.eq(200);
+        done();
+      });
+    });
+
+  });
 
 });
