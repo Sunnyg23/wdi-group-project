@@ -4,7 +4,8 @@
   "description": "A example stack with gulp and angular",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install && gulp deploy"
+    "postinstall": "bower install && gulp deploy",
+    "test": "istanbul cover node_modules/.bin/_mocha"
   },
   "author": "Alex Chin <alex@alexchin.co.uk>",
   "license": "ISC",
