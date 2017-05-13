@@ -51,7 +51,7 @@ function cuisineDelete(req, res) {
   Cuisine
     .findByIdAndRemove(req.params.id)
     .exec()
-    .then(() => res.status(204)).json({message: 'Deleted!'})
+    .then(() => res.status(204).json({message: 'Deleted!'}))
     .catch(err => res.status(500).json(err));
 }
 
