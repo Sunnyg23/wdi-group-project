@@ -3,6 +3,44 @@ const Recipe = require('../../models/recipe');
 
 describe('Recipes controllers tests', () => {
 
+  beforeEach(done => {
+    Recipe
+      .remove()
+      .then(() => done())
+      .catch(done);
+  });
+  afterEach(done => {
+    Recipe
+      .remove()
+      .then(() => done())
+      .catch(done);
+  });
+
+  beforeEach(done => {
+    Recipe
+      .create({
+        name: 'Gefilte Fish',
+        // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
+        instructions: [{
+          index: 1,
+          content: 'Some instructions'
+        }],
+        ingredients: [{
+          measurement: 'one fish'
+          // ingredient: {type: mongoose.Schema.ObjectId, ref: 'Ingredient'}
+        }],
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .then(recipe => {
+        done();
+      })
+      .catch(done);
+  });
+
   describe('GET /api/recipes', () => {
 
     it('should return a 200 response', function(done) {

@@ -23,12 +23,11 @@ describe('Cuisines controllers tests', () => {
         // recipies: [{type: mongoose.Schema.ObjectId, ref: 'Recipe'}],
         images: {
           small: '',
-          large: ''
-          // others: [{type: String, trim: true}]
+          large: '',
+          others: ['']
         }
       })
       .then(cuisine => {
-        console.log(cuisine.name+' created');
         done();
       })
       .catch(done);

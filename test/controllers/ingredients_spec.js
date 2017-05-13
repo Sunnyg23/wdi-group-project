@@ -3,6 +3,35 @@ const Ingredient = require('../../models/ingredient');
 
 describe('Ingredients controllers tests', () => {
 
+  beforeEach(done => {
+    Ingredient
+      .remove()
+      .then(() => done())
+      .catch(done);
+  });
+  afterEach(done => {
+    Ingredient
+      .remove()
+      .then(() => done())
+      .catch(done);
+  });
+
+  beforeEach(done => {
+    Ingredient
+      .create({
+        name: 'Gefilte Fish',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .then(ingredient => {
+        done();
+      })
+      .catch(done);
+  });
+
   describe('GET /api/ingredients', () => {
 
     it('should return a 200 response', function(done) {
