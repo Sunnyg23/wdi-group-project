@@ -8,7 +8,7 @@ function cuisineIndex(req, res, next) {
   .then(cuisines => {
     return res.status(200).json(cuisines);
   })
-  .catch(next);
+  .catch(err => res.status(500).json(err));
 }
 
 function cuisineShow(req, res, next) {
@@ -21,7 +21,7 @@ function cuisineShow(req, res, next) {
       }
       return res.status(200).json(cuisines);
     })
-    .catch(next);
+    .catch(err => res.status(500).json(err));
 }
 
 function cuisineNew(req, res, next) {
@@ -33,11 +33,23 @@ function cuisineNew(req, res, next) {
       }
       return res.status(201).json(cuisines);
     })
-    .catch(next);
+    .catch(err => res.status(500).json(err));
+}
+
+function cuisineUpdate(req, res, next) {
+  Cuisine
+    .findByIdAndUpdate(req.params.id, req.body)
+    .exec()
+    .then(cuisine => {
+      if(!cuisine) return res.status(404).json({message: 'Failed to create cuisine'});
+      return res.status(201).json(cuisine);
+    })
+    .catch(err => res.status(500).json(err));
 }
 
 module.exports = {
   index: cuisineIndex,
   show: cuisineShow,
-  next: cuisineNew
+  next: cuisineNew,
+  update: cuisineUpdate
 };
