@@ -130,23 +130,74 @@ describe('Ingredients controllers tests', () => {
   describe('POST /api/ingredients - new route', () => {
 
     it('should return a 201 response', function(done) {
-      api.post('/api.ingredients')
+      api.post('/api/ingredients')
       .set('Accept', 'application/json')
       .send({
-        ingredient: {
-          name: 'Gefilte Fish',
-          images: {
-            small: '',
-            large: '',
-            others: ['']
-          }
+        name: 'Gefilte Fish',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .expect(201, done);
+    });
+
+    it('should return the created json object', function(done) {
+      api.post('/api/ingredients')
+      .set('Accept', 'application/json')
+      .send({
+        name: 'Gefilte Fish',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
         }
       })
       .end((err, res) => {
         if(err) console.log(err);
-        console.log(res.headers);
-        console.log(res.body);
-        expect(201);
+        expect(res.body)
+        .to.have.all.keys([
+          'name',
+          'images',
+          '_id',
+          '__v'
+        ]);
+        done();
+      });
+    });
+
+    it('should return created object with correct keys', function(done) {
+      api.post('/api/ingredients')
+      .set('Accept', 'application/json')
+      .send({
+        name: 'Gefilte Fish',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.headers['content-type'])
+        .to.eq('application/json; charset=utf-8');
+        done();
+      });
+    });
+
+    it('should return 500 error if vaildation fails', function(done) {
+      api.post('/api/ingredients')
+      .set('Accept', 'application/json')
+      .send({
+        wrongKey: 'wrong data',
+        images: {others: {}}
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status).to.eq(500);
+        expect(res.body.name)
+        .to.eq('ValidationError');
         done();
       });
     });
