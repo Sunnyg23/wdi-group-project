@@ -12,19 +12,19 @@ describe('Users and Auth test block', () => {
     clearUsers(done);
   });
 
-  // beforeEach(done => {
-  //   User
-  //     .create({
-  //       'username': 'blah',
-  //       'email': 'blah@blah.com',
-  //       'password': 'password',
-  //       'passwordConfirmation': 'password'
-  //     })
-  //     .then(user => {
-  //       gUser = user;
-  //     })
-  //     .catch(done);
-  // });
+  beforeEach(done => {
+    User
+      .create({
+        'username': 'blah',
+        'email': 'blah@blah.com',
+        'password': 'password',
+        'passwordConfirmation': 'password'
+      })
+      .then(user => {
+        // console.log(user.username+' created');
+        done();
+      });
+  });
 
   describe('POST /api/register', () => {
 
@@ -40,7 +40,6 @@ describe('Users and Auth test block', () => {
         })
         .end((err, res) => {
           if(err) console.log('Error: '+err);
-          console.log(res.body.user);
           expect(res.body)
           .to.have.all.keys([
             'message',
@@ -55,6 +54,36 @@ describe('Users and Auth test block', () => {
           ]);
           done();
         });
+    });
+
+  });
+
+  describe('POST /api/login', () => {
+
+    it('should log in then return a 200 and user object with all keys', function(done) {
+      // this.skip();
+      api.post('/api/login')
+        .set('Accept', 'application/json')
+        .send({
+          email: 'blah@blah.com',
+          password: 'password'
+        })
+        .then(res => {
+          expect(res.body)
+          .to.have.all.keys([
+            'message',
+            'user',
+            'token'
+          ]);
+          expect(res.body.user)
+          .to.have.all.keys([
+            'username',
+            'email',
+            '_id'
+          ]);
+          done();
+        })
+        .catch(done);
     });
 
   });
