@@ -95,6 +95,18 @@ describe('Cuisines controllers tests', () => {
       });
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.get(`/api/cuisines`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of GET /api/cuisines
 
   describe('GET /api/cuisines/:id', () => {
@@ -151,6 +163,18 @@ describe('Cuisines controllers tests', () => {
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.status).to.eq(404);
+        done();
+      });
+    });
+
+    it('should return 401 if not logged in', function(done) {
+      api.get(`/api/cuisines/${cuisineId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
         done();
       });
     });
@@ -243,6 +267,18 @@ describe('Cuisines controllers tests', () => {
       });
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.post(`/api/cuisines/${cuisineId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of POST /api/cuisines - new route
 
   describe('PUT /api/cuisines - edit route', () => {
@@ -307,6 +343,18 @@ describe('Cuisines controllers tests', () => {
       .expect(404, done);
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.put(`/api/cuisines/${cuisineId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of PUT /api/cuisines - edit route
 
   describe('DELETE /api/cuisines/:id', () => {
@@ -318,6 +366,18 @@ describe('Cuisines controllers tests', () => {
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '+myToken)
         .expect(204, done);
+    });
+
+    it('should return 401 if not logged in', function(done) {
+      api.delete(`/api/cuisines/${cuisineId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
     });
 
   }); // end of DELETE /api/cuisines/:id block

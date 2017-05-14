@@ -122,7 +122,18 @@ describe('Users and Auth test block', () => {
           done();
         })
         .catch(done);
+    });
 
+    it('should return 401 if not logged in', function(done) {
+      api.get(`/api/users`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
     });
 
   }); // end of GET /api/users block
@@ -157,6 +168,18 @@ describe('Users and Auth test block', () => {
           done();
         })
         .catch(done);
+    });
+
+    it('should return 401 if not logged in', function(done) {
+      api.get(`/api/users/${gUser._id}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
     });
 
   }); // end of GET /api/users/:id block
@@ -199,6 +222,18 @@ describe('Users and Auth test block', () => {
         .catch(done);
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.put(`/api/users/${gUser._id}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of PUT /api/users/:id block
 
   describe('DELETE /api/users/:id', () => {
@@ -214,6 +249,18 @@ describe('Users and Auth test block', () => {
           done();
         })
         .catch(done);
+    });
+
+    it('should return 401 if not logged in', function(done) {
+      api.delete(`/api/users/${gUser._id}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
     });
 
   });
