@@ -4,12 +4,28 @@ const User = require('../../models/user');
 describe('Users and Auth test block', () => {
 
   describe('POST /api/register', () => {
+    let gUser;
 
     beforeEach(done => {
       clearUsers(done);
     });
     afterEach(done => {
       clearUsers(done);
+    });
+
+    beforeEach(done => {
+      User
+        .create({
+          'username': 'blah',
+          'email': 'blah@blah.com',
+          'password': 'password',
+          'passwordConfirmation': 'password'
+        })
+        .then(user => {
+          gUser = user;
+          console.log(user);
+        })
+        .catch(done);
     });
 
     it('should create a user and return a 201 response', function(done) {
