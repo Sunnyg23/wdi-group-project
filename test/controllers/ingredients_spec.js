@@ -53,7 +53,7 @@ describe('Ingredients controllers tests', () => {
       })
       .then(ingredient => {
         ingredientId = ingredient._id;
-        // done();
+
         api.post('/api/login')
           .set('Accept', 'application/json')
           .send({

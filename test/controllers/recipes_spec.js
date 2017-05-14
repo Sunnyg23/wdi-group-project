@@ -1,46 +1,82 @@
 const {api, expect} = require('../spec_helper');
 const Recipe = require('../../models/recipe');
+const User = require('../../models/user')
 
 describe('Recipes controllers tests', () => {
   let recipeId;
+  let gUser;
+  let myToken;
 
   beforeEach(done => {
-    Recipe
-    .remove()
-    .then(() => done())
-    .catch(done);
+    User
+      .remove()
+      .then(() => {
+        Recipe
+          .remove()
+          .then(() => done())
+          .catch(done);
+      })
+      .catch(done);
   });
   afterEach(done => {
-    Recipe
-    .remove()
-    .then(() => done())
-    .catch(done);
+    User
+      .remove()
+      .then(() => {
+        Recipe
+          .remove()
+          .then(() => done())
+          .catch(done);
+      })
+      .catch(done);
   });
 
   beforeEach(done => {
-    Recipe
-    .create({
-      name: 'Gefilte Fish',
-      // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
-      instructions: [{
-        index: 1,
-        content: 'Some instructions'
-      }],
-      ingredients: [{
-        measurement: 'one fish'
-        // ingredient: {type: mongoose.Schema.ObjectId, ref: 'Ingredient'}
-      }],
-      images: {
-        small: '',
-        large: '',
-        others: ['']
-      }
-    })
-    .then(recipe => {
-      recipeId = recipe._id;
-      done();
-    })
-    .catch(done);
+    User
+      .create({
+        'username': 'blah',
+        'email': 'blah@blah.com',
+        'password': 'password',
+        'passwordConfirmation': 'password'
+      })
+      .then(user => {
+        gUser = user;
+
+        return Recipe
+          .create({
+            name: 'Gefilte Fish',
+            // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
+            instructions: [{
+              index: 1,
+              content: 'Some instructions'
+            }],
+            ingredients: [{
+              measurement: 'one fish'
+              // ingredient: {type: mongoose.Schema.ObjectId, ref: 'Ingredient'}
+            }],
+            images: {
+              small: '',
+              large: '',
+              others: ['']
+            }
+          });
+      })
+      .then(recipe => {
+        recipeId = recipe._id;
+
+        api.post('/api/login')
+          .set('Accept', 'application/json')
+          .send({
+            email: gUser.email,
+            password: 'password'
+          })
+          .end((err, res) => {
+            if(err) console.log(err);
+            myToken = res.body.token;
+          });
+
+        done();
+      })
+      .catch(done);
   });
 
   describe('GET /api/recipes', () => {
@@ -49,6 +85,7 @@ describe('Recipes controllers tests', () => {
       this.skip();
       api.get('/api/recipes')
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.status).to.eq(200);
@@ -57,9 +94,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return an JSON object', function(done) {
-      this.skip();
+      // this.skip();
       api.get('/api/recipes')
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .end((err, res) => {
         if (err) console.log(err);
         expect(res.headers['content-type'])
@@ -69,9 +107,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return an array of objects', function(done) {
-      this.skip();
+      // this.skip();
       api.get('/api/recipes')
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.body).to.be.an('array');
@@ -84,9 +123,10 @@ describe('Recipes controllers tests', () => {
   describe('GET /api/recipes/:id', () => {
 
     it('should return a 200 response', function(done) {
-      this.skip();
+      // this.skip();
       api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.status).to.eq(200);
@@ -95,9 +135,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return a single object', function(done) {
-      this.skip();
+      // this.skip();
       api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.headers['content-type'])
@@ -107,9 +148,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return an object with required keys', function(done) {
-      this.skip();
+      // this.skip();
       api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.body)
@@ -127,9 +169,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should not return an object if the id is wrong', function(done) {
-      this.skip();
+      // this.skip();
       api.get('/api/recipes/56cb91bdc3464f14678934ca')
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.status)
@@ -145,9 +188,10 @@ describe('Recipes controllers tests', () => {
   describe('POST /api/recipes - new route', () => {
 
     it('should return a 201 response', function(done) {
-      this.skip();
+      // this.skip();
       api.post('/api/recipes')
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .send({
         name: 'Gefilte Fish',
         // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
@@ -169,9 +213,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return the created json object', function(done) {
-      this.skip();
+      // this.skip();
       api.post('/api/recipes')
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .send({
         name: 'Gefilte Fish',
         // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
@@ -206,9 +251,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return created object with correct keys', function(done) {
-      this.skip();
+      // this.skip();
       api.post('/api/recipes')
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .send({
         name: 'Gefilte Fish',
         // chef: {type: mongoose.Schema.ObjectId, ref: 'User'},
@@ -235,9 +281,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return 500 error if vaildation fails, empty object, name required', function(done) {
-      this.skip();
+      // this.skip();
       api.post('/api/recipes')
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .send({
 
       })
@@ -255,9 +302,10 @@ describe('Recipes controllers tests', () => {
   describe('PUT /api/recipes - edit route', () => {
 
     it('should return a 201 response', function(done) {
-      this.skip();
+      // this.skip();
       api.put(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .send({
         name: 'name changed'
       })
@@ -265,9 +313,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return the created json object', function(done) {
-      this.skip();
+      // this.skip();
       api.put(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .send({
         name: 'name changed'
       })
@@ -288,9 +337,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return created object with correct keys', function(done) {
-      this.skip();
+      // this.skip();
       api.put(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .send({
         name: 'name changed'
       })
@@ -303,9 +353,10 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return a 404 response if the id is wrong', function(done) {
-      this.skip();
+      // this.skip();
       api.put(`/api/recipes/56cb91bdc3464f14678934ca`)
       .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer '+myToken)
       .send({
         name: 'name changed'
       })
@@ -317,10 +368,11 @@ describe('Recipes controllers tests', () => {
   describe('DELETE /api/recipes/:id', () => {
 
     it('should return a 204 response after deleting', function(done) {
-      this.skip();
+      // this.skip();
       api
         .delete(`/api/recipes/${recipeId}`)
         .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '+myToken)
         .expect(204, done);
     });
 
