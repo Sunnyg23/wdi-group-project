@@ -1,5 +1,5 @@
 angular
-  .module('angularAuthentication')
+  .module('veganChef')
   .service('TokenService', TokenService);
 
 TokenService.$inject = ['$window', 'jwtHelper'];

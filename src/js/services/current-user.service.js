@@ -1,5 +1,5 @@
 angular
-  .module('angularAuthentication')
+  .module('veganChef')
   .service('CurrentUserService', CurrentUserService);
 
 CurrentUserService.$inject = ['TokenService', '$rootScope', 'User'];
