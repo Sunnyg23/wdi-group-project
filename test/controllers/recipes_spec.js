@@ -295,6 +295,15 @@ describe('Recipes controllers tests', () => {
       });
     });
 
+    it('should return a 404 response if the id is wrong', function(done) {
+      api.put(`/api/recipes/56cb91bdc3464f14678934ca`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed'
+      })
+      .expect(404, done);
+    });
+
   }); // end of PUT /api/recipes - edit route
 
   describe('DELETE /api/recipes/:id', () => {
