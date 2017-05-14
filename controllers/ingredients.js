@@ -17,7 +17,7 @@ function ingredientsShow(req, res, next) {
     .exec()
     .then(ingredient => {
       if(!ingredient) {
-        return res.status(404).json({message: 'No ingredient found - ingredientShow line 14'});
+        return res.notFound();
       }
       return res.status(200).json(ingredient);
     })
@@ -28,9 +28,6 @@ function ingredientsNew(req, res, next) {
   Ingredient
     .create(req.body)
     .then(ingredient => {
-      if(!ingredient) {
-        console.log('Could not create ingredient - ingredientNew line 27');
-      }
       return res.status(201).json(ingredient);
     })
     .catch(next);
@@ -41,7 +38,7 @@ function ingredientsUpdate(req, res, next) {
     .findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then(ingredient => {
-      if(!ingredient) return res.status(404).json({message: 'Failed to create ingredient.'});
+      if(!ingredient) return res.notFound();
       return res.status(201).json(ingredient);
     })
     .catch(next);

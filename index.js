@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const cors       = require('cors');
 const env        = require('./config/env');
 const errorHandler = require('./lib/errorHandler');
+const customResponses = require('./lib/customResponses');
 const app        = express();
 const dest       = `${__dirname}/public`;
 
@@ -17,6 +18,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(customResponses);
 app.use('/api', router);
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
 app.use(errorHandler);
