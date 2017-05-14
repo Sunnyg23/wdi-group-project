@@ -202,7 +202,24 @@ describe('Users and Auth test block', () => {
         .catch(done);
     });
 
-  }); //
+  }); // end of PUT /api/users/:id block
+
+  describe('DELETE /api/users/:id', () => {
+
+    it('should return a 204 response', function(done) {
+      // this.skip();
+      api.delete(`/api/users/${gUser._id}`)
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '+myToken)
+        .then(res => {
+          expect(res.status)
+          .to.eq(204);
+          done();
+        })
+        .catch(done);
+    });
+
+  });
 
 });
 
