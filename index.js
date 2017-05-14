@@ -6,6 +6,7 @@ mongoose.Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const cors       = require('cors');
 const env        = require('./config/env');
+const errorHandler = require('./lib/errorHandler');
 const app        = express();
 const dest       = `${__dirname}/public`;
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', router);
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
+app.use(errorHandler);
 
 app.listen(env.port, () => console.log(`Express has started on port: ${env.port}`));
 

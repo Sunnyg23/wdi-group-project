@@ -8,7 +8,7 @@ function ingredientsIndex(req, res, next) {
   .then(ingredients => {
     return res.status(200).json(ingredients);
   })
-  .catch(err => res.status(500).json(err));
+  .catch(next);
 }
 
 function ingredientsShow(req, res, next) {
@@ -21,7 +21,7 @@ function ingredientsShow(req, res, next) {
       }
       return res.status(200).json(ingredient);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function ingredientsNew(req, res, next) {
@@ -33,7 +33,7 @@ function ingredientsNew(req, res, next) {
       }
       return res.status(201).json(ingredient);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function ingredientsUpdate(req, res, next) {
@@ -44,7 +44,7 @@ function ingredientsUpdate(req, res, next) {
       if(!ingredient) return res.status(404).json({message: 'Failed to create ingredient.'});
       return res.status(201).json(ingredient);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function ingredientsDelete(req, res, next) {
@@ -52,7 +52,7 @@ function ingredientsDelete(req, res, next) {
     .findByIdAndRemove(req.params.id)
     .exec()
     .then(() => res.status(204).json({message: 'Deleted!'}))
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 module.exports = {

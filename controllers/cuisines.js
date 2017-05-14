@@ -8,7 +8,7 @@ function cuisinesIndex(req, res, next) {
   .then(cuisines => {
     return res.status(200).json(cuisines);
   })
-  .catch(err => res.status(500).json(err));
+  .catch(next);
 }
 
 function cuisinesShow(req, res, next) {
@@ -21,7 +21,7 @@ function cuisinesShow(req, res, next) {
       }
       return res.status(200).json(cuisine);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function cuisinesNew(req, res, next) {
@@ -33,7 +33,7 @@ function cuisinesNew(req, res, next) {
       }
       return res.status(201).json(cuisine);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function cuisinesUpdate(req, res, next) {
@@ -44,7 +44,7 @@ function cuisinesUpdate(req, res, next) {
       if(!cuisine) return res.status(404).json({message: 'Failed to create cuisine.'});
       return res.status(201).json(cuisine);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function cuisinesDelete(req, res, next) {
@@ -52,7 +52,7 @@ function cuisinesDelete(req, res, next) {
     .findByIdAndRemove(req.params.id)
     .exec()
     .then(() => res.status(204).json({message: 'Deleted!'}))
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 module.exports = {
