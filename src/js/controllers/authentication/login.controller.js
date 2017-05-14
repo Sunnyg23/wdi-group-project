@@ -1,5 +1,5 @@
 angular
-.module('angularAuthentication')
+.module('veganChef')
 .controller('LoginCtrl', LoginCtrl);
 
 LoginCtrl.$inject = ['User', 'CurrentUserService', '$state'];
