@@ -163,6 +163,47 @@ describe('Users and Auth test block', () => {
 
   }); // end of GET /api/users/:id block
 
+  describe('PUT /api/users/:id', () => {
+
+    it('should return update user and return object with correct keys', function(done) {
+      // this.skip();
+      api.put(`/api/users/${gUser._id}`)
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '+myToken)
+        .send({
+          username: 'louis'
+        })
+        .then(res => {
+          expect(res.body)
+          .to.have.all.keys([
+            'username',
+            'email',
+            '_id'
+          ]);
+          done();
+        })
+        .catch(done);
+    });
+
+    it('should return update user and return object with new values', function(done) {
+      // this.skip();
+      api.put(`/api/users/${gUser._id}`)
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '+myToken)
+        .send({
+          username: 'louis'
+        })
+        .then(res => {
+          console.log(res.body);
+          expect(res.body.username)
+          .to.eq('louis');
+          done();
+        })
+        .catch(done);
+    });
+
+  }); //
+
 });
 
 function clearUsers(done) {
