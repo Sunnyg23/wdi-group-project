@@ -5,6 +5,7 @@ const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const cors       = require('cors');
+const expressJWT = require('express-jwt');
 const env        = require('./config/env');
 const errorHandler = require('./lib/errorHandler');
 const customResponses = require('./lib/customResponses');
@@ -17,6 +18,20 @@ mongoose.connect(env.db[process.env.NODE_ENV]);
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/api', expressJWT({ secret: env.secret })
+  .unless({
+    path: [
+      { url: '/api/register', methods: ['POST'] },
+      { url: '/api/login',    methods: ['POST'] }
+    ]
+  }));
+app.use(jwtErrorHandler);
+
+function jwtErrorHandler(err, req, res, next){
+  if (err.name !== 'UnauthorizedError') return next();
+  return res.status(401).json({ message: 'Unauthorized request.' });
+}
 
 app.use(customResponses);
 app.use('/api', router);
