@@ -46,7 +46,7 @@ describe('Recipes controllers tests', () => {
   describe('GET /api/recipes', () => {
 
     it('should return a 200 response', function(done) {
-      // this.skip();
+      this.skip();
       api.get('/api/recipes')
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -57,7 +57,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return an JSON object', function(done) {
-      // this.skip();
+      this.skip();
       api.get('/api/recipes')
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -69,7 +69,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return an array of objects', function(done) {
-      // this.skip();
+      this.skip();
       api.get('/api/recipes')
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -84,7 +84,7 @@ describe('Recipes controllers tests', () => {
   describe('GET /api/recipes/:id', () => {
 
     it('should return a 200 response', function(done) {
-      //this.skip();
+      this.skip();
       api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -95,7 +95,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return a single object', function(done) {
-      //this.skip();
+      this.skip();
       api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -107,7 +107,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return an object with required keys', function(done) {
-      //this.skip();
+      this.skip();
       api.get(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -127,7 +127,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should not return an object if the id is wrong', function(done) {
-      //this.skip();
+      this.skip();
       api.get('/api/recipes/56cb91bdc3464f14678934ca')
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -145,6 +145,7 @@ describe('Recipes controllers tests', () => {
   describe('POST /api/recipes - new route', () => {
 
     it('should return a 201 response', function(done) {
+      this.skip();
       api.post('/api/recipes')
       .set('Accept', 'application/json')
       .send({
@@ -168,6 +169,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return the created json object', function(done) {
+      this.skip();
       api.post('/api/recipes')
       .set('Accept', 'application/json')
       .send({
@@ -204,6 +206,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return created object with correct keys', function(done) {
+      this.skip();
       api.post('/api/recipes')
       .set('Accept', 'application/json')
       .send({
@@ -232,6 +235,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return 500 error if vaildation fails, empty object, name required', function(done) {
+      this.skip();
       api.post('/api/recipes')
       .set('Accept', 'application/json')
       .send({
@@ -251,6 +255,7 @@ describe('Recipes controllers tests', () => {
   describe('PUT /api/recipes - edit route', () => {
 
     it('should return a 201 response', function(done) {
+      this.skip();
       api.put(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .send({
@@ -260,6 +265,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return the created json object', function(done) {
+      this.skip();
       api.put(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .send({
@@ -282,6 +288,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return created object with correct keys', function(done) {
+      this.skip();
       api.put(`/api/recipes/${recipeId}`)
       .set('Accept', 'application/json')
       .send({
@@ -296,6 +303,7 @@ describe('Recipes controllers tests', () => {
     });
 
     it('should return a 404 response if the id is wrong', function(done) {
+      this.skip();
       api.put(`/api/recipes/56cb91bdc3464f14678934ca`)
       .set('Accept', 'application/json')
       .send({
@@ -309,6 +317,7 @@ describe('Recipes controllers tests', () => {
   describe('DELETE /api/recipes/:id', () => {
 
     it('should return a 204 response after deleting', function(done) {
+      this.skip();
       api
         .delete(`/api/recipes/${recipeId}`)
         .set('Accept', 'application/json')
