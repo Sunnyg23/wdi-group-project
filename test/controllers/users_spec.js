@@ -23,7 +23,6 @@ describe('Users and Auth test block', () => {
         })
         .then(user => {
           gUser = user;
-          console.log(user);
         })
         .catch(done);
     });
