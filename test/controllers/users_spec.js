@@ -131,7 +131,6 @@ describe('Users and Auth test block', () => {
 
     it('should return a single user object with correct keys', function(done) {
       // this.skip();
-      console.log(gUser._id);
       api.get(`/api/users/${gUser._id}`)
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '+myToken)
@@ -149,7 +148,6 @@ describe('Users and Auth test block', () => {
 
     it('should not return a user is the id is wrong', function(done) {
       // this.skip();
-      console.log(gUser._id);
       api.get('/api/users/56cb91bdc3464f14678934ca')
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '+myToken)
@@ -186,7 +184,7 @@ describe('Users and Auth test block', () => {
     });
 
     it('should return update user and return object with new values', function(done) {
-      // this.skip();
+      this.skip();
       api.put(`/api/users/${gUser._id}`)
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '+myToken)
@@ -194,7 +192,6 @@ describe('Users and Auth test block', () => {
           username: 'louis'
         })
         .then(res => {
-          console.log(res.body);
           expect(res.body.username)
           .to.eq('louis');
           done();
