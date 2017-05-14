@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="veganChef">
   <head>
     <meta charset="utf-8">
     <title>Vegan Chef</title>
@@ -8,7 +8,9 @@
     <!-- inject:css -->
     <!-- endinject -->
   </head>
-  <body>
+  <body ng-controller="MainCtrl as main">
     <h1>Hello</h1>
+
+    {{ main.test }}
   </body>
 </html>
