@@ -1,6 +1,6 @@
 const {api, expect} = require('../spec_helper');
 const Recipe = require('../../models/recipe');
-const User = require('../../models/user')
+const User = require('../../models/user');
 
 describe('Recipes controllers tests', () => {
   let recipeId;
@@ -8,26 +8,10 @@ describe('Recipes controllers tests', () => {
   let myToken;
 
   beforeEach(done => {
-    User
-      .remove()
-      .then(() => {
-        Recipe
-          .remove()
-          .then(() => done())
-          .catch(done);
-      })
-      .catch(done);
+    clearUsersAndRecipes(done);
   });
   afterEach(done => {
-    User
-      .remove()
-      .then(() => {
-        Recipe
-          .remove()
-          .then(() => done())
-          .catch(done);
-      })
-      .catch(done);
+    clearUsersAndRecipes(done);
   });
 
   beforeEach(done => {
@@ -379,3 +363,15 @@ describe('Recipes controllers tests', () => {
   }); // end of DELETE /api/recipes/:id block
 
 });
+
+function clearUsersAndRecipes(done) {
+  User
+    .remove()
+    .then(() => {
+      Recipe
+        .remove()
+        .then(() => done())
+        .catch(done);
+    })
+    .catch(done);
+}

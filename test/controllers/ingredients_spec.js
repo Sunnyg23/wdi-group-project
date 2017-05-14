@@ -8,26 +8,10 @@ describe('Ingredients controllers tests', () => {
   let myToken;
 
   beforeEach(done => {
-    User
-      .remove()
-      .then(() => {
-        Ingredient
-          .remove()
-          .then(() => done())
-          .catch(done);
-      })
-      .catch(done);
+    clearUsersAndIngredients(done);
   });
   afterEach(done => {
-    User
-      .remove()
-      .then(() => {
-        Ingredient
-          .remove()
-          .then(() => done())
-          .catch(done);
-      })
-      .catch(done);
+    clearUsersAndIngredients(done);
   });
 
   beforeEach(done => {
@@ -351,3 +335,15 @@ describe('Ingredients controllers tests', () => {
   }); // end of DELETE /api/ingredients/:id block
 
 });
+
+function clearUsersAndIngredients(done) {
+  User
+    .remove()
+    .then(() => {
+      Ingredient
+        .remove()
+        .then(() => done())
+        .catch(done);
+    })
+    .catch(done);
+}

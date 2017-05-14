@@ -8,26 +8,10 @@ describe('Cuisines controllers tests', () => {
   let myToken;
 
   beforeEach(done => {
-    User
-      .remove()
-      .then(() => {
-        Cuisine
-          .remove()
-          .then(() => done())
-          .catch(done);
-      })
-      .catch(done);
+    clearUsersAndCuisines(done);
   });
   afterEach(done => {
-    User
-      .remove()
-      .then(() => {
-        Cuisine
-          .remove()
-          .then(() => done())
-          .catch(done);
-      })
-      .catch(done);
+    clearUsersAndCuisines(done);
   });
 
   beforeEach(done => {
@@ -339,3 +323,15 @@ describe('Cuisines controllers tests', () => {
   }); // end of DELETE /api/cuisines/:id block
 
 });
+
+function clearUsersAndCuisines(done) {
+  User
+    .remove()
+    .then(() => {
+      Cuisine
+        .remove()
+        .then(() => done())
+        .catch(done);
+    })
+    .catch(done);
+}
