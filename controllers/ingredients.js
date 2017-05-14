@@ -8,7 +8,7 @@ function ingredientsIndex(req, res, next) {
   .then(ingredients => {
     return res.status(200).json(ingredients);
   })
-  .catch(err => res.status(500).json(err));
+  .catch(next);
 }
 
 function ingredientsShow(req, res, next) {
@@ -17,23 +17,20 @@ function ingredientsShow(req, res, next) {
     .exec()
     .then(ingredient => {
       if(!ingredient) {
-        return res.status(404).json({message: 'No ingredient found - ingredientShow line 14'});
+        return res.notFound();
       }
       return res.status(200).json(ingredient);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function ingredientsNew(req, res, next) {
   Ingredient
     .create(req.body)
     .then(ingredient => {
-      if(!ingredient) {
-        console.log('Could not create ingredient - ingredientNew line 27');
-      }
       return res.status(201).json(ingredient);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function ingredientsUpdate(req, res, next) {
@@ -41,10 +38,10 @@ function ingredientsUpdate(req, res, next) {
     .findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then(ingredient => {
-      if(!ingredient) return res.status(404).json({message: 'Failed to create ingredient.'});
+      if(!ingredient) return res.notFound();
       return res.status(201).json(ingredient);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function ingredientsDelete(req, res, next) {
@@ -52,7 +49,7 @@ function ingredientsDelete(req, res, next) {
     .findByIdAndRemove(req.params.id)
     .exec()
     .then(() => res.status(204).json({message: 'Deleted!'}))
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 module.exports = {

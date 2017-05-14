@@ -8,7 +8,7 @@ function recipesIndex(req, res, next) {
   .then(recipes => {
     return res.status(200).json(recipes);
   })
-  .catch(err => res.status(500).json(err));
+  .catch(next);
 }
 
 function recipesShow(req, res, next) {
@@ -16,24 +16,19 @@ function recipesShow(req, res, next) {
     .findById(req.params.id)
     .exec()
     .then(recipe => {
-      if(!recipe) {
-        return res.status(404).json({ message: 'No recipe found - recipeShow line 14' });
-      }
+      if(!recipe) return res.notFound();
       return res.status(200).json(recipe);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function recipesNew(req, res, next) {
   Recipe
     .create(req.body)
     .then(recipe => {
-      if(!recipe) {
-        console.log('Could not create recipe - recipeNew line 27');
-      }
       return res.status(201).json(recipe);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function recipesUpdate(req, res, next) {
@@ -41,10 +36,10 @@ function recipesUpdate(req, res, next) {
     .findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then(recipe => {
-      if(!recipe) return res.status(404).json({message: 'Failed to create recipe.'});
+      if(!recipe) return res.notFound();
       return res.status(201).json(recipe);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function recipesDelete(req, res, next) {
@@ -52,7 +47,7 @@ function recipesDelete(req, res, next) {
     .findByIdAndRemove(req.params.id)
     .exec()
     .then(() => res.status(204).json({message: 'Deleted!'}))
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 module.exports = {

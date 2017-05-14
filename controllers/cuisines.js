@@ -8,7 +8,7 @@ function cuisinesIndex(req, res, next) {
   .then(cuisines => {
     return res.status(200).json(cuisines);
   })
-  .catch(err => res.status(500).json(err));
+  .catch(next);
 }
 
 function cuisinesShow(req, res, next) {
@@ -16,24 +16,19 @@ function cuisinesShow(req, res, next) {
     .findById(req.params.id)
     .exec()
     .then(cuisine => {
-      if(!cuisine) {
-        return res.status(404).json({message: 'No cuisine found - ingredientShow line 14'});
-      }
+      if(!cuisine) res.notFound();
       return res.status(200).json(cuisine);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function cuisinesNew(req, res, next) {
   Cuisine
     .create(req.body)
     .then(cuisine => {
-      if(!cuisine) {
-        console.log('Could not create cuisine - cuisinesNew line 27');
-      }
       return res.status(201).json(cuisine);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function cuisinesUpdate(req, res, next) {
@@ -41,10 +36,10 @@ function cuisinesUpdate(req, res, next) {
     .findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then(cuisine => {
-      if(!cuisine) return res.status(404).json({message: 'Failed to create cuisine.'});
+      if(!cuisine) return res.notFound();
       return res.status(201).json(cuisine);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 function cuisinesDelete(req, res, next) {
@@ -52,7 +47,7 @@ function cuisinesDelete(req, res, next) {
     .findByIdAndRemove(req.params.id)
     .exec()
     .then(() => res.status(204).json({message: 'Deleted!'}))
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
 module.exports = {
