@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ingredientSchema = new mongoose.Schema({
-  name: {type: String, trim: true},
+  name: {type: String, trim: true, required: true},
   images: {
     small: {type: String, trim: true},
     large: {type: String, trim: true},

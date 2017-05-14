@@ -127,4 +127,152 @@ describe('Ingredients controllers tests', () => {
 
   }); // end of GET /api/ingredients/:id block
 
+  describe('POST /api/ingredients - new route', () => {
+
+    it('should return a 201 response', function(done) {
+      api.post('/api/ingredients')
+      .set('Accept', 'application/json')
+      .send({
+        name: 'Gefilte Fish',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .expect(201, done);
+    });
+
+    it('should return the created json object', function(done) {
+      api.post('/api/ingredients')
+      .set('Accept', 'application/json')
+      .send({
+        name: 'Gefilte Fish',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.body)
+        .to.have.all.keys([
+          'name',
+          'images',
+          '_id',
+          '__v'
+        ]);
+        done();
+      });
+    });
+
+    it('should return created object with correct keys', function(done) {
+      api.post('/api/ingredients')
+      .set('Accept', 'application/json')
+      .send({
+        name: 'Gefilte Fish',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.headers['content-type'])
+        .to.eq('application/json; charset=utf-8');
+        done();
+      });
+    });
+
+    it('should return 500 error if vaildation fails, empty object, name required', function(done) {
+      api.post('/api/ingredients')
+      .set('Accept', 'application/json')
+      .send({
+
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status).to.eq(500);
+        expect(res.body.name)
+        .to.eq('ValidationError');
+        done();
+      });
+    });
+
+  }); // end of POST /api/ingredients - new route
+
+  describe('PUT /api/ingredients - edit route', () => {
+
+    it('should return a 201 response', function(done) {
+      api.put(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .expect(201, done);
+    });
+
+    it('should return the created json object', function(done) {
+      api.put(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.body)
+        .to.have.all.keys([
+          'name',
+          'images',
+          '_id',
+          '__v'
+        ]);
+        done();
+      });
+    });
+
+    it('should return created object with correct keys', function(done) {
+      api.put(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      .send({
+        name: 'name changed',
+        images: {
+          small: '',
+          large: '',
+          others: ['']
+        }
+      })
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.headers['content-type'])
+        .to.eq('application/json; charset=utf-8');
+        done();
+      });
+    });
+
+  }); // end of PUT /api/ingredients - edit route
+
+  describe('DELETE /api/ingredients/:id', () => {
+
+    it('should return a 204 response after deleting', function(done) {
+      api
+        .delete(`/api/ingredients/${ingredientId}`)
+        .set('Accept', 'application/json')
+        .expect(204, done);
+    });
+
+  }); // end of DELETE /api/ingredients/:id block
+
 });
