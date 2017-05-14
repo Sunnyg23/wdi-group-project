@@ -1,34 +1,69 @@
 const {api, expect} = require('../spec_helper');
 const Ingredient = require('../../models/ingredient');
+const User = require('../../models/user');
 
 describe('Ingredients controllers tests', () => {
   let ingredientId;
+  let gUser;
 
   beforeEach(done => {
-    Ingredient
+    User
       .remove()
-      .then(() => done())
+      .then(() => {
+        Ingredient
+          .remove()
+          .then(() => done())
+          .catch(done);
+      })
       .catch(done);
   });
   afterEach(done => {
-    Ingredient
+    User
       .remove()
-      .then(() => done())
+      .then(() => {
+        Ingredient
+          .remove()
+          .then(() => done())
+          .catch(done);
+      })
       .catch(done);
   });
 
   beforeEach(done => {
-    Ingredient
+    User
       .create({
-        name: 'Gefilte Fish',
-        images: {
-          small: '',
-          large: '',
-          others: ['']
-        }
+        'username': 'blah',
+        'email': 'blah@blah.com',
+        'password': 'password',
+        'passwordConfirmation': 'password'
+      })
+      .then(user => {
+        gUser = user;
+
+        return Ingredient
+          .create({
+            name: 'Gefilte Fish',
+            images: {
+              small: '',
+              large: '',
+              others: ['']
+            }
+          });
       })
       .then(ingredient => {
         ingredientId = ingredient._id;
+        // done();
+        api.post('/api/login')
+          .set('Accept', 'application/json')
+          .send({
+            email: gUser.email,
+            password: 'password'
+          })
+          .end((err, res) => {
+            if(err) console.log(err);
+            console.log(res.body.message, res.body.token+'   Response after logging in');
+          });
+
         done();
       })
       .catch(done);
