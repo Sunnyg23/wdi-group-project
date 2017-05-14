@@ -227,11 +227,10 @@ describe('Users and Auth test block', () => {
       api.put(`/api/users/56cb91bdc3464f14678934ca`)
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '+myToken)
-        // .send({
-        //   username: 'louis'
-        // })
+        .send({
+          username: 'louis'
+        })
         .then(res => {
-          console.log(res.status);
           expect(res.status)
           .to.eq(404);
           done();
