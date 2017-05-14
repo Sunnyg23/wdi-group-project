@@ -28,7 +28,7 @@ describe('Users and Auth test block', () => {
 
   describe('POST /api/register', () => {
 
-    it('should create a user and return a 201 response', function(done) {
+    it('should create a user and return 201 and user object with all keys', function(done) {
       // this.skip();
       api.post('/api/register')
         .set('Accept', 'application/json')
@@ -38,10 +38,21 @@ describe('Users and Auth test block', () => {
           password: 'password',
           passwordConfirmation: 'password'
         })
-        .then((err, res) => {
+        .end((err, res) => {
           if(err) console.log('Error: '+err);
-          console.log('Response: '+res);
-          // expect(res.status).to.eq(201);
+          console.log(res.body.user);
+          expect(res.body)
+          .to.have.all.keys([
+            'message',
+            'user',
+            'token'
+          ]);
+          expect(res.body.user)
+          .to.have.all.keys([
+            'username',
+            'email',
+            '_id'
+          ]);
           done();
         });
     });
