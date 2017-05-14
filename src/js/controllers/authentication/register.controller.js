@@ -4,5 +4,5 @@ angular
 
   RegisterCtrl.$inject = [];
   function RegisterCtrl(){
-  const vm =
+  const vm = this;
   }
