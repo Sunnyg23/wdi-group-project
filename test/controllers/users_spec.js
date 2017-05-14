@@ -222,6 +222,23 @@ describe('Users and Auth test block', () => {
         .catch(done);
     });
 
+    it('should return not update user if id is wrong', function(done) {
+      // this.skip();
+      api.put(`/api/users/56cb91bdc3464f14678934ca`)
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '+myToken)
+        // .send({
+        //   username: 'louis'
+        // })
+        .then(res => {
+          console.log(res.status);
+          expect(res.status)
+          .to.eq(404);
+          done();
+        })
+        .catch(done);
+    });
+
     it('should return 401 if not logged in', function(done) {
       api.put(`/api/users/${gUser._id}`)
       .set('Accept', 'application/json')
