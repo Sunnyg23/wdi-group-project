@@ -5,6 +5,7 @@ const User = require('../../models/user');
 describe('Ingredients controllers tests', () => {
   let ingredientId;
   let gUser;
+  let myToken;
 
   beforeEach(done => {
     User
@@ -61,7 +62,7 @@ describe('Ingredients controllers tests', () => {
           })
           .end((err, res) => {
             if(err) console.log(err);
-            console.log(res.body.message, res.body.token+'   Response after logging in');
+            myToken = res.body.token;
           });
 
         done();
