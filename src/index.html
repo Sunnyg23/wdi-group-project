@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Vegan Chef</title>
+    <base href="/">
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
@@ -11,6 +12,6 @@
   <body ng-controller="MainCtrl as main">
     <h1>Hello</h1>
 
-    {{ main.test }}
+    <main ui-view></main>
   </body>
 </html>
