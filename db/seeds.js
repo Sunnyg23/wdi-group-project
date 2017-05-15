@@ -52,6 +52,12 @@ const uSunny = new User({
   'password': 'password',
   'passwordConfirmation': 'password'
 });
+const uLouis = new User({
+  'username': 'Louis',
+  'email': 'louis@louis.com',
+  'password': 'password',
+  'passwordConfirmation': 'password'
+});
 
 // ingredients second
 const iPepper = new Ingredient({
@@ -122,7 +128,8 @@ const rLamb = new Recipe(
 
 User
   .create([
-    uSunny
+    uSunny,
+    uLouis
   ])
   .then(users => {
     console.log(`${users.length} users created`);
@@ -131,13 +138,14 @@ User
       .create([
         {
           'name': 'Indian',
-          'recipes': [rLamb._id],
+          'recipes': [rLamb._id, rLamb._id],
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
         },
         {
           'name': 'Mexican',
+          'recipes': [rLamb._id],
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
@@ -147,17 +155,19 @@ User
   .then(cuisines => {
     console.log(`${cuisines.length} cuisines created`);
 
-    return iPepper.save();
+    return Ingredient
+      .create([iPepper]);
   })
-  .then(ingredient => {
-    console.log(`${ingredient.name} ingredient created`);
+  .then(ingredients => {
+    console.log(`${ingredients.length} ingredients created`);
 
     // return Recipe
     //   .create(recipes);
-    return rLamb.save();
+    return Recipe
+      .create([rLamb]);
   })
-  .then(recipe => {
-    console.log(`${recipe.name} recipe created`);
+  .then(recipes => {
+    console.log(`${recipes.length} recipes created`);
   })
   .finally(() => {
     mongoose.connection.close();
