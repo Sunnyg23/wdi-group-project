@@ -1,4 +1,16 @@
-<h1>recipes New</h1>
-<form ng-submit="" class="">
-  <input type="text" name="name">
+<h1>Recipes Edit</h1>
+<form ng-submit="recipes.update()" class="pure-form pure-form-aligned">
+  <fieldset>
+
+    <div class="pure-control-group">
+      <label for="name">Name</label>
+      <input ng-model="recipes.recipe.name" id="name" type="text" placeholder="Recipe Name">
+    </div>
+
+    <div class="pure-controls">
+
+
+      <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </div>
+  </fieldset>
 </form>

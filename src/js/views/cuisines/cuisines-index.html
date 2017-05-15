@@ -1,11 +1,16 @@
 <h1>Cuisines Index</h1>
+
 <div class="pure-u-1-3"  ng-repeat="cuisine in cuisines.cuisines" >
 
 <div >
 
   {{ cuisine.name }}
+  <a ui-sref="cuisinesShow({id: cuisine._id })">View</a>
+
+  <a ui-sref="cuisinesNew">New Cuisine</a>
 
 
     </div>
+
 
 </div>

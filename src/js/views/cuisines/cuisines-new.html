@@ -1,4 +1,16 @@
-<h1>cuisines New</h1>
-<form ng-submit="" class="">
-  <input type="text" name="name">
+<h1>Cuisines New</h1>
+<form ng-submit="cuisines.create()" class="pure-form pure-form-aligned">
+  <fieldset>
+
+    <div class="pure-control-group">
+      <label for="name">Name</label>
+      <input ng-model="cuisines.cuisine.name" id="name" type="text" placeholder="Cuisine Name">
+    </div>
+
+    <div class="pure-controls">
+
+
+      <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </div>
+  </fieldset>
 </form>
