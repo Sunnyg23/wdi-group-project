@@ -10,16 +10,25 @@
     <!-- endinject -->
   </head>
   <body ng-controller="MainCtrl as main">
+    <!-- <div class="navBar"> -->
+
     <div class="pure-menu pure-menu-horizontal">
     <a href="#" class="pure-menu-heading pure-menu-link">What's your Beef</a>
     <ul class="pure-menu-list">
+      <li ng-show="main.user" >
+        <p class="navbar-text">
+        Thank you for logging in! {{ main.user.username }}.
+        </p>
+        </li>
         <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
-        <li class="pure-menu-item"><a href="/register" class="pure-menu-link">register</a></li>
-        <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
-        <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Logout</a></li>
-        <li class="pure-menu-item"><a href="/users" class="pure-menu-link">Users</a></li>
+        <li ng-hide="main.user" class="pure-menu-item"><a href="/register" class="pure-menu-link">register</a></li>
+        <li ng-hide="main.user" class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
+        <li ng-show="main.user" class="pure-menu-item"><a ng-click="main.logout()" class="pure-menu-link">Logout</a></li>
+        <li ng-show="main.user" class="pure-menu-item">
+         <a href="/users" class="pure-menu-link">Users</a></li>
     </ul>
 </div>
+
 
     <main ui-view></main>
   </body>
