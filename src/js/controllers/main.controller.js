@@ -7,7 +7,9 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
   const vm = this;
 
   $rootScope.$on('loggedIn', () => {
+    $state.go('usersIndex');
     vm.user = CurrentUserService.currentUser;
+    console.log(vm.user);
   });
 
   $rootScope.$on('loggedOut', () => {

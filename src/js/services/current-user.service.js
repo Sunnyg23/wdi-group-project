@@ -1,6 +1,6 @@
 angular
-  .module('veganChef')
-  .service('CurrentUserService', CurrentUserService);
+.module('veganChef')
+.service('CurrentUserService', CurrentUserService);
 
 CurrentUserService.$inject = ['TokenService', '$rootScope', 'User'];
 function CurrentUserService(TokenService, $rootScope, User) {
@@ -8,13 +8,16 @@ function CurrentUserService(TokenService, $rootScope, User) {
 
   self.getUser = () => {
     const decoded = TokenService.decodeToken();
+
+    console.log(decoded);
+
     if (decoded) {
       User
-        .get({ id: decoded.id }).$promise
-        .then(data => {
-          self.currentUser = data;
-          $rootScope.$broadcast('loggedIn');
-        });
+      .get({ id: decoded.id }).$promise
+      .then(data => {
+        self.currentUser = data;
+        $rootScope.$broadcast('loggedIn');
+      });
     }
   };
 
@@ -24,5 +27,5 @@ function CurrentUserService(TokenService, $rootScope, User) {
     $rootScope.$broadcast('loggedOut');
   };
 
-  self.getUser();
+  // self.getUser();
 }

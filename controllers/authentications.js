@@ -7,7 +7,7 @@ function authenticationsRegister(req, res, next) {
     .create(req.body)
     .then(user => {
       if(!user) return res.notFound();
-      const token = jwt.sign(user._id, config.secret, { expiresIn: 60*60*24 });
+      const token = jwt.sign({ id: user._id }, config.secret, { expiresIn: 60*60*24 });
       return res.status(201).json({
         message: `Welcome ${user.username}!`,
         user,
@@ -25,7 +25,9 @@ function authenticationsLogin(req, res, next) {
     .then(user => {
       if(!user) return res.notFound();
       if(!user.validatePassword(req.body.password)) return res.status(401).json({ message: 'Unauthorized.' });
-      const token = jwt.sign(user._id, config.secret, { expiresIn: 60*60*24 });
+
+      const token = jwt.sign({ id: user._id }, config.secret, { expiresIn: 60*60*24 });
+
       return res.status(200).json({
         message: 'Welcome back.',
         user,
