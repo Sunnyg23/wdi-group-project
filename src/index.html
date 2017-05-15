@@ -15,29 +15,35 @@
     <div class="pure-menu pure-menu-horizontal">
     <a href="#" class="pure-menu-heading pure-menu-link">What's your Beef</a>
     <ul class="pure-menu-list">
-      <li ng-show="main.user" >
-        <p class="navbar-text">
-        Thank you for logging in! {{ main.user.username }}.
-        </p>
-      </li>
       <li class="pure-menu-item">
         <a href="/" class="pure-menu-link">Home</a>
       </li>
       <li ng-hide="main.user" class="pure-menu-item">
-        <a href="/register" class="pure-menu-link">register</a>
+        <a href="/register" class="pure-menu-link">Register</a>
       </li>
       <li ng-hide="main.user" class="pure-menu-item">
         <a href="/login" class="pure-menu-link">Login</a>
       </li>
       <li ng-show="main.user" class="pure-menu-item">
-        <a ng-click="main.logout()" class="pure-menu-link">Logout</a>
+        <a href="/cuisines" class="pure-menu-link">Cuisines</a>
+      </li>
+      <li ng-show="main.user" class="pure-menu-item">
+        <a href="/recipes" class="pure-menu-link">Recipes</a>
+      </li>
+      <li ng-show="main.user" class="pure-menu-item">
+        <a href="/ingredients" class="pure-menu-link">Ingredients</a>
       </li>
       <li ng-show="main.user" class="pure-menu-item">
         <a href="/users" class="pure-menu-link">Users</a>
        </li>
-    </ul>
+      <li ng-show="main.user" class="pure-menu-item">
+        <a ng-click="main.logout()" class="pure-menu-link">Logout</a>
+      </li>
+      </ul>
 </div>
-
+<p  ng-show="main.user" class="navbar-text">
+Signed in as {{ main.user.username }}.
+</p>
 
     <main ui-view></main>
   </body>
