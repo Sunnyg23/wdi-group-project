@@ -11,6 +11,7 @@ function usersIndex(req, res, next) {
 }
 
 function usersShow(req, res, next) {
+  console.log('id is: ', req.params._id);
   User
     .findById(req.params.id)
     .exec()

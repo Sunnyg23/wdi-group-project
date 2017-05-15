@@ -7,11 +7,14 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
   $locationProvider.html5Mode(true);
 
   $stateProvider
-
-
   .state('home', {
     url: '/',
     templateUrl: 'js/views/home.html'
+  })
+  .state('usersIndex', {
+    url: '/users',
+    templateUrl: '/js/views/users/index.html',
+    controller: 'UsersIndexCtrl as users'
   })
   .state('register', {
     url: '/register',
@@ -22,15 +25,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     url: '/login',
     templateUrl: '/js/views/users/login.html',
     controller: 'LoginCtrl as login'
-  })
-  .state('usersIndex', {
-    url: '/users',
-    templateUrl: '/js/views/users/index.html',
-    controller: 'UsersIndexCtrl as users'
   });
 
-
   $urlRouterProvider.otherwise('/');
-
-
 }

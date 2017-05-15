@@ -68,9 +68,36 @@ describe('Users and Auth test block', () => {
         })
         .end((err, res) => {
           if(err) console.log('Error: '+err);
+
           expect(res.status).to.eq(500);
           expect(res.body.message)
           .to.eq('User validation failed');
+          expect(res.body.errors).to.have.keys(['email']);
+          expect(res.body.errors['email'].message)
+          .to.eq('must be a valid email address');
+          done();
+        });
+    });
+
+    it('should fail validation if password not entered at all', function(done) {
+      // this.skip();
+      api.post('/api/register')
+        .set('Accept', 'application/json')
+        .send({
+          username: 'test',
+          email: 'test@test.com',
+          password: '',
+          passwordConfirmation: ''
+        })
+        .end((err, res) => {
+          if(err) console.log('Error: '+err);
+
+          expect(res.status).to.eq(500);
+          expect(res.body.message)
+          .to.eq('User validation failed');
+          expect(res.body.errors).to.have.keys(['password']);
+          expect(res.body.errors['password'].message)
+          .to.eq('A password is required.');
           done();
         });
     });
@@ -87,9 +114,36 @@ describe('Users and Auth test block', () => {
         })
         .end((err, res) => {
           if(err) console.log('Error: '+err);
+
           expect(res.status).to.eq(500);
           expect(res.body.message)
           .to.eq('User validation failed');
+          expect(res.body.errors).to.have.keys(['password']);
+          expect(res.body.errors['password'].message)
+          .to.eq('must be at least 6 characters.');
+          done();
+        });
+    });
+
+    it('should fail validation if passwords do not match', function(done) {
+      // this.skip();
+      api.post('/api/register')
+        .set('Accept', 'application/json')
+        .send({
+          username: 'test',
+          email: 'test@test.com',
+          password: 'password',
+          passwordConfirmation: 'passwerd'
+        })
+        .end((err, res) => {
+          if(err) console.log('Error: '+err);
+
+          expect(res.status).to.eq(500);
+          expect(res.body.message)
+          .to.eq('User validation failed');
+          expect(res.body.errors).to.have.keys(['passwordConfirmation']);
+          expect(res.body.errors['passwordConfirmation'].message)
+          .to.eq('Passwords do not match.');
           done();
         });
     });
@@ -119,6 +173,39 @@ describe('Users and Auth test block', () => {
             'email',
             '_id'
           ]);
+          done();
+        })
+        .catch(done);
+    });
+
+    it('should fail to find a user if email is not valid', function(done) {
+      // this.skip();
+      api.post('/api/login')
+        .set('Accept', 'application/json')
+        .send({
+          email: 'not-an-email',
+          password: 'password'
+        })
+        .then(res => {
+          expect(res.status).to.eq(404);
+          done();
+        })
+        .catch(done);
+    });
+
+    it('should fail to log in if password is not valid', function(done) {
+      // this.skip();
+      api.post('/api/login')
+        .set('Accept', 'application/json')
+        .send({
+          email: 'blah@blah.com',
+          password: 'passwerd'
+        })
+        .then(res => {
+
+          expect(res.status).to.eq(401);
+          expect(res.body.message)
+          .to.eq('Unauthorized.');
           done();
         })
         .catch(done);

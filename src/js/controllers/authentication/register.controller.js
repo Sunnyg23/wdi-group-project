@@ -2,18 +2,18 @@ angular
 .module('veganChef')
 .controller('RegisterCtrl', RegisterCtrl);
 
-RegisterCtrl.$inject = ['User', 'CurrentUserService', '$state'];
-function RegisterCtrl(User, CurrentUserService, $state){
+RegisterCtrl.$inject = ['User', 'CurrentUserService', '$state', '$rootScope'];
+function RegisterCtrl(User, CurrentUserService, $state, $rootScope){
   const vm = this;
 
   vm.register = () => {
     User
     .register(vm.user).$promise
-    .then((user)  =>  {
-      console.log(user);
+    .then(()  =>  {
       CurrentUserService.getUser();
-      $state.go('usersIndex');
-    }, err => {
+      $rootScope.$broadcast('loggedIn');
+    })
+    .catch(err => {
       console.log(err);
     });
   };
