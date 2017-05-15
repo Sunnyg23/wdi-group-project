@@ -28,24 +28,33 @@ User.collection.drop();
 //   }
 // ];
 
-const recipes = [
+// const recipes = [
+//
+//   {
+//     'name': 'lamb',
+//     'instructions': [{
+//       'index': '1' ,
+//       'content': 'blah'
+//     }],
+//     'ingredients': [{
+//       'measurement': '1'
+//     }],
+//     'images': {
+//       'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+//     }
+//   }
+// ];
 
-  {
-    'name': 'lamb',
-    'instructions': [{
-      'index': '1' ,
-      'content': 'blah'
-    }],
-    'ingredients': [{
-      'measurement': '1'
-    }],
-    'images': {
-      'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
-    }
+// ingredients first
+const iPepper = new Ingredient({
+  'name': 'Pepper',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
-];
+});
 
-const Lamb = new Recipe(
+// recipes second
+const rLamb = new Recipe(
   {
     'name': 'lamb',
     'instructions': [{
@@ -53,22 +62,14 @@ const Lamb = new Recipe(
       'content': 'blah'
     }],
     'ingredients': [{
-      'measurement': '1'
+      'measurement': '1',
+      'ingredient': iPepper._id
     }],
     'images': {
       'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
     }
   }
 );
-
-const ingredients = [
-  {
-    'name': 'Pepper',
-    'images': {
-      'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
-    }
-  }
-];
 
 const users = [
   {
@@ -119,7 +120,7 @@ User
       .create([
         {
           'name': 'Indian',
-          'recipes': [Lamb._id],
+          'recipes': [rLamb._id],
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
@@ -135,18 +136,17 @@ User
   .then(cuisines => {
     console.log(`${cuisines.length} cuisines created`);
 
-    return Ingredient
-      .create(ingredients);
+    return iPepper.save();
   })
-  .then(ingredients => {
-    console.log(`${ingredients.length} ingredients created`);
+  .then(ingredient => {
+    console.log(`${ingredient.name} ingredient created`);
 
     // return Recipe
     //   .create(recipes);
-    return Lamb.save();
+    return rLamb.save();
   })
   .then(recipe => {
-    console.log(`${recipe} recipes created`);
+    console.log(`${recipe.name} recipe created`);
   })
   .finally(() => {
     mongoose.connection.close();
