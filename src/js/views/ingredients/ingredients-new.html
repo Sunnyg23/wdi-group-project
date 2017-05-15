@@ -1,4 +1,17 @@
 <h1>Ingredients New</h1>
-<form ng-submit="" class="">
-  <input type="text" name="name">
+
+<form ng-submit="ingredients.create()" class="pure-form pure-form-aligned">
+  <fieldset>
+
+    <div class="pure-control-group">
+      <label for="name">Name</label>
+      <input ng-model="ingredients.ingredient.name" id="name" type="text" placeholder="Ingredient Name">
+    </div>
+
+    <div class="pure-controls">
+
+
+      <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </div>
+  </fieldset>
 </form>
