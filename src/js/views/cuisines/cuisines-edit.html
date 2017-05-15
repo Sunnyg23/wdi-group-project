@@ -15,3 +15,14 @@
     </div>
   </fieldset>
 </form>
+<hr>
+<h4>Recipes</h4>
+<div ng-repeat="recipe in cuisines.cuisine.recipes">
+  <p>{{recipe.name}}</p>
+  <ul>
+    <li ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
+  </ul>
+</div>
+<div>
+  <a ui-sref="recipesNew">New recipe</a>
+</div>
