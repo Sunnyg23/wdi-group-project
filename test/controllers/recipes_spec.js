@@ -102,6 +102,18 @@ describe('Recipes controllers tests', () => {
       });
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.get('/api/recipes')
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of GET /api/recipes
 
   describe('GET /api/recipes/:id', () => {
@@ -165,7 +177,17 @@ describe('Recipes controllers tests', () => {
       });
     });
 
-
+    it('should return 401 if not logged in', function(done) {
+      api.get(`/api/recipes/${recipeId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
 
   }); // end of -  describe('GET /api/recipes/:id')
 
@@ -281,6 +303,18 @@ describe('Recipes controllers tests', () => {
       });
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.post(`/api/recipes`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of POST /api/recipes - new route
 
   describe('PUT /api/recipes - edit route', () => {
@@ -347,6 +381,18 @@ describe('Recipes controllers tests', () => {
       .expect(404, done);
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.put(`/api/recipes/${recipeId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of PUT /api/recipes - edit route
 
   describe('DELETE /api/recipes/:id', () => {
@@ -358,6 +404,18 @@ describe('Recipes controllers tests', () => {
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '+myToken)
         .expect(204, done);
+    });
+
+    it('should return 401 if not logged in', function(done) {
+      api.delete(`/api/recipes/${recipeId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
     });
 
   }); // end of DELETE /api/recipes/:id block

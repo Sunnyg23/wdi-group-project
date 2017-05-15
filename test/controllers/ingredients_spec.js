@@ -93,6 +93,18 @@ describe('Ingredients controllers tests', () => {
       });
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.get(`/api/ingredients`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of GET /api/ingredients
 
   describe('GET /api/ingredients/:id', () => {
@@ -148,6 +160,18 @@ describe('Ingredients controllers tests', () => {
       .end((err, res) => {
         if(err) console.log(err);
         expect(res.status).to.eq(404);
+        done();
+      });
+    });
+
+    it('should return 401 if not logged in', function(done) {
+      api.get(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
         done();
       });
     });
@@ -236,6 +260,18 @@ describe('Ingredients controllers tests', () => {
       });
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.post(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of POST /api/ingredients - new route
 
   describe('PUT /api/ingredients - edit route', () => {
@@ -319,6 +355,18 @@ describe('Ingredients controllers tests', () => {
       .expect(404, done);
     });
 
+    it('should return 401 if not logged in', function(done) {
+      api.put(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
+    });
+
   }); // end of PUT /api/ingredients - edit route
 
   describe('DELETE /api/ingredients/:id', () => {
@@ -330,6 +378,18 @@ describe('Ingredients controllers tests', () => {
         .set('Authorization', 'Bearer '+myToken)
         .set('Accept', 'application/json')
         .expect(204, done);
+    });
+
+    it('should return 401 if not logged in', function(done) {
+      api.delete(`/api/ingredients/${ingredientId}`)
+      .set('Accept', 'application/json')
+      // .set('Authorization', 'Bearer '+myToken)
+      .end((err, res) => {
+        if(err) console.log(err);
+        expect(res.status)
+        .to.eq(401);
+        done();
+      });
     });
 
   }); // end of DELETE /api/ingredients/:id block
