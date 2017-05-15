@@ -68,6 +68,9 @@ describe('Users and Auth test block', () => {
         })
         .end((err, res) => {
           if(err) console.log('Error: '+err);
+
+          // console.log(JSON.parse(res.text).errors);
+
           expect(res.status).to.eq(500);
           expect(res.body.message)
           .to.eq('User validation failed');
@@ -87,6 +90,35 @@ describe('Users and Auth test block', () => {
         })
         .end((err, res) => {
           if(err) console.log('Error: '+err);
+
+          // console.log(JSON.parse(res.text).errors);
+
+          expect(res.status).to.eq(500);
+          expect(res.body.message)
+          .to.eq('User validation failed');
+          done();
+        });
+    });
+
+    it('should fail validation if passwords do not match', function(done) {
+      // this.skip();
+      api.post('/api/register')
+        .set('Accept', 'application/json')
+        .send({
+          username: 'test',
+          email: 'test@test.com',
+          password: 'password',
+          passwordConfirmation: 'passwerd'
+        })
+        .end((err, res) => {
+          if(err) console.log('Error: '+err);
+
+          for(const key in res.body) {
+            console.log(key);
+            console.log(res.body[key]);
+          }
+          // console.log(JSON.parse(res.text).errors);
+
           expect(res.status).to.eq(500);
           expect(res.body.message)
           .to.eq('User validation failed');
