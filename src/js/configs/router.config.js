@@ -16,6 +16,11 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/users/index.html',
     controller: 'UsersIndexCtrl as users'
   })
+  .state('usersEdit', {
+    url: '/users',
+    templateUrl: '/js/views/users/edit.html',
+    controller: 'UsersEditCtrl as users'
+  })
   .state('register', {
     url: '/register',
     templateUrl: '/js/views/users/register.html',
