@@ -5,6 +5,8 @@ angular
 CuisinesEditCtrl.$inject = ['API', '$stateParams', '$state', 'Cuisine'];
 function CuisinesEditCtrl(API, $stateParams, $state, Cuisine) {
   const vm = this;
+  vm.delete = cuisinesDelete;
+
 
   vm.cuisine = Cuisine.get($stateParams);
   vm.update = cuisinesUpdate;
@@ -12,6 +14,15 @@ function CuisinesEditCtrl(API, $stateParams, $state, Cuisine) {
   function cuisinesUpdate() {
     Cuisine
       .update({ id: $stateParams.id }, vm.cuisine)
+      .$promise
+      .then(() => {
+        $state.go('cuisinesIndex');
+      });
+  }
+
+  function cuisinesDelete(cuisine) {
+    Cuisine
+      .delete({ id: cuisine._id })
       .$promise
       .then(() => {
         $state.go('cuisinesIndex');
