@@ -20,9 +20,9 @@ function CuisinesEditCtrl(API, $stateParams, $state, Cuisine) {
       });
   }
 
-  function cuisinesDelete(cuisine) {
+  function cuisinesDelete() {
     Cuisine
-      .delete({ id: cuisine.id })
+      .delete({ id: vm.cuisine._id })
       .$promise
       .then(() => {
         $state.go('cuisinesIndex');

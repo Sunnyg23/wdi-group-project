@@ -20,9 +20,9 @@ function RecipesEditCtrl(API, $stateParams, $state, Recipe) {
       });
   }
 
-  function recipesDelete(recipe) {
+  function recipesDelete() {
     Recipe
-      .delete({ id: recipe._id })
+      .delete({ id: vm.recipe._id })
       .$promise
       .then(() => {
         $state.go('recipesIndex');

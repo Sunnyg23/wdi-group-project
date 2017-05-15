@@ -21,9 +21,9 @@ function IngredientsEditCtrl(API, $stateParams, $state, Ingredient) {
   }
 
 
-  function ingredientsDelete(ingredient) {
+  function ingredientsDelete() {
     Ingredient
-      .delete({ id: ingredient._id })
+      .delete({ id: vm.ingredient._id })
       .$promise
       .then(() => {
         $state.go('ingredientsIndex');
