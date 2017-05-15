@@ -1,6 +1,12 @@
 <h1>Cuisines Show</h1>
-<div>{{ cuisines.cuisine.name }}
-  {{cuisines.cuisine}}
-<br>
-<a ui-sref="cuisinesEdit({id: cuisines.cuisine._id })">Edit</a>
+
+<div>
+  {{ cuisines.cuisine.name }}
+  <br>
+  <a ui-sref="cuisinesEdit({id: cuisines.cuisine._id })">Edit</a>
 </div>
+<div ng-repeat="recipe in cuisines.cuisine.recipes">
+  <h4>{{recipe.name}}</h4>
+  <a ui-sref="recipesShow({id: recipe._id})">View recipe</a>
+</div>
+<a ui-sref="recipesNew">New recipe</a>
