@@ -14,6 +14,7 @@ function recipesIndex(req, res, next) {
 function recipesShow(req, res, next) {
   Recipe
     .findById(req.params.id)
+    .populate('ingredients.ingredient')
     .exec()
     .then(recipe => {
       if(!recipe) return res.notFound();
