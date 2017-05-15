@@ -6,8 +6,10 @@ function authenticationsRegister(req, res, next) {
   User
     .create(req.body)
     .then(user => {
+      
       if(!user) return res.notFound();
       const token = jwt.sign({ id: user._id }, config.secret, { expiresIn: 60*60*24 });
+
       return res.status(201).json({
         message: `Welcome ${user.username}!`,
         user,
