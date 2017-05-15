@@ -56,6 +56,44 @@ describe('Users and Auth test block', () => {
         });
     });
 
+    it('should fail validation if email is not valid', function(done) {
+      // this.skip();
+      api.post('/api/register')
+        .set('Accept', 'application/json')
+        .send({
+          username: 'test',
+          email: 'not-an-email',
+          password: 'password',
+          passwordConfirmation: 'password'
+        })
+        .end((err, res) => {
+          if(err) console.log('Error: '+err);
+          expect(res.status).to.eq(500);
+          expect(res.body.message)
+          .to.eq('User validation failed');
+          done();
+        });
+    });
+
+    it('should fail validation if password is less than 6 chars', function(done) {
+      // this.skip();
+      api.post('/api/register')
+        .set('Accept', 'application/json')
+        .send({
+          username: 'test',
+          email: 'test@test.com',
+          password: 'pass',
+          passwordConfirmation: 'pass'
+        })
+        .end((err, res) => {
+          if(err) console.log('Error: '+err);
+          expect(res.status).to.eq(500);
+          expect(res.body.message)
+          .to.eq('User validation failed');
+          done();
+        });
+    });
+
   }); // end of POST /api/register block
 
   describe('POST /api/login', () => {
