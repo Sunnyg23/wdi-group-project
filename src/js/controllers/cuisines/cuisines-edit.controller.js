@@ -22,7 +22,7 @@ function CuisinesEditCtrl(API, $stateParams, $state, Cuisine) {
 
   function cuisinesDelete(cuisine) {
     Cuisine
-      .delete({ id: cuisine._id })
+      .delete({ id: cuisine.id })
       .$promise
       .then(() => {
         $state.go('cuisinesIndex');
