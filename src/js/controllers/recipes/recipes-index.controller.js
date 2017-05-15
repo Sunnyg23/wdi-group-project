@@ -1,24 +1,24 @@
 angular
   .module('veganChef')
-  .controller('CuisinesIndexCtrl', CuisinesIndexCtrl);
+  .controller('RecipesIndexCtrl', RecipesIndexCtrl);
 
-CuisinesIndexCtrl.$inject = ['API', 'Cuisine'];
-function CuisinesIndexCtrl(API, Cuisine) {
+RecipesIndexCtrl.$inject = ['API', 'Recipe'];
+function RecipesIndexCtrl(API, Recipe) {
   const vm = this;
-  vm.delete = cuisinesDelete;
+  vm.delete = recipesDelete;
 
-  cuisinesIndex();
+  recipesIndex();
 
-  function cuisinesIndex() {
-    vm.cuisines = Cuisine.query();
+  function recipesIndex() {
+    vm.recipes = Recipe.query();
   }
 
-  function cuisinesDelete(cuisine) {
-    Cuisine
-      .delete({ id: cuisine._id })
+  function recipesDelete(recipe) {
+    Recipe
+      .delete({ id: recipe._id })
       .$promise
       .then(() => {
-        cuisinesIndex();
+        recipesIndex();
       });
   }
 }
