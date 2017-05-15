@@ -4,6 +4,7 @@ const Recipe = require('../models/recipe');
 function recipesIndex(req, res, next) {
   Recipe
   .find()
+  .populate('chef')
   .exec()
   .then(recipes => {
     return res.status(200).json(recipes);
@@ -15,6 +16,7 @@ function recipesShow(req, res, next) {
   Recipe
     .findById(req.params.id)
     .populate('ingredients.ingredient')
+    .populate('chef')
     .exec()
     .then(recipe => {
       if(!recipe) return res.notFound();

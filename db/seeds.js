@@ -45,7 +45,15 @@ User.collection.drop();
 //   }
 // ];
 
-// ingredients first
+// users first
+const uSunny = new User({
+  'username': 'Sunny',
+  'email': 'sunny@sunny.com',
+  'password': 'password',
+  'passwordConfirmation': 'password'
+});
+
+// ingredients second
 const iPepper = new Ingredient({
   'name': 'Pepper',
   'images': {
@@ -53,10 +61,11 @@ const iPepper = new Ingredient({
   }
 });
 
-// recipes second
+// recipes third
 const rLamb = new Recipe(
   {
     'name': 'lamb',
+    'chef': uSunny._id,
     'instructions': [{
       'index': '1' ,
       'content': 'blah'
@@ -71,14 +80,14 @@ const rLamb = new Recipe(
   }
 );
 
-const users = [
-  {
-    'username': 'Sunny',
-    'email': 'sunny@sunny.com',
-    'password': 'password',
-    'passwordConfirmation': 'password'
-  }
-];
+// const users = [
+//   {
+//     'username': 'Sunny',
+//     'email': 'sunny@sunny.com',
+//     'password': 'password',
+//     'passwordConfirmation': 'password'
+//   }
+// ];
 
 
 
@@ -112,7 +121,9 @@ const users = [
 // });
 
 User
-  .create(users)
+  .create([
+    uSunny
+  ])
   .then(users => {
     console.log(`${users.length} users created`);
 
