@@ -15,7 +15,7 @@ function CuisinesIndexCtrl(API, Cuisine) {
 
   function cuisinesDelete(cuisine) {
     Cuisine
-      .delete({ id: cuisine._id})
+      .delete({ id: cuisine._id })
       .$promise
       .then(() => {
         cuisinesIndex();
