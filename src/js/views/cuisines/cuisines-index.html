@@ -4,13 +4,15 @@
 
 <div >
 
-  {{ cuisine.name }}
+  {{ cuisine.name }} <img class="index_img" ng-src="{{ cuisine.images.small }}">
   <a ui-sref="cuisinesShow({id: cuisine._id })">View</a>
 
-  <a ui-sref="cuisinesNew">New Cuisine</a>
 
 
     </div>
 
 
 </div>
+
+
+<a ui-sref="cuisinesNew">New Cuisine</a>
