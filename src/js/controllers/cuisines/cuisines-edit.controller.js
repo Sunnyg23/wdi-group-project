@@ -7,7 +7,6 @@ function CuisinesEditCtrl(API, $stateParams, $state, Cuisine) {
   const vm = this;
   vm.delete = cuisinesDelete;
 
-
   vm.cuisine = Cuisine.get($stateParams);
   vm.update = cuisinesUpdate;
 
