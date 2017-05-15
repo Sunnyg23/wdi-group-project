@@ -1,4 +1,6 @@
-<h1>ingredients Index</h1>
+<h1>Ingredients Index</h1>
 <div ng-repeat="ingredient in ingredients.ingredients">
 {{ingredient.name}}
+<br>
+<a ui-sref="ingredientsShow({id: ingredient._id })">View</a>
 </div>
