@@ -5,9 +5,12 @@ angular
 AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', '$state'];
 function AccountCtrl(User, TokenService, Cuisine, $state) {
   const vm = this;
-  vm.currentUser = TokenService.decodeToken().id;
+  vm.userId = TokenService.decodeToken().id;
   vm.update = usersUpdate;
 
+
+  vm.user = User.get({ id: vm.userId });
+  vm.updatedUser = vm.user;
 
   vm.cuisines = Cuisine.query(cuisines => {
     console.log(cuisines+' account controller');
@@ -15,7 +18,7 @@ function AccountCtrl(User, TokenService, Cuisine, $state) {
 
   vm.newRecipe = {
     name: '',
-    chef: vm.currentUser,
+    chef: vm.userId,
     instructions: [{
       content: ''
     }],
@@ -32,10 +35,10 @@ function AccountCtrl(User, TokenService, Cuisine, $state) {
 
   function usersUpdate() {
     User
-      .update({ id: vm.currentUser }, vm.user)
+      .update({ id: vm.userId }, vm.user)
       .$promise
       .then(() => {
-        $state.go('cuisinesIndex');
+        $state.go('account');
       });
   }
 }

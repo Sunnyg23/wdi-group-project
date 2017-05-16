@@ -1,48 +1,64 @@
-<h1>Account page</h1>
-
-
-
-<p>from the main controller: {{main.user}}</p>
-
-<form ng-submit="account.update()">
-  <input type="text" name="username" placeholder="Username" value="{{main.user.username}}">
-  <input type="text" name="email" placeholder="Email" value="{{main.user.email}}">
-  <input type="submit" value="Submit">
-</form>
+<h1 class="page-header">Account page</h1>
 
 
 
 
 
+<div class="row">
+
+  <h3>Change account details</h3>
 
 <hr>
-<br><br>
+  {{account.updatedUser}}
+<hr>
 
-<div ng-repeat="cuisine in account.cuisines">
-  {{cuisine.name}}
-</div>
+  <form ng-submit="account.update()">
 
-<br><br>
-{{account.newRecipe}}
-
-<form ng-submit="recipes.create()" class="">
-  <fieldset>
-
-    <div class="">
-      <label>Name</label>
-      <input ng-model="account.newRecipe.name" name="name" type="text" placeholder="Recipe Name">
+    <div class="form-group">
+      <label>Username</label>
+      <input ng-model="account.updatedUser.username" name="username" type="text" class="form-control" placeholder="Username" value="{{main.user.username}}">
     </div>
 
-    <div class="">
-      <label>Cuisine</label>
-      <select name="cars">
+    <div class="form-group">
+      <label>Email</label>
+      <input ng-model="account.updatedUser.email" name="email" type="text" class="form-control" placeholder="Email" value="{{main.user.email}}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+<div class="row">
+
+  <h3>Your recipes</h3>
+
+  <div class="col-sm-4" ng-repeat="recipe in main.user.recipes">
+    <h5>{{recipe.name}}</h5>
+    <a ui-sref="recipesShow({id: recipe._id})">View</a>
+  </div>
+
+</div>
+
+
+{{account.newRecipe}}
+
+<hr>
+<div class="row">
+  <h3>New Recipe</h3>
+  <form ng-submit="recipes.create()">
+    <div class="form-group">
+      <label>Name</label>
+      <input ng-model="account.newRecipe.name" type="text" class="form-control" placeholder="Recipe name">
+    </div>
+
+    <div class="form-group">
+      <label>Cuisine category</label>
+      <select class="form-control">
         <option ng-repeat="cuisine in account.cuisines" value="{{cuisine.name}}">{{cuisine.name}}</option>
       </select>
     </div>
 
-
-    <div class="pure-controls">
-      <button type="submit" class="">Submit</button>
-    </div>
-  </fieldset>
-</form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

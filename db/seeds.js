@@ -149,6 +149,7 @@ const rLamb = new Recipe(
     }
   }
 );
+uSunny.recipes.push(rLamb._id);
 const rTapas = new Recipe(
   {
     'name': 'Tapas',
@@ -183,7 +184,7 @@ const rTapas = new Recipe(
     }
   }
 );
-
+uLouis.recipes.push(rTapas);
 // const users = [
 //   {
 //     'username': 'Sunny',
