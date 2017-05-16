@@ -29,13 +29,21 @@
 
 </div>
 
+<h3>Your recipes</h3>
 <div class="row">
 
-  <h3>Your recipes</h3>
-
   <div class="col-sm-4" ng-repeat="recipe in main.user.recipes">
-    <h5>{{recipe.name}}</h5>
-    <a ui-sref="recipesShow({id: recipe._id})">View</a>
+    <!-- <h5>{{recipe.name}}</h5>
+    <a ui-sref="recipesShow({id: recipe._id})">View</a> -->
+
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>{{recipe.name}}</h3>
+
+        <a ui-sref="recipesShow({id: recipe._id})">View</a>
+      </div>
+    </div>
   </div>
 
 </div>
