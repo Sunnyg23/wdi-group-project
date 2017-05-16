@@ -12,41 +12,23 @@
     <!-- endinject -->
   </head>
   <body ng-controller="MainCtrl as main">
-    <!-- <div class="navBar"> -->
-
-    <div class="pure-menu pure-menu-horizontal">
-
-    <a ng-hide="main.user" href="/" class="pure-menu-heading pure-menu-link">What's your Beef?</a>
-
-
-    <ul class="pure-menu-list">
-      <a ng-show="main.user" href="/" class="pure-menu-heading pure-menu-link">What's your Beef <a class="acc_name" ui-sref="account">{{ main.user.username  }}</a></a>
-      <ul class="custom-pure-menu-list">
-      <li ng-hide="main.user" class="pure-menu-item">
-        <a href="/register" class="pure-menu-link">Register</a>
-      </li>
-      <li ng-hide="main.user" class="pure-menu-item">
-        <a href="/login" class="pure-menu-link">Login</a>
-      </li>
-      <li ng-show="main.user" class="pure-menu-item">
-        <a href="/cuisines" class="pure-menu-link">Cuisines</a>
-      </li>
-      <li ng-show="main.user" class="pure-menu-item">
-        <a href="/recipes" class="pure-menu-link">Recipes</a>
-      </li>
-      <li ng-show="main.user" class="pure-menu-item">
-        <a href="/ingredients" class="pure-menu-link">Ingredients</a>
-      </li>
-      <li ng-show="main.user" class="pure-menu-item">
-        <a href="/users" class="pure-menu-link">Users</a>
-       </li>
-      <li ng-show="main.user" class="pure-menu-item">
-        <a ng-click="main.logout()" class="pure-menu-link">Logout</a>
-      </li>
-      </ul>
-</div>
-
-
-    <main ui-view></main>
-  </body>
+    <nav class="navbar navbar-default" role="navigation">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+    				<span class="sr-only">Toggle navigation</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
+    			<a class="navbar-brand" href="#">A menu</a>
+    		</div>
+    		<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+    			<ul class="nav navbar-nav">
+    				<li><a href="#">Link 1</a></li>
+    				<li><a href="#">Link 2</a></li>
+    			</ul>
+    		</div>
+    	</nav>
+<main ui-view></main>
+</body>
 </html>
