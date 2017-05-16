@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Vegan Chef</title>
     <base href="/">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans+Condensed:300" rel="stylesheet">
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
@@ -18,7 +19,7 @@
 
 
     <ul class="pure-menu-list">
-      <a ng-show="main.user" href="/" class="pure-menu-heading pure-menu-link">What's your Beef <a class="acc_name" href="/">{{ main.user.username  }}</a></a>
+      <a ng-show="main.user" href="/" class="pure-menu-heading pure-menu-link">What's your Beef <a class="acc_name" ui-sref="account">{{ main.user.username  }}</a></a>
       <ul class="pure-menu-list">
       <li ng-hide="main.user" class="pure-menu-item">
         <a href="/register" class="pure-menu-link">Register</a>

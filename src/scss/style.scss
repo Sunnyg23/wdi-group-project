@@ -1,7 +1,12 @@
 // Import all of your scss files here
+// font-family: 'Open Sans Condensed', sans-serif;
+// font-family: 'Josefin Sans', sans-serif;
+
 
 body {
   text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+
 }
 
 a {
@@ -24,6 +29,8 @@ a {
   z-index: 5;
   font-size: 40px;
   color: sienna;
+  font-family: 'Open Sans Condensed', sans-serif;
+
 }
 
 .index_img {
