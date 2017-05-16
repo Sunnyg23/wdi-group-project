@@ -1,12 +1,23 @@
 // Import all of your scss files here
-// font-family: 'Open Sans Condensed', sans-serif;
-// font-family: 'Josefin Sans', sans-serif;
 
+@import 'font';
+@import 'navbar';
+@import 'colors';
 
 body {
   text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: $body-font;
+  background: $background;
+  color: $color;
 
+}
+
+.navbar {
+  color: $color;
+}
+
+h2 {
+  font-family: $sub-font;
 }
 
 a {
