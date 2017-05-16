@@ -1,0 +1,24 @@
+@import 'colors';
+
+.navbar-default {
+  .navbar-brand {
+    color: $color;
+  }
+  .navbar-brand:hover {
+    color: $hover;
+  }
+  .navbar-nav {
+    li {
+      a {
+        color: $color;
+        font-size: 18px;
+      }
+      a:hover {
+        color: $hover;
+      }
+    }
+  }
+  border-bottom: 2px solid $color;
+  border-radius: 0px;
+  background-color: rgba(255, 228, 0, 0.1);
+}
