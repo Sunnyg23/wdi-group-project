@@ -3,3 +3,46 @@
 
 
 <p>from the main controller: {{main.user}}</p>
+
+<form ng-submit="account.update()">
+  <input type="text" name="username" placeholder="Username" value="{{main.user.username}}">
+  <input type="text" name="email" placeholder="Email" value="{{main.user.email}}">
+  <input type="submit" value="Submit">
+</form>
+
+
+
+
+
+
+<hr>
+<br><br>
+
+<div ng-repeat="cuisine in account.cuisines">
+  {{cuisine.name}}
+</div>
+
+<br><br>
+{{account.newRecipe}}
+
+<form ng-submit="recipes.create()" class="">
+  <fieldset>
+
+    <div class="">
+      <label>Name</label>
+      <input ng-model="account.newRecipe.name" name="name" type="text" placeholder="Recipe Name">
+    </div>
+
+    <div class="">
+      <label>Cuisine</label>
+      <select name="cars">
+        <option ng-repeat="cuisine in account.cuisines" value="{{cuisine.name}}">{{cuisine.name}}</option>
+      </select>
+    </div>
+
+
+    <div class="pure-controls">
+      <button type="submit" class="">Submit</button>
+    </div>
+  </fieldset>
+</form>
