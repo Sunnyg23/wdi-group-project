@@ -21,7 +21,7 @@
 
     <ul class="pure-menu-list">
       <a ng-show="main.user" href="/" class="pure-menu-heading pure-menu-link">What's your Beef <a class="acc_name" ui-sref="account">{{ main.user.username  }}</a></a>
-      <ul class="pure-menu-list">
+      <ul class="custom-pure-menu-list">
       <li ng-hide="main.user" class="pure-menu-item">
         <a href="/register" class="pure-menu-link">Register</a>
       </li>
@@ -45,9 +45,7 @@
       </li>
       </ul>
 </div>
-<p  ng-show="main.user" class="navbar-text">
-What's your beef, {{ main.user.username }} ?
-</p>
+
 
     <main ui-view></main>
   </body>
