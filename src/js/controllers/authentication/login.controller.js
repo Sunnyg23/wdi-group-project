@@ -12,6 +12,8 @@ function LoginCtrl(User, CurrentUserService, $state, $rootScope)  {
     .then(()  =>  {
       CurrentUserService.getUser();
       $rootScope.$broadcast('loggedIn');
+      // $state.go('usersIndex');
+      // $state.go('account({id: vm.user._id})');
     })
     .catch(err => {
       console.log(err);
