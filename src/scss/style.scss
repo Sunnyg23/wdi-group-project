@@ -29,6 +29,12 @@ a {
   margin: 20px;
 }
 
+.index_img2 {
+  width: 100%;
+  margin: 20px;
+
+}
+
 .acc_name {
   text-decoration: none;
 }
@@ -44,8 +50,26 @@ a {
 
 }
 
+.recipe_name {
+  position: relative;
+  top: 190px;
+  right: 5px;
+  z-index: 5;
+  font-size: 120px;
+  color: $image2;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+
 .index_img {
   position: relative;
   z-index: -1;
   opacity: 0.3;
+}
+
+.index_img2 {
+  position: relative;
+  z-index: -1;
+  // opacity: 0.3;
 }

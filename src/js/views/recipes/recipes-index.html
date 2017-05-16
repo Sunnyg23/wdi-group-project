@@ -1,9 +1,20 @@
-<h1>Recipe Index</h1>
-<div ng-repeat="recipe in recipes.recipes">
+<span class="cuisine_name">{{ cuisine.name }}</span>
+<!-- <div ng-repeat="recipe in recipes.recipes">
 {{recipe.name}}
 <br>
 <a ui-sref="recipesShow({id: recipe._id })">View</a>
 </div>
 <div>
 <a ui-sref="recipesNew">New Recipe</a>
+</div> -->
+
+<div class="container" ng-repeat="recipe in recipes.recipes" >
+  <div class="row">
+    <div class="col-sm-1 col-md-2 col-lg-3">
+      <a ui-sref="recipesShow({id: recipe._id })">
+      <span class="recipe_name">{{ recipe.name }}</span>
+      <img class="index_img2" ng-src="{{ recipe.images.small }}"></a>
+    </div>
+
+  </div>
 </div>
