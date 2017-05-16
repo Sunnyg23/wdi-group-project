@@ -58,6 +58,18 @@ const uLouis = new User({
   'password': 'password',
   'passwordConfirmation': 'password'
 });
+const uDanai = new User({
+  'username': 'Danai',
+  'email': 'danai@danai.com',
+  'password': 'password',
+  'passwordConfirmation': 'password'
+});
+const uDavid = new User({
+  'username': 'David',
+  'email': 'david@david.com',
+  'password': 'password',
+  'passwordConfirmation': 'password'
+});
 
 // ingredients second
 const iPepper = new Ingredient({
@@ -66,20 +78,102 @@ const iPepper = new Ingredient({
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
 });
+const iTomato = new Ingredient({
+  'name': 'Tomato',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iOnion = new Ingredient({
+  'name': 'Onion',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iCarrot = new Ingredient({
+  'name': 'Carrot',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iSeitan = new Ingredient({
+  'name': 'Seitan',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iTofu = new Ingredient({
+  'name': 'Tofu',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+
 
 // recipes third
 const rLamb = new Recipe(
   {
-    'name': 'lamb',
+    'name': 'Lamb',
     'chef': uSunny._id,
     'instructions': [{
       'index': '1' ,
       'content': 'blah'
     }],
-    'ingredients': [{
-      'measurement': '1',
-      'ingredient': iPepper._id
+    'ingredients': [
+      {
+        'measurement': '1',
+        'ingredient': iPepper._id
+      },{
+        'measurement': '1',
+        'ingredient': iOnion._id
+      },{
+        'measurement': '1',
+        'ingredient': iTomato._id
+      },{
+        'measurement': '1',
+        'ingredient': iSeitan._id
+      },{
+        'measurement': '1',
+        'ingredient': iCarrot._id
+      },{
+        'measurement': '1',
+        'ingredient': iTofu._id
+      }
+    ],
+    'images': {
+      'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+    }
+  }
+);
+const rTapas = new Recipe(
+  {
+    'name': 'Tapas',
+    'chef': uLouis._id,
+    'instructions': [{
+      'index': '1' ,
+      'content': 'instruction 1'
     }],
+    'ingredients': [
+      {
+        'measurement': '1',
+        'ingredient': iPepper._id
+      },{
+        'measurement': '1',
+        'ingredient': iOnion._id
+      },{
+        'measurement': '1',
+        'ingredient': iTomato._id
+      },{
+        'measurement': '1',
+        'ingredient': iSeitan._id
+      },{
+        'measurement': '1',
+        'ingredient': iCarrot._id
+      },{
+        'measurement': '1',
+        'ingredient': iTofu._id
+      }
+    ],
     'images': {
       'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
     }
@@ -129,7 +223,9 @@ const rLamb = new Recipe(
 User
   .create([
     uSunny,
-    uLouis
+    uLouis,
+    uDanai,
+    uDavid
   ])
   .then(users => {
     console.log(`${users.length} users created`);
@@ -138,14 +234,25 @@ User
       .create([
         {
           'name': 'Indian',
-          'recipes': [rLamb._id, rLamb._id],
+          'recipes': [rLamb._id],
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
-        },
-        {
+        },{
           'name': 'Mexican',
-          'recipes': [rLamb._id],
+          'recipes': [rTapas._id],
+          'images': {
+            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+          }
+        },{
+          'name': 'Thai',
+          'recipes': [rTapas._id],
+          'images': {
+            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+          }
+        },{
+          'name': 'Chinese',
+          'recipes': [rTapas._id, rLamb._id],
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
@@ -156,15 +263,23 @@ User
     console.log(`${cuisines.length} cuisines created`);
 
     return Ingredient
-      .create([iPepper]);
+      .create([
+        iPepper,
+        iOnion,
+        iTomato,
+        iCarrot,
+        iSeitan,
+        iTofu
+      ]);
   })
   .then(ingredients => {
     console.log(`${ingredients.length} ingredients created`);
 
-    // return Recipe
-    //   .create(recipes);
     return Recipe
-      .create([rLamb]);
+      .create([
+        rLamb,
+        rTapas
+      ]);
   })
   .then(recipes => {
     console.log(`${recipes.length} recipes created`);
