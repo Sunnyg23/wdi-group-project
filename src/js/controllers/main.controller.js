@@ -8,8 +8,7 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
 
   $rootScope.$on('loggedIn', () => {
     vm.user = CurrentUserService.currentUser;
-    // $state.go('account({id: vm.user._id})');
-    $state.go('usersIndex');
+    $state.go('account');
   });
 
   $rootScope.$on('loggedOut', () => {

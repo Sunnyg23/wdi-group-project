@@ -14,6 +14,7 @@ function usersShow(req, res, next) {
   console.log('id is: ', req.params._id);
   User
     .findById(req.params.id)
+    .populate('recipes')
     .exec()
     .then(user => {
       if(!user) return res.notFound();

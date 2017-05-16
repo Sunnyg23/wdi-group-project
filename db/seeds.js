@@ -50,25 +50,29 @@ const uSunny = new User({
   'username': 'Sunny',
   'email': 'sunny@sunny.com',
   'password': 'password',
-  'passwordConfirmation': 'password'
+  'passwordConfirmation': 'password',
+  'recipes': []
 });
 const uLouis = new User({
   'username': 'Louis',
   'email': 'louis@louis.com',
   'password': 'password',
-  'passwordConfirmation': 'password'
+  'passwordConfirmation': 'password',
+  'recipes': []
 });
 const uDanai = new User({
   'username': 'Danai',
   'email': 'danai@danai.com',
   'password': 'password',
-  'passwordConfirmation': 'password'
+  'passwordConfirmation': 'password',
+  'recipes': []
 });
 const uDavid = new User({
   'username': 'David',
   'email': 'david@david.com',
   'password': 'password',
-  'passwordConfirmation': 'password'
+  'passwordConfirmation': 'password',
+  'recipes': []
 });
 
 // ingredients second
