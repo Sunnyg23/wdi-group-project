@@ -1,12 +1,17 @@
-<h1>Cuisines Show</h1>
+<h1>Cuisines</h1>
 
 <div>
-  {{ cuisines.cuisine.name }}
-  <br>
-  <a ui-sref="cuisinesEdit({id: cuisines.cuisine._id })">Edit</a>
+{{ cuisines.cuisine.name }}
+<br>
+  <!-- <a ui-sref="cuisinesEdit({id: cuisines.cuisine._id })">Edit</a> -->
 </div>
-<div ng-repeat="recipe in cuisines.cuisine.recipes">
-  <h4>{{recipe.name}}</h4>
-  <a ui-sref="recipesShow({id: recipe._id})">View recipe</a>
+<div class="container" ng-repeat="recipe in cuisines.cuisine.recipes">
+<div class="row">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <h2>{{recipe.name}}</h2>
+    <img class=""style="width: 100%" ng-src="{{ recipe.images.small }}" alt="">
+    <a class="" ui-sref="recipesShow({id: recipe._id})">View</a>
 </div>
-<a ui-sref="recipesNew">New recipe</a>
+</div>
+</div>
+<!-- <a ng-show="main.user"ui-sref="recipesNew">New recipe</a> -->
