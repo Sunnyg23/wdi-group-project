@@ -27,7 +27,7 @@
       <ul class="nav navbar-nav">
         <li ng-hide="main.user"><a ui-sref="register">Register</a></li>
         <li ng-hide="main.user"><a ui-sref="login">Login</a></li>
-        <li ng-show="main.user"><a ng-click="main.logout()">Logout</a></li>
+        <li ng-show="main.user"><a ng-click="main.logout()" href="javascript:void(0)">Logout</a></li>
         <li ng-show="main.user"><a ui-sref="cuisinesIndex">Cuisines</a></li>
       </ul>
     </div>
