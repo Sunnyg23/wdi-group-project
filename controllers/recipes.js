@@ -4,6 +4,7 @@ const Recipe = require('../models/recipe');
 function recipesIndex(req, res, next) {
   Recipe
   .find()
+  .populate('ingredients.ingredient')
   .populate('chef')
   .exec()
   .then(recipes => {
