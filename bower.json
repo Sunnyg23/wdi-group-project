@@ -21,6 +21,7 @@
     "angular-jwt": "^0.1.9",
     "angular-bootstrap": "^2.5.0",
     "bootstrap-css-only": "^3.3.7",
-    "angular-animate": "^1.6.4"
+    "angular-animate": "^1.6.4",
+    "font-awesome": "fontawesome#^4.7.0"
   }
 }

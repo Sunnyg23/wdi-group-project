@@ -1,11 +1,16 @@
 <h1>Cuisines</h1>
 <h2>Choose your vice...</h2>
 
-<div class="pure-u-1-2"  ng-repeat="cuisine in cuisines.cuisines" >
-  <div>
-    <a ui-sref="cuisinesShow({id: cuisine._id })"><span class="cuisine_name">{{ cuisine.name }}</span>
-    <img class="index_img pure-img" ng-src="{{ cuisine.images.small }}"></a>
+
+<div class="container" ng-repeat="cuisine in cuisines.cuisines" >
+  <div class="row">
+    <div class="col-sm-1 col-md-2 col-lg-3">
+      <a ui-sref="cuisinesShow({id: cuisine._id })">
+      <span class="cuisine_name">{{ cuisine.name }}</span>
+      <img class="index_img" ng-src="{{ cuisine.images.small }}"></a>
     </div>
+
+  </div>
 </div>
 
 
