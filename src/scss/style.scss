@@ -43,10 +43,20 @@ a {
   text-decoration: none;
 }
 
-.cuisine_name, .recipe_name {
+.cuisine_name {
   position: relative;
   top: 190px;
   right: 5px;
+  z-index: 5;
+  font-size: 40px;
+  color: $hover;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+.recipe_name {
+  position: relative;
+  // top: 190px;
+  // right: 5px;
   z-index: 5;
   font-size: 40px;
   color: $hover;
@@ -83,6 +93,15 @@ a {
   box-shadow: none;
 }
 
+.profile-recipe-image {
+  width: 100%;
+  height:100%;
+}
+
+.profile-recipe-image-2 {
+  height: 400px;
+  padding: 10px;
+}
 .icon {
   font-size: 25px;
 }
