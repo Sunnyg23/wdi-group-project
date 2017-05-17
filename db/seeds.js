@@ -357,8 +357,16 @@ User
 
     return Recipe
       .create([
-        rLamb,
-        rTapas
+        rElvisBurger,
+        rPineappleBurger,
+        rLasagnaCups,
+        rChickenPizza,
+        rChickenGreenCurry,
+        rKungPowChickenSpaghetti,
+        rSpicyChickenEnchiladaSoup,
+        rGreenChileNachoCheeseSauce,
+        rPumkinCoconutCurry,
+        rSpicyMisoSesameChicken
       ]);
   })
   .then(recipes => {
