@@ -38,7 +38,7 @@
       <img src="{{recipe.images.small}}" alt="{{recipe.name}}">
       <div class="caption">
         <h3>{{recipe.name}}</h3>
-        {{recipe}}
+        <!-- {{recipe}} -->
         <a ui-sref="recipesShow({id: recipe._id})">View</a>
         <a ui-sref="recipesEdit({id: recipe._id})">Edit</a>
       </div>
@@ -82,19 +82,23 @@
   </form>
 
   <div class="col-xs-12 col-sm-6">
-    <form ng-show="account.newRecipe.ingredients" ng-submit="account.updateRecipes()">
-      <div ng-repeat="" class="form-group">
+    <form ng-show="account.newRecipe.ingredients.length > 0" ng-submit="account.updateRecipes()">
+      <div ng-repeat="ingredient in account.newRecipe.ingredients" class="form-group">
         <label>Ingredient</label>
-        <textarea ng-model="account.newIngredient" type="text" class="form-control" placeholder="instruction">{{ingredient}}</textarea>
+        {{ ingredient }}
       </div>
 
       <button type="submit" class="btn btn-primary">Update</button>
     </form>
-
-    <form ng-submit="recipes.createIngredient()">
+    {{account.newIngredient}}
+    <form ng-submit="account.createIngredient()">
       <div class="form-group">
         <label>Ingredient</label>
-        <textarea ng-model="account.newIngredient" type="text" class="form-control" placeholder="instruction"></textarea>
+        <input ng-model="account.newIngredient.name" type="text" class="form-control" placeholder="Ingredient">
+      </div>
+      <div class="form-group">
+        <label>Image</label>
+        <input ng-model="account.newIngredient.images.small" type="text" class="form-control" placeholder="Image">
       </div>
 
       <button type="submit" class="btn btn-primary">Create New</button>

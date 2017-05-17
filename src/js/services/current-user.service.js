@@ -25,5 +25,5 @@ function CurrentUserService(TokenService, $rootScope, User) {
     $rootScope.$broadcast('loggedOut');
   };
 
-  // self.getUser();
+  self.getUser();
 }
