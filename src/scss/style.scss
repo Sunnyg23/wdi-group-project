@@ -16,8 +16,12 @@ body {
   color: $color;
 }
 
+
 h2 {
   font-family: $sub-font;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
 }
 
 a {
@@ -26,26 +30,31 @@ a {
 
 .index_img {
   width: 100%;
-  margin: 20px;
 }
 
 .acc_name {
   text-decoration: none;
 }
 
-.cuisine_name {
+.cuisine_name, .recipe_name {
   position: relative;
   top: 190px;
   right: 5px;
   z-index: 5;
   font-size: 40px;
-  color: sienna;
+  color: $hover;
   font-family: 'Open Sans Condensed', sans-serif;
 
 }
 
-.index_img {
+.index_img, .recipe_img {
   position: relative;
   z-index: -1;
   opacity: 0.3;
+  width: 100%;
+}
+
+.logo {
+  display: block;
+  margin: auto;
 }
