@@ -1558,13 +1558,20 @@ User
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
+        },{
+          'name': 'Nibbles',
+          'recipes': [rChickenThaiSkewers._id, rTangyOrangeGrapeSkewers._id],
+          'images': {
+            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+          }
+        }
         // },{
         //   'name': 'Nibbles',
         //   'recipes': [rTapas._id, rLamb._id],
         //   'images': {
         //     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
         //   }
-        }
+        // }
       ]);
   })
   .then(cuisines => {
