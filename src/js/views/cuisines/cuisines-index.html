@@ -1,13 +1,10 @@
 
 <img class="logo img-responsive" src="/images/beeflogo.png" alt="logo">
 
-
-<h1>Cuisines</h1>
 <h2>Choose your vice...</h2>
 
-
 <div class="row">
-  <div class="col-sm-3 col-md-6 col-lg-6" ng-repeat="cuisine in cuisines.cuisines">
+  <div class="col-xs-12 col-sm-6" ng-repeat="cuisine in cuisines.cuisines">
     <a ui-sref="cuisinesShow({id: cuisine._id })">
       <span class="cuisine_name">{{ cuisine.name }}</span>
       <img class="index_img img-responsive" ng-src="{{ cuisine.images.small }}"></a>

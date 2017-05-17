@@ -21,6 +21,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" ui-sref="home">WHAT'S YOUR BEEF</a>
+      <span ng-show="main.user" class="glyphicon glyphicon-user"></span>
       <a ng-show="main.user" class="navbar-brand" ui-sref="account">{{ main.user.username  }}</a>
     </div>
     <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
@@ -32,7 +33,7 @@
       </ul>
     </div>
   </nav>
-  <main class="container" ui-view></main>
+  <main class="container-fluid" ui-view></main>
 </body>
 
 </html>
