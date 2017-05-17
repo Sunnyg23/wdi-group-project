@@ -36,6 +36,11 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/users/account.html',
     controller: 'AccountCtrl as account'
   })
+  .state('profile', {
+    url: '/profile/:id',
+    templateUrl: '/js/views/users/profile-show.html',
+    controller: 'ProfileCtrl as profile'
+  })
   .state('cuisinesIndex', {
     url: '/cuisines',
     templateUrl: '/js/views/cuisines/cuisines-index.html',

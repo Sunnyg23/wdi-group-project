@@ -166,7 +166,7 @@ const iWatermelon = new Ingredient({
   }
 });
 const iTeriyaki = new Ingredient({
-  'name': 'Salt',
+  'name': 'Teriyaki',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
@@ -1541,7 +1541,7 @@ User
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
         },{
-          'name': 'Oriential',
+          'name': 'Oriental',
           'recipes': [rChickenGreenCurry._id, rKungPaoChickenSpaghetti._id],
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'

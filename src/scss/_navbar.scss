@@ -20,21 +20,21 @@
   }
   .navbar-toggle {
     color: $hover;
-    border-color: $color;
+    border-color: $hover;
   }
-  border-bottom: 2px solid $color;
+  border-bottom: 2px solid $hover;
   border-radius: 0px;
-  background-color: rgba(255, 228, 0, 0.1);
+  background-color: $background;
 }
 
 .navbar-default {
   .navbar-toggle {
     .icon-bar {
-      background-color: $color;
+      background-color: $hover;
     }
   }
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-  border-color: $color;
+  border-color: $hover;
 }
