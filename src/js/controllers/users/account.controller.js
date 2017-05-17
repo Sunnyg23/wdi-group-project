@@ -2,8 +2,8 @@ angular
   .module('veganChef')
   .controller('AccountCtrl', AccountCtrl);
 
-AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', 'Ingredient', '$state'];
-function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state) {
+AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', 'Ingredient', '$state', 'filterFilter'];
+function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilter) {
   const vm = this;
   vm.userId = TokenService.decodeToken().id;
   vm.update = usersUpdate;
@@ -14,7 +14,11 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state) {
 
 
   vm.cuisines = Cuisine.query(cuisines => {
-    console.log(cuisines+' account controller');
+    // console.log(cuisines+' account controller');
+  });
+
+  vm.allIngredients = Ingredient.query(ingredients => {
+    // console.log(ingredients+' account controller');
   });
 
   vm.newRecipe = {
@@ -48,16 +52,15 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state) {
   }
 
   function createIngredient() {
-
-    Ingredient
-      .save(vm.newIngredient)
-      .$promise
-      .then(ingredient => {
-        vm.newRecipe.ingredients.push(ingredient._id);
-      });
+    console.log(filterFilter(vm.allIngredients, {name: 'Salt'}));
+    // if(false) {
+    //   Ingredient
+    //     .save(vm.newIngredient)
+    //     .$promise
+    //     .then(ingredient => {
+    //       vm.newRecipe.ingredients.push(ingredient._id);
+    //     });
+    // }
   }
 
-  function getIngredients() {
-    vm.allIngredients = Ingredient.query();
-  }
 }
