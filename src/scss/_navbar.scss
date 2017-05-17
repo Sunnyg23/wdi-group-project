@@ -22,9 +22,9 @@
     color: $hover;
     border-color: $hover;
   }
-  border-bottom: 2px solid $hover;
+  border-bottom: 10px solid $hover;
   border-radius: 0px;
-  background-color: rgba(232, 226, 183, 0.1);
+  background-color: $background;
 }
 
 .navbar-default {

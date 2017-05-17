@@ -1,11 +1,11 @@
 
-<div class="row"
+<div
+  class="row"
   style="
     height: 500px;
     background: url({{ recipes.recipe.images.small }}) no-repeat center center"
   >
 </div>
-
 
 <h1>{{ recipes.recipe.name }}</h1>
 
@@ -14,7 +14,6 @@
     <a ui-sref="profile({id:recipes.recipe.chef._id})">{{ recipes.recipe.chef.username }}</a>
   </h2>
 </div>
-
 
 <div class="row">
   <div class="col-xs-12 col-sm-6">
@@ -30,6 +29,5 @@
         {{ instruction.content }}
       </div>
     </div>
-
   </div>
 </div>
