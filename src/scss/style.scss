@@ -49,10 +49,10 @@ a {
   right: 5px;
   z-index: 5;
   font-size: 40px;
-  color: $hover;
+  color: $color;
   font-family: 'Open Sans Condensed', sans-serif;
-
 }
+
 .recipe_name {
   position: relative;
   // top: 190px;
@@ -67,9 +67,10 @@ a {
 .index_img, .recipe_img {
   position: relative;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.7;
   width: 100%;
 }
+
 
 .logo {
   display: block;
