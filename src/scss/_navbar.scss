@@ -18,7 +18,23 @@
       }
     }
   }
+  .navbar-toggle {
+    color: $hover;
+    border-color: $color;
+  }
   border-bottom: 2px solid $color;
   border-radius: 0px;
   background-color: rgba(255, 228, 0, 0.1);
+}
+
+.navbar-default {
+  .navbar-toggle {
+    .icon-bar {
+      background-color: $color;
+    }
+  }
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: $color;
 }
