@@ -2,15 +2,16 @@ angular
   .module('veganChef')
   .controller('AccountCtrl', AccountCtrl);
 
-AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', '$state'];
-function AccountCtrl(User, TokenService, Cuisine, $state) {
+AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', 'Ingredient', '$state'];
+function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state) {
   const vm = this;
   vm.userId = TokenService.decodeToken().id;
   vm.update = usersUpdate;
-
+  vm.createIngredient = createIngredient;
 
   vm.user = User.get({ id: vm.userId });
   vm.updatedUser = vm.user;
+
 
   vm.cuisines = Cuisine.query(cuisines => {
     console.log(cuisines+' account controller');
@@ -22,14 +23,18 @@ function AccountCtrl(User, TokenService, Cuisine, $state) {
     instructions: [{
       content: ''
     }],
-    // ingredients: [{
-    //   measurement: {type: String},
-    //   ingredient: {type: mongoose.Schema.ObjectId, ref: 'Ingredient'}
-    // }],
+    ingredients: [],
     images: {
       small: '',
       large: '',
       others: ['']
+    }
+  };
+
+  vm.newIngredient = {
+    name: '',
+    images: {
+      small: ''
     }
   };
 
@@ -40,5 +45,19 @@ function AccountCtrl(User, TokenService, Cuisine, $state) {
       .then(() => {
         $state.go('account');
       });
+  }
+
+  function createIngredient() {
+
+    Ingredient
+      .save(vm.newIngredient)
+      .$promise
+      .then(ingredient => {
+        vm.newRecipe.ingredients.push(ingredient._id);
+      });
+  }
+
+  function getIngredients() {
+    vm.allIngredients = Ingredient.query();
   }
 }
