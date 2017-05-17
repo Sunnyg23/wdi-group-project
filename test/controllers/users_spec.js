@@ -49,6 +49,7 @@ describe('Users and Auth test block', () => {
           expect(res.body.user)
           .to.have.all.keys([
             'username',
+            'recipes',
             'email',
             '_id'
           ]);
@@ -170,6 +171,7 @@ describe('Users and Auth test block', () => {
           expect(res.body.user)
           .to.have.all.keys([
             'username',
+            'recipes',
             'email',
             '_id'
           ]);
@@ -240,6 +242,7 @@ describe('Users and Auth test block', () => {
             expect(user)
             .to.have.all.keys([
               'username',
+              'recipes',
               'email',
               '_id'
             ]);
@@ -274,6 +277,7 @@ describe('Users and Auth test block', () => {
           expect(res.body)
           .to.have.all.keys([
             'username',
+            'recipes',
             'email',
             '_id'
           ]);
@@ -323,6 +327,7 @@ describe('Users and Auth test block', () => {
           expect(res.body)
           .to.have.all.keys([
             'username',
+            'recipes',
             'email',
             '_id'
           ]);
