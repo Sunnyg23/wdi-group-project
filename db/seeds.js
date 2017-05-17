@@ -674,7 +674,7 @@ uSunny.recipes.push(rPineapleBurger._id);
 // #################################################
 const rLasagnaCups = new Recipe(
   {
-    'name': 'Peanut Butter Tempura Banana Elvis Burger',
+    'name': 'Lasagne Cups',
     'chef': uSunny._id,
     'instructions': [{
       'index': '0' ,
@@ -1040,7 +1040,7 @@ const rSpicyChickenEnchiladaSoup = new Recipe(
       }
     ],
     'images': {
-      'small': '/images/recipes/mex soup.jpg'
+      'small': '/images/recipes/mex-soup.jpg'
     }
   }
 );
