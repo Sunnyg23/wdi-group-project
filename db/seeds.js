@@ -122,7 +122,7 @@ const iCornstarch = new Ingredient({
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
 });
-const iBakingPower = new Ingredient({
+const iBakingPowder = new Ingredient({
   'name': 'Baking Power',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
@@ -192,12 +192,6 @@ const iMozshreds = new Ingredient({
 });
 const iOliveOil = new Ingredient({
   'name': 'Olive Oil',
-  'images': {
-    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
-  }
-});
-const iGarlic = new Ingredient({
-  'name': 'Garlic',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
@@ -279,7 +273,8 @@ const iCornmeal = new Ingredient({
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
-});});const iScallion = new Ingredient({
+});
+const iScallion = new Ingredient({
   'name': 'Scallion',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
@@ -453,7 +448,7 @@ const iTomato = new Ingredient({
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
 });
-const iBlackBean = new Ingredient({
+const iBlackBeans = new Ingredient({
   'name': 'Black Bean',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
@@ -477,7 +472,7 @@ const iBellPepper = new Ingredient({
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
 });
-const iChaiSeed = new Ingredient({
+const iChiaSeed = new Ingredient({
   'name': 'Chai Seed',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
@@ -604,7 +599,7 @@ const rElvisBurger = new Recipe(
         'ingredient': iCornstarch._id
       },{
         'measurement': '0.5 tbsp',
-        'ingredient': iBakingPower._id
+        'ingredient': iBakingPowder._id
       },{
         'measurement': '0.25 tbsp',
         'ingredient': iSalt._id
@@ -677,8 +672,7 @@ const rPineapleBurger = new Recipe(
 uSunny.recipes.push(rPineapleBurger._id);
 
 // #################################################
-const rLasagnaCups
- = new Recipe(
+const rLasagnaCups = new Recipe(
   {
     'name': 'Peanut Butter Tempura Banana Elvis Burger',
     'chef': uSunny._id,
@@ -808,7 +802,8 @@ const rChickenPizza = new Recipe(
       },{
         'measurement': '0.5 tbsp',
         'ingredient': iVeganBacon._id
-  }],
+      }
+    ],
     'images': {
       'small': '/images/recipes/BYMT_BBQPizza_lr.jpg'
     }
@@ -946,7 +941,7 @@ const rKungPaoChickenSpaghetti = new Recipe(
         'ingredient': iDrySherry._id
       },{
         'measurement': '2 tbsp',
-        'ingredient': iChilliPas.te_id
+        'ingredient': iChilliPaste._id
       },{
         'measurement': '1 tbsp',
         'ingredient': iSesameOil._id
@@ -1154,16 +1149,16 @@ const rPumpkinCoconutCurry = new Recipe(
         'ingredient': iRedPepper._id
       },{
         'measurement': '2 Cups',
-        'ingredient': iChickenStip._id
+        'ingredient': iChickenStrip._id
       },{
         'measurement': '3',
         'ingredient': iTomato._id
       },{
         'measurement': '1/2',
-        'ingredient': i.ButternutSquash_id
+        'ingredient': iButternutSquash._id
       },{
         'measurement': '1',
-        'ingredient': i.JasmineRice_id
+        'ingredient': iJasmineRice._id
       }
     ],
     'images': {
@@ -1171,7 +1166,7 @@ const rPumpkinCoconutCurry = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rPumpKinCoconutCurry._id);
+uSunny.recipes.push(rPumpkinCoconutCurry._id);
 
 // #################################################
 
@@ -1210,7 +1205,7 @@ const rSpicyMisoSesameChicken = new Recipe(
     'ingredients': [
       {
         'measurement': '9 oz',
-        'ingredient': iChickenStip._id
+        'ingredient': iChickenStrip._id
       },{
         'measurement': '1/4 Cup',
         'ingredient': iRice._id
@@ -1383,14 +1378,14 @@ User
     return Recipe
       .create([
         rElvisBurger,
-        rPineappleBurger,
+        rPineapleBurger,
         rLasagnaCups,
         rChickenPizza,
         rChickenGreenCurry,
-        rKungPowChickenSpaghetti,
+        rKungPaoChickenSpaghetti,
         rSpicyChickenEnchiladaSoup,
         rGreenChileNachoCheeseSauce,
-        rPumkinCoconutCurry,
+        rPumpkinCoconutCurry,
         rSpicyMisoSesameChicken
       ]);
   })
