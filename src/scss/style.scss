@@ -1,5 +1,60 @@
 // Import all of your scss files here
 
+@import 'font';
+@import 'navbar';
+@import 'colors';
+
+body {
+  text-align: center;
+  font-family: $body-font;
+  background: $background;
+  color: $color;
+
+}
+
+.navbar {
+  color: $color;
+}
+
+
+h2 {
+  font-family: $sub-font;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+}
+
 .index_img {
   width: 100%;
+}
+
+.acc_name {
+  text-decoration: none;
+}
+
+.cuisine_name, .recipe_name {
+  position: relative;
+  top: 190px;
+  right: 5px;
+  z-index: 5;
+  font-size: 40px;
+  color: $hover;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.index_img, .recipe_img {
+  position: relative;
+  z-index: -1;
+  opacity: 0.3;
+  width: 100%;
+}
+
+.logo {
+  display: block;
+  margin: auto;
 }

@@ -1,23 +1,19 @@
 <h1>Login</h1>
-<form ng-submit="login.login()" class="pure-form pure-form-aligned">
-  <fieldset>
+<div class="row">
 
-    <div class="pure-control-group">
-      <label for="email">Email Address</label>
-      <input ng-model="login.user.email" id="email" type="email" placeholder="Email Address">
-    </div>
+  <form ng-submit="login.login()">
 
-    <div class="pure-control-group">
-      <label for="password">Password</label>
-      <input ng-model="login.user.password" id="password" type="password" placeholder="Password">
-    </div>
+  <div class="form-group">
+    <label>Email Address</label>
+    <input ng-model="login.user.email" name="email" type="email" class="form-control" placeholder="Email Address">
+  </div>
 
+  <div class="form-group">
+    <label>Password</label>
+    <input ng-model="login.user.password" name="password" type="password" class="form-control" placeholder="Password" >
+  </div>
 
-
-    <div class="pure-controls">
-
-
-      <button type="submit" class="pure-button pure-button-primary">Submit</button>
-    </div>
-  </fieldset>
+  <button type="submit" class="btn btn-primary">Login.</button>
 </form>
+
+</div>

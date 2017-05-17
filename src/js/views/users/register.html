@@ -1,32 +1,29 @@
 <h1>Register</h1>
 
-
-<form ng-submit="register.register()" class="pure-form pure-form-aligned">
-    <fieldset>
-        <div class="pure-control-group">
-            <label for="name">Username</label>
-            <input ng-model="register.user.username" id="name" type="text" placeholder="Username">
-            <span class="pure-form-message-inline">This is a required field.</span>
+<form ng-submit="register.register()" >
+        <div class="form-group">
+          <label class="col-2 col-form-label">Username</label>
+          <div class="col-10">
+          <input ng-model="register.user.username" class="form-control" type="text" placeholder="Username" >
+       </div>
+     </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input  ng-model="register.user.email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input ng-model="register.user.password" type="password" class="form-control" placeholder="Password">
         </div>
 
-        <div class="pure-control-group">
-            <label for="password">Password</label>
-            <input ng-model="register.user.password"  id="password" type="password" placeholder="Password">
-        </div>
-
-                <div class="pure-control-group">
-                    <label for="passwordConfirmation">Password Confirmation</label>
-                    <input ng-model="register.user.passwordConfirmation" id="passwordConfirmation" type="password" placeholder="Password Confirmation">
-                </div>
-
-
-        <div class="pure-control-group">
-            <label for="email">Email Address</label>
-            <input ng-model="register.user.email" id="email" type="email" placeholder="Email Address">
+        <div class="form-group">
+          <label for="passwordConfirmation">Password Confimation</label>
+          <input ng-model="register.user.passwordConfirmation" type="password" class="form-control" placeholder="Password">
         </div>
 
 
-            <button type="submit" class="pure-button pure-button-primary">Submit</button>
-        
-    </fieldset>
+
+
+          <button type="submit" class="btn btn-primary">Register.</button>
 </form>
