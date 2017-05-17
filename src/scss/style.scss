@@ -19,6 +19,7 @@ body {
 h1 {
   font-weight: bold;
   padding: 10px;
+  font-size: 50px;
 }
 
 
@@ -27,6 +28,7 @@ h2 {
   position: relative;
   z-index: 1;
   font-style: italic;
+  color: $hover;
 }
 
 a {
@@ -69,8 +71,8 @@ a {
 }
 
 .chef_recipeidx {
-  border-bottom: 1px solid $color;
-  border-top: 1px solid $color;
+  border-bottom: 1px solid $hover;
+  border-top: 1px solid $hover;
   padding: 5px;
   margin: auto;
   margin-bottom: 10px;
@@ -79,4 +81,8 @@ a {
 .panel {
   border: none;
   box-shadow: none;
+}
+
+.icon {
+  font-size: 25px;
 }
