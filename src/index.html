@@ -24,7 +24,7 @@
       <a ng-show="main.user" class="navbar-brand" ui-sref="account">{{ main.user.username  }}</a>
     </div>
     <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav pull-right">
         <li ng-hide="main.user"><a ui-sref="register">Register</a></li>
         <li ng-hide="main.user"><a ui-sref="login">Login</a></li>
         <li ng-show="main.user"><a ng-click="main.logout()" href="javascript:void(0)">Logout</a></li>
