@@ -65,4 +65,8 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilt
     }
   }
 
+  function createRecipe() {
+    
+  }
+
 }
