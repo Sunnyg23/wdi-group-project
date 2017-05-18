@@ -110,7 +110,8 @@ const iBanana = new Ingredient({
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
-});const iFlour = new Ingredient({
+});
+const iFlour = new Ingredient({
   'name': 'Flour',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
@@ -140,8 +141,6 @@ const iCarbonatedWater = new Ingredient({
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
 });
-
-
 const iAvocado = new Ingredient({
   'name': 'Avocado',
   'images': {
@@ -167,7 +166,7 @@ const iWatermelon = new Ingredient({
   }
 });
 const iTeriyaki = new Ingredient({
-  'name': 'Salt',
+  'name': 'Teriyaki',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
@@ -207,7 +206,8 @@ const iVeganPasta = new Ingredient({
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
-});const iTomatoPaste = new Ingredient({
+});
+const iTomatoPaste = new Ingredient({
   'name': 'Tomato Paste',
   'images': {
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
@@ -237,7 +237,6 @@ const iChickenStrip = new Ingredient({
     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
   }
 });
-
 const iBBQSauce = new Ingredient({
   'name': 'BBQ Sauce',
   'images': {
@@ -551,6 +550,115 @@ const iSambalOelek = new Ingredient({
   }
 });
 
+const iGrapeseedOil = new Ingredient({
+  'name': 'Grapeseed Oil',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iOrangeJuice = new Ingredient({
+  'name': 'Orange Juice',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iOrangeZest = new Ingredient({
+  'name': 'Orange Zest',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iWhitePepper = new Ingredient({
+  'name': 'White Pepper',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iSeedlessGrape = new Ingredient({
+  'name': 'Seedless Grape',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iCucumber = new Ingredient({
+  'name': 'Cucumber',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iLimePoppyseedDSauce = new Ingredient({
+  'name': 'Lime Poppyseed Dipping Sauce',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iVeganSourCream = new Ingredient({
+  'name': 'Vegan Sour Cream',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iLimeZest = new Ingredient({
+  'name': 'Lime Zest',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iFreshMint = new Ingredient({
+  'name': 'Fresh Mint',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iPoppySeed = new Ingredient({
+  'name': 'Poppy Seed',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iRiceVinegar = new Ingredient({
+  'name': 'Rice Vinegar',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iSodiumTamari = new Ingredient({
+  'name': 'Sodium Tamari',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iAgave = new Ingredient({
+  'name': 'Agave',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iWater = new Ingredient({
+  'name': 'Water',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iSataySauce = new Ingredient({
+  'name': 'Satay Sauce',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iSriracha = new Ingredient({
+  'name': 'Sriracha',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+const iMaple = new Ingredient({
+  'name': 'Maple',
+  'images': {
+    'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+  }
+});
+
 
 // #################################################// #################################################
 // #################################################
@@ -674,7 +782,7 @@ uSunny.recipes.push(rPineapleBurger._id);
 // #################################################
 const rLasagnaCups = new Recipe(
   {
-    'name': 'Peanut Butter Tempura Banana Elvis Burger',
+    'name': 'Lasagne Cups',
     'chef': uSunny._id,
     'instructions': [{
       'index': '0' ,
@@ -1040,7 +1148,7 @@ const rSpicyChickenEnchiladaSoup = new Recipe(
       }
     ],
     'images': {
-      'small': '/images/recipes/mex soup.jpg'
+      'small': '/images/recipes/mex-soup.jpg'
     }
   }
 );
@@ -1233,6 +1341,181 @@ const rSpicyMisoSesameChicken = new Recipe(
 );
 uLouis.recipes.push(rSpicyMisoSesameChicken._id);
 
+// #################################################
+
+const rTangyOrangeGrapeSkewers = new Recipe(
+  {
+    'name': 'Tangy Orange-Grape Skewers',
+    'chef': uSunny._id,
+    'instructions': [{
+      'index': '0' ,
+      'content': '1. Combine all ingredients for marinade: grapeseed oil, vinegar, orange juice, orange zest, grated fresh ginger, salt and white peppe'
+    },{
+      'index': '1' ,
+      'content': '2.	Whisk together.'
+    },{
+      'index': '2' ,
+      'content': '3.	In a large bowl, mix together cubed Beyond Chicken and grapes; fold in marinade.'
+    },{
+      'index': '3' ,
+      'content': '4.	1.	Set aside for at least an hour or up to overnight in the fridge to increase the flavor.'
+    },{
+      'index': '4' ,
+      'content': '5.	Mix together all ingredients of LimePoppyseed Dipping Sauce: vegan sour cream, lime juice, lime zest, sliced green onions, mint, poppy seeds and salt/pepper'
+    },{
+      'index': '5' ,
+      'content': '6.	Chill for at least 1 hour or overnight.'
+    },{
+      'index': '6' ,
+      'content': '7.	To serve, thread grapes, Beyond Chicken and cucumber chunks on skewers until all are used up.'
+    },{
+      'index': '7' ,
+      'content': '8.	Serve with Dipping Sauce on the side. Enjoy this cool dish on a warm day for lunch, brunch or dinner!'
+    }],
+    'ingredients': [
+      {
+        'measurement': '1 Pack',
+        'ingredient': iBeyondBeef._id
+      },{
+        'measurement': '2 tbs',
+        'ingredient': iGrapeseedOil._id
+      },{
+        'measurement': '1/3 cup',
+        'ingredient': iOrangeJuice._id
+      },{
+        'measurement': '1tbs',
+        'ingredient': iOrangeZest._id
+      },{
+        'measurement': '1 tbs',
+        'ingredient': iGinger._id
+      },{
+        'measurement': '1 tbs',
+        'ingredient': iSalt._id
+      },{
+        'measurement': '2 Cups',
+        'ingredient': iSeedlessGrape._id
+      },{
+        'measurement': '2',
+        'ingredient': iCucumber._id
+      },{
+        'measurement': '1',
+        'ingredient': iLimePoppyseedDSauce._id
+      },{
+        'measurement': '1/2 Cups',
+        'ingredient': iVeganSourCream._id
+      },{
+        'measurement': '1/4 Cups',
+        'ingredient': iGreenOnion._id
+      },{
+        'measurement': '1 tbs',
+        'ingredient': iFreshMint._id
+      },{
+        'measurement': '1 tbs',
+        'ingredient': iPoppySeed._id
+      },{
+        'measurement': '1 tbs',
+        'ingredient': iSalt._id
+      }
+    ],
+    'images': {
+      'small': '/images/recipes/bymtgrapeskewersimg.jpg'
+    }
+  }
+);
+uSunny.recipes.push(rSpicyMisoSesameChicken._id);
+
+// #################################################
+
+const rChickenThaiSkewers = new Recipe(
+  {
+    'name': 'Chicken Thai Skewers',
+    'chef': uSunny._id,
+    'instructions': [{
+      'index': '0' ,
+      'content': '1. Soak skewers in water separately, this helps them not to burn when grilled.'
+    },{
+      'index': '1' ,
+      'content': '2.	In mixing bowl, stir all the brine ingredients well.'
+    },{
+      'index': '2' ,
+      'content': '3.	Place Beyond Meat product in the brine and toss well, coating all pieces.'
+    },{
+      'index': '3' ,
+      'content': '4.	Marinate for an hour or more, if you can – but that isn\'t totally necessary'
+    },{
+      'index': '4' ,
+      'content': '5.	Allow strips to soak in brine for an hour at minimum over night if possible.'
+    },{
+      'index': '5' ,
+      'content': '6.	Skewer each strip and set aside.'
+    },{
+      'index': '6' ,
+      'content': '7.	In blender, blend all the satay sauce ingredients until smooth.'
+    },{
+      'index': '7' ,
+      'content': '8.	Pour in small container, keep warm or room temp for service.'
+    },{
+      'index': '8' ,
+      'content': '9.	1.	Using a gas grill, or grill pan, place on all skewers of brined Beyond Meat and allow grill to mark. About 3-4 minutes on both sides.'
+    },{
+      'index': '8' ,
+      'content': '9.	1.	Using a gas grill, or grill pan, place on all skewers of brined Beyond Meat and allow grill to mark. About 3-4 minutes on both sides.'
+    },{
+      'index': '8' ,
+      'content': '9.	Once grilled, place on serving platter and lather a generous amount of satay sauce on each grilled skewer.'
+    },{
+      'index': '8' ,
+      'content': '9.	Garnish with sprigs of cilantro, crushed peanuts, lime and thinly sliced red chili\'s.'
+    }],
+    'ingredients': [
+      {
+        'measurement': '1 lb',
+        'ingredient': iBeyondBeef._id
+      },{
+        'measurement': '1/3 Cup',
+        'ingredient': iRiceVinegar._id
+      },{
+        'measurement': '1/3 Cup',
+        'ingredient': iSodiumTamari._id
+      },{
+        'measurement': '1/3 cup',
+        'ingredient': iAgave._id
+      },{
+        'measurement': '1/2 cup',
+        'ingredient': iWater._id
+      },{
+        'measurement': '1',
+        'ingredient': iSataySauce._id
+      },{
+        'measurement': '1/4 cup',
+        'ingredient': iPeanutButter._id
+      },{
+        'measurement': '2',
+        'ingredient': iLemon._id
+      },{
+        'measurement': '1 tbsp',
+        'ingredient': iSriracha._id
+      },{
+        'measurement': '2 tbsp',
+        'ingredient': iMaple._id
+      },{
+        'measurement': '1 tbsp',
+        'ingredient': iGinger._id
+      },{
+        'measurement': '1/2 Cup',
+        'ingredient': iCoconutMilk._id
+      }
+    ],
+    'images': {
+      'small': '/images/recipes/skew.jpg'
+    }
+  }
+);
+uSunny.recipes.push(rChickenThaiSkewers._id);
+
+// #################################################
+
+
 User
   .create([
     uSunny,
@@ -1258,7 +1541,7 @@ User
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
         },{
-          'name': 'Oriential',
+          'name': 'Oriental',
           'recipes': [rChickenGreenCurry._id, rKungPaoChickenSpaghetti._id],
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
@@ -1275,13 +1558,20 @@ User
           'images': {
             'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
           }
+        },{
+          'name': 'Nibbles',
+          'recipes': [rChickenThaiSkewers._id, rTangyOrangeGrapeSkewers._id],
+          'images': {
+            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+          }
+        }
         // },{
         //   'name': 'Nibbles',
         //   'recipes': [rTapas._id, rLamb._id],
         //   'images': {
         //     'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
         //   }
-        }
+        // }
       ]);
   })
   .then(cuisines => {
@@ -1369,7 +1659,26 @@ User
         iRice,
         iAgaveNectar,
         iMisoPaste,
-        iSambalOelek
+        iSambalOelek,
+        iGrapeseedOil,
+        iOrangeJuice,
+        iOrangeZest,
+        iWhitePepper,
+        iSeedlessGrape,
+        iCucumber,
+        iLimePoppyseedDSauce,
+        iVeganSourCream,
+        iLimeZest,
+        iFreshMint,
+        iPoppySeed,
+        iRiceVinegar,
+        iSodiumTamari,
+        iAgave,
+        iWater,
+        iSataySauce,
+        iSriracha,
+        iMaple
+
       ]);
   })
   .then(ingredients => {
@@ -1386,7 +1695,9 @@ User
         rSpicyChickenEnchiladaSoup,
         rGreenChileNachoCheeseSauce,
         rPumpkinCoconutCurry,
-        rSpicyMisoSesameChicken
+        rSpicyMisoSesameChicken,
+        rTangyOrangeGrapeSkewers,
+        rChickenThaiSkewers
       ]);
   })
   .then(recipes => {

@@ -1,0 +1,28 @@
+<h1> {{ profile.user.username }}'s profile</h1>
+<span class="badge">Sunny has created:
+  {{ profile.user.recipes.length }} recipe/s
+</span>
+
+<div class="row">
+  <div class="col-sm-3">
+    <h2>{{ profile.user.username }}: </h2>
+    <img class="profPic" src="http://www.stevensegallery.com/200/200" alt="">
+
+  </div>
+  <div class="col-sm-8">
+    <h2>About {{ profile.user.username }}: </h2>
+    <br><br>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <a ng-repeat="recipe in profile.user.recipes" ui-sref="recipesShow({id: recipe._id})">
+    <div class=" profile-recipe-image-2 col-xs-12 col-sm-6 col-md-4">
+      <div class="profile-recipe-image" style="background: url({{ recipe.images.small }}) no-repeat center center;">
+        <span class="recipe_name">{{recipe.name}}</span>
+      </div>
+    </div>
+  </a>
+</div>

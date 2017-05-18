@@ -5,15 +5,23 @@
 @import 'colors';
 
 body {
+  position: relative;
   text-align: center;
   font-family: $body-font;
   background: $background;
   color: $color;
-
+  padding-bottom: 70px;
+  min-height:100vh;
 }
 
 .navbar {
   color: $color;
+}
+
+h1 {
+  font-weight: bold;
+  padding: 10px;
+  font-size: 50px;
 }
 
 
@@ -22,9 +30,29 @@ h2 {
   position: relative;
   z-index: 1;
   font-style: italic;
+  color: $hover;
+}
+
+h3 {
+  font-family: $sub-font;
+  color: $color;
+}
+
+.not {
+  text-decoration: underline $hover;
+}
+
+.vegan {
+  font-size: 28px;
+  color: $hover;
+  font-family: $body-font;
 }
 
 a {
+  text-decoration: none;
+}
+
+a:hover {
   text-decoration: none;
 }
 
@@ -36,10 +64,22 @@ a {
   text-decoration: none;
 }
 
-.cuisine_name, .recipe_name {
+.cuisine_name {
   position: relative;
   top: 190px;
   right: 5px;
+  z-index: 1;
+  font-size: 40px;
+  color: $color;
+  background: $hover;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+
+.recipe_name {
+  position: relative;
+  // top: 190px;
+  // right: 5px;
   z-index: 5;
   font-size: 40px;
   color: $hover;
@@ -50,11 +90,87 @@ a {
 .index_img, .recipe_img {
   position: relative;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.7;
   width: 100%;
 }
+
 
 .logo {
   display: block;
   margin: auto;
+}
+
+.recipe_image {
+  width: 100%;
+}
+
+.chef_recipeidx {
+  width: 350px;
+  border-bottom: 2px solid $hover;
+  border-top: 2px solid $hover;
+  padding: 5px;
+  margin: auto;
+  margin-bottom: 10px;
+
+  a {
+    color: $hover;
+    padding-left: 20px;
+  }
+
+  a:hover {
+    color: $color;
+  }
+}
+
+.panel {
+  border: none;
+  box-shadow: none;
+}
+
+.profile-recipe-image {
+  width: 100%;
+  height:100%;
+}
+
+.profile-recipe-image-2 {
+  height: 400px;
+  padding: 10px;
+
+
+}
+.icon {
+  font-size: 25px;
+}
+
+.panel-body {
+  font-size: 20px;
+}
+
+footer {
+  background: $background;
+  border-top: 10px solid #6BE400;
+  margin-top: 20px;
+  position: absolute;
+  bottom:0;
+  width:100%;
+  height:60px;   /* Height of the footer */
+
+  p:first-child {
+    margin-top: 10px;
+  }
+}
+
+.text-muted {
+  color: $color;
+}
+
+.fixIt{
+  height: 20px;
+}
+
+.profPic  {
+  border-radius: 120px;
+  border-style: double;
+  border-width: 10px;
+  border-color: $color;
 }
