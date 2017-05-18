@@ -1,9 +1,9 @@
 <h1>{{ cuisines.cuisine.name }}</h1>
-<!-- <a ui-sref="cuisinesEdit({id: cuisines.cuisine._id })">Edit</a> -->
+
+<h2>So what are you craving for today?</h2>
+
 <div class="row">
-  <div  ng-repeat="recipe in cuisines.cuisine.recipes" class="col-xs-12 col-sm-6">
-    <!-- <a ui-sref="recipesShow({id: recipe._id})"><span class="recipe_name">{{recipe.name}}</span><img class="recipe_img image-responsive"  ng-src="{{ recipe.images.small }}" alt=""></a> -->
+  <div  ng-repeat="recipe in cuisines.cuisine.recipes" class="col-xs-12 col-sm-6 cuisine_image">
     <recipe recipe="recipe"></recipe>
+  </div>
 </div>
-</div>
-<!-- <a ng-show="main.user"ui-sref="recipesNew">New recipe</a> -->

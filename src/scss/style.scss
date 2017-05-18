@@ -33,6 +33,21 @@ h2 {
   color: $hover;
 }
 
+h3 {
+  font-family: $sub-font;
+  color: $color;
+}
+
+.not {
+  text-decoration: underline $hover;
+}
+
+.vegan {
+  font-size: 28px;
+  color: $hover;
+  font-family: $body-font;
+}
+
 a {
   text-decoration: none;
 }
@@ -59,6 +74,7 @@ a:hover {
   background: $hover;
   font-family: 'Open Sans Condensed', sans-serif;
 }
+
 
 .recipe_name {
   position: relative;
@@ -89,12 +105,21 @@ a:hover {
 }
 
 .chef_recipeidx {
-  width: 400px;
+  width: 350px;
   border-bottom: 2px solid $hover;
   border-top: 2px solid $hover;
   padding: 5px;
   margin: auto;
   margin-bottom: 10px;
+
+  a {
+    color: $hover;
+    padding-left: 20px;
+  }
+
+  a:hover {
+    color: $color;
+  }
 }
 
 .panel {
