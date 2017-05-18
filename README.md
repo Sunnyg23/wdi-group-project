@@ -133,3 +133,7 @@ Sunny - (out of the blue) Opera singers can go very f*cking loud!!
 
 - We wanted to have more complex user profiles, allowing users to follow each other etc. 
 - We also wanted comments and sub-comments, but ran out of time. This would require more work on the back end as well as the front. Too big a challenge for such a short time. 
+
+***Animations***
+
+- Didn't have much time for animations or bling or anything, we were working on the account page and styling until fairly late. 
