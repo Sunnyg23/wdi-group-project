@@ -27,14 +27,11 @@ function usersUpdate(req, res, next) {
     .findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then(user => {
-      console.log(!user);
-      console.log('User above');
-      console.log(req.params);
-      console.log('req.params above above');
-      console.log(req.body);
-      console.log('Req.body above');
-      if(!user) return res.notFound();
-      return res.status(201).json(user);
+      if(!user) {
+        return res.notFound();
+      } else {
+        return res.status(201).json(user);
+      }
     })
     .catch(next);
 }

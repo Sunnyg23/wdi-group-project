@@ -2,8 +2,24 @@ angular
   .module('veganChef')
   .controller('AccountCtrl', AccountCtrl);
 
-AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', 'Ingredient', 'Recipe', '$state', 'filterFilter'];
-function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, filterFilter) {
+AccountCtrl.$inject = [
+  'User',
+  'Cuisine',
+  'Ingredient',
+  'Recipe',
+  'TokenService',
+  '$state',
+  'filterFilter'
+];
+function AccountCtrl(
+  User,
+  Cuisine,
+  Ingredient,
+  Recipe,
+  TokenService,
+  $state,
+  filterFilter
+) {
   const vm = this;
   vm.userId = TokenService.decodeToken().id;
   vm.update = usersUpdate;
@@ -12,11 +28,13 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
   vm.createRecipe = createRecipe;
   vm.instructionCount = 0;
 
-  vm.updatedUser = vm.user;
-
   function getUser() {
     vm.user = User.get({ id: vm.userId });
   }
+
+  getUser();
+
+  vm.updatedUser = vm.user;
 
   vm.cuisines = Cuisine.query(cuisines => {
     // console.log(cuisines[0].name+' account controller');
@@ -57,7 +75,8 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
       .update({ id: vm.userId }, vm.updatedUser)
       .$promise
       .then(() => {
-        $state.go('account');
+        // $state.go('account');
+        getUser();
       });
   }
 
@@ -120,7 +139,7 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
     }
   }
 
-  getUser();
+  // getUser();
 }
 
 // const filtered = filterFilter(vm.cuisines, {name: vm.newRecipeCategory});
