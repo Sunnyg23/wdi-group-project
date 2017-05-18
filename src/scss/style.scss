@@ -178,3 +178,16 @@ footer {
 .user_recipes {
   margin-top: 50px;
 }
+
+.col-sm-6 p {
+  font-size: 18px;
+}
+
+.badge {
+  background-color: $hover;
+  border-radius: 0;
+  color: $color;
+  width: 200px;
+  height: 25px;
+  padding: 7px;
+}
