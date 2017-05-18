@@ -35,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .index_img {
   width: 100%;
 }
@@ -47,9 +51,10 @@ a {
   position: relative;
   top: 190px;
   right: 5px;
-  z-index: 5;
+  z-index: 1;
   font-size: 40px;
   color: $color;
+  background: $hover;
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -82,6 +87,7 @@ a {
 }
 
 .chef_recipeidx {
+  width: 400px;
   border-bottom: 2px solid $hover;
   border-top: 2px solid $hover;
   padding: 5px;
@@ -109,4 +115,15 @@ a {
 
 .panel-body {
   font-size: 20px;
+}
+
+footer {
+  background: $background;
+  position: relative;
+  border-top: 10px solid #6BE400;
+  margin-top: 20px;
+}
+
+.text-muted {
+    color: $color;
 }

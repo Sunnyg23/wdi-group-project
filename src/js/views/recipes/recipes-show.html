@@ -17,6 +17,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-6">
+    <h2>Ingredients</h2>
     <div class="panel panel-default" ng-repeat="ingredient in recipes.recipe.ingredients">
       <div class="panel-body">
         {{ ingredient.measurement }} {{ ingredient.ingredient.name }}
@@ -24,6 +25,7 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-6">
+    <h2>Instructions</h2>
     <div class="panel panel-default" ng-repeat="instruction in recipes.recipe.instructions">
       <div class="panel-body">
         {{ instruction.content }}
