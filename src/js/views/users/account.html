@@ -85,7 +85,7 @@
     <form ng-show="account.newRecipe.ingredients.length > 0">
       <div ng-repeat="ingredient in account.newRecipe.ingredients track by $index" class="form-group">
         <label>Ingredient</label>
-        {{ingredient}}
+        {{ingredient.measurement}}: {{ingredient.ingredient}}
       </div>
 
       <button type="submit" class="btn btn-primary">Update</button>
@@ -106,17 +106,12 @@
     </form>
   </div>
 
-  {{account.newIngredient}}
-
-  {{account.newIngredientMeasurement}}
-
-
   <div class="col-xs-12 col-sm-6">
 
     <form ng-show="account.newRecipe.instructions.length > 0">
       <div ng-repeat="instruction in account.newRecipe.instructions track by $index" class="form-group">
         <label>Instruction</label>
-        {{instruction.content}}
+        {{instruction.index}}: {{instruction.content}}
       </div>
       <button type="submit" class="btn btn-primary">Update</button>
     </form>

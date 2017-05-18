@@ -10,6 +10,7 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
   vm.addIngredient = addIngredient;
   vm.addInstruction = addInstruction;
   vm.createRecipe = createRecipe;
+  vm.instructionCount = 0;
 
   vm.updatedUser = vm.user;
 
@@ -47,6 +48,7 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
   };
 
   vm.newInstruction = {
+    index: 0,
     content: ''
   };
 
@@ -90,8 +92,10 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
   }
 
   function addInstruction() {
+    let index = 1;
     vm.newRecipe.instructions.push(vm.newInstruction);
     vm.newInstruction = {
+      index: vm.newInstruction.index + index,
       content: ''
     };
   }
