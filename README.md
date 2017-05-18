@@ -123,9 +123,13 @@ Sunny - (out of the blue) Opera singers can go very f*cking loud!!
 ***External API***
 
 - Perhaps we could source ingredients from an external API, we used a lot of ingredients from Beyond Meat, but they don't have an API for it. There are many, but it would have been a lot fo work to implement them.
-
 - There are other potential uses for external APIs.
 
 ***External links for more information***
 
 - We would like to add an ingredients show page and provide more information about ingredients, an API would likely provide these features. 
+
+***User and profile features***
+
+- We wanted to have more complex user profiles, allowing users to follow each other etc. 
+- We also wanted comments and sub-comments, but ran out of time. This would require more work on the back end as well as the front. Too big a challenge for such a short time. 
