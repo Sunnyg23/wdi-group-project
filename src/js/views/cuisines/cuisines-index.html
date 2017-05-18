@@ -7,9 +7,16 @@
 
 
 <div class="row">
-  <div class="col-xs-12 col-sm-6 cuisine_image" ng-repeat="cuisine in cuisines.cuisines">
-    <a ui-sref="cuisinesShow({id: cuisine._id })">
-      <span class="cuisine_name">{{ cuisine.name }}</span>
-      <img class="index_img img-responsive" ng-src="{{ cuisine.images.small }}"></a>
+  <div class="col-xs-12 col-sm-6 cuisine_image" ng-repeat="cuisine in cuisines.cuisines" style="height: 400px; margin-bottom: 30px;">
+
+    <!--  -->
+    <div style="background: url({{cuisine.images.small}}) no-repeat center center; width: 100%; height: 100%;">
+      <a ui-sref="cuisinesShow({id: cuisine._id })">
+        <span class="cuisine_name">{{ cuisine.name }}</span>
+        <!-- <img class="index_img img-responsive" ng-src="{{ cuisine.images.small }}"> -->
+      </a>
     </div>
+    <!--  -->
+
   </div>
+</div>

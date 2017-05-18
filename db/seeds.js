@@ -860,7 +860,7 @@ uSunny.recipes.push(rLasagnaCups._id);
 const rChickenPizza = new Recipe(
   {
     'name': 'BBQ Beyond Chicken Pizza',
-    'chef': uSunny._id,
+    'chef': uDanai._id,
     'instructions': [{
       'index': '0' ,
       'content': '1.	Shred Beyond Meat chicken strips with a fork into pieces.'
@@ -1003,7 +1003,7 @@ uSunny.recipes.push(rChickenGreenCurry._id);
 const rKungPaoChickenSpaghetti = new Recipe(
   {
     'name': 'Kung Pao Chicken Spaghetti',
-    'chef': uSunny._id,
+    'chef': uDanai._id,
     'instructions': [{
       'index': '0' ,
       'content': '1.	In a large pan, or wok, cook chopped red bell pepper and zucchini with 1 T. oil and garlic for about 5 minutes, then add the Beyond Chicken to the pan'
@@ -1074,7 +1074,7 @@ uDanai.recipes.push(rKungPaoChickenSpaghetti._id);
 const rSpicyChickenEnchiladaSoup = new Recipe(
   {
     'name': 'Spicy Chicken Enchilada Soup',
-    'chef': uSunny._id,
+    'chef': uDavid._id,
     'instructions': [{
       'index': '0' ,
       'content': '1. Homemade Red Enchilada Sauce: Heat the oil over high heat & whisk in the flour. When it thickens, add the stock in increments, letting it thicken each time before adding more. When the stock is incorporated, add the spices & tomato paste & whisk to combine. Cook until it has the thickness of tomato sauce. Add water if it gets too thick. Set aside.'
@@ -1163,7 +1163,7 @@ uDavid.recipes.push(rSpicyChickenEnchiladaSoup._id);
 const rGreenChileNachoCheeseSauce = new Recipe(
   {
     'name': 'Green Chile Nacho Cheese Sauce ',
-    'chef': uSunny._id,
+    'chef': uLouis._id,
     'instructions': [{
       'index': '0' ,
       'content': '1.  1 cup raw cashews 1/2 cup nutritional yeast 1 teaspoon garlic powder 1 teaspoon onion powder 1 tablespoon paprika 1/4 cup roasted red bell pepper 1 whole roasted green chili 1 lemon, juiced'
@@ -1231,7 +1231,7 @@ uLouis.recipes.push(rGreenChileNachoCheeseSauce ._id);
 const rPumpkinCoconutCurry = new Recipe(
   {
     'name': 'Pumpkin Coconut Curry',
-    'chef': uSunny._id,
+    'chef': uDavid._id,
     'instructions': [{
       'index': '0' ,
       'content': '1. . Roast your veggies. Preheat the oven to 350°. Cut the tomatoes into six wedges, and the butternut squash into ½ inch cubes. Toss them with oil and roast the tomatoes and butternut squash plus other vegetables you like for 30-35 minutes'
@@ -1285,7 +1285,7 @@ uDavid.recipes.push(rPumpkinCoconutCurry._id);
 const rSpicyMisoSesameChicken = new Recipe(
   {
     'name': 'Spicy Miso Sesame Chicken',
-    'chef': uSunny._id,
+    'chef': uLouis._id,
     'instructions': [{
       'index': '0' ,
       'content': '1. Steam some rice. I used brown Basmati. I also added some broccoli to the cooking rice in the last 5 minutes.'
@@ -1536,7 +1536,7 @@ User
           'name': 'English',
           'recipes': [rElvisBurger._id, rPineapleBurger._id],
           'images': {
-            'small': '/images/recipes/fishandchips.jpg'
+            'small': '/images/recipes/english.jpg'
           }
         },{
           'name': 'Italian',
@@ -1548,7 +1548,7 @@ User
           'name': 'Oriental',
           'recipes': [rChickenGreenCurry._id, rKungPaoChickenSpaghetti._id],
           'images': {
-            'small': '/images/recipes/download.jpeg'
+            'small': '/images/recipes/indianc.jpg'
           }
         },{
           'name': 'Mexican',
@@ -1560,13 +1560,13 @@ User
           'name': 'Indian',
           'recipes': [rPumpkinCoconutCurry._id, rSpicyMisoSesameChicken._id],
           'images': {
-            'small': '/images/recipes/indianc.jpg'
+            'small': '/images/recipes/chicken-balti1.jpg'
           }
         },{
           'name': 'Nibbles',
           'recipes': [rChickenThaiSkewers._id, rTangyOrangeGrapeSkewers._id],
           'images': {
-            'small': '/images/recipes/nibs.jpg'
+            'small': '/images/recipes/nibbles.jpg'
           }
         }
         // },{
