@@ -2,44 +2,52 @@ angular
   .module('veganChef')
   .controller('AccountCtrl', AccountCtrl);
 
-AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', 'Ingredient', '$state', 'filterFilter'];
-function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilter) {
+AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', 'Ingredient', 'Recipe', '$state', 'filterFilter'];
+function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, filterFilter) {
   const vm = this;
   vm.userId = TokenService.decodeToken().id;
   vm.update = usersUpdate;
-  vm.createIngredient = createIngredient;
+  vm.addIngredient = addIngredient;
+  vm.addInstruction = addInstruction;
+  vm.createRecipe = createRecipe;
 
-  vm.user = User.get({ id: vm.userId });
   vm.updatedUser = vm.user;
 
+  function getUser() {
+    vm.user = User.get({ id: vm.userId });
+  }
 
   vm.cuisines = Cuisine.query(cuisines => {
-    // console.log(cuisines+' account controller');
+    // console.log(cuisines[0].name+' account controller');
   });
 
   vm.allIngredients = Ingredient.query(ingredients => {
     // console.log(ingredients+' account controller');
   });
 
+  vm.newRecipeCategory = '';
   vm.newRecipe = {
     name: '',
     chef: vm.userId,
-    instructions: [{
-      content: ''
-    }],
+    instructions: [],
     ingredients: [],
     images: {
       small: '',
-      large: '',
-      others: ['']
+      large: ''
     }
   };
+
+  vm.newIngredientMeasurement = '';
 
   vm.newIngredient = {
     name: '',
     images: {
       small: ''
     }
+  };
+
+  vm.newInstruction = {
+    content: ''
   };
 
   function usersUpdate() {
@@ -51,22 +59,65 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilt
       });
   }
 
-  function createIngredient() {
+  function addIngredient() {
     const filtered = filterFilter(vm.allIngredients, {name: vm.newIngredient.name});
     if(filtered.length < 1) {
       Ingredient
         .save(vm.newIngredient)
         .$promise
         .then(ingredient => {
-          vm.newRecipe.ingredients.push(ingredient._id);
+          console.log(vm.newIngredientMeasurement);
+          vm.newRecipe.ingredients.push({
+            measurement: vm.newIngredientMeasurement,
+            ingredient: ingredient._id
+          });
+          vm.newIngredientMeasurement = '';
         });
     } else {
-      vm.newRecipe.ingredients.push(filtered[0]._id);
+      console.log(vm.newIngredientMeasurement);
+      vm.newRecipe.ingredients.push({
+        measurement: vm.newIngredientMeasurement,
+        ingredient: filtered[0]._id
+      });
+      vm.newIngredientMeasurement = '';
     }
+    vm.newIngredient = {
+      name: '',
+      images: {
+        small: ''
+      }
+    };
+  }
+
+  function addInstruction() {
+    vm.newRecipe.instructions.push(vm.newInstruction);
+    vm.newInstruction = {
+      content: ''
+    };
   }
 
   function createRecipe() {
-    
+    const filtered = filterFilter(vm.cuisines, {name: vm.newRecipeCategory});
+    if(vm.newRecipeCategory !== 'Select one' && vm.newRecipeCategory !== '') {
+      Recipe.save(vm.newRecipe)
+        .$promise
+        .then(recipe => {
+          console.log(recipe+' recipe returned');
+          filtered[0].recipes.push(recipe._id);
+          vm.user.recipes.push(recipe._id);
+          usersUpdate();
+          return Cuisine
+            .update(filtered._id, filtered[0]);
+        })
+        .then(cuisine => {
+          console.log(cuisine.recipes+' after');
+          getUser();
+        });
+    }
   }
 
+  getUser();
 }
+
+// const filtered = filterFilter(vm.cuisines, {name: vm.newRecipeCategory});
+// filtered[0].recipes.push('id here');
