@@ -54,7 +54,7 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
 
   function usersUpdate() {
     User
-      .update({ id: vm.userId }, vm.user)
+      .update({ id: vm.userId }, vm.updatedUser)
       .$promise
       .then(() => {
         $state.go('account');
