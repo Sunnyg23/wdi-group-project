@@ -3,6 +3,7 @@
 .navbar-default {
   .navbar-brand {
     color: $color;
+    font-size: 25px;
   }
   .navbar-brand:hover {
     color: $hover;
@@ -11,7 +12,7 @@
     li {
       a {
         color: $color;
-        font-size: 18px;
+        font-size: 20px;
       }
       a:hover {
         color: $hover;
