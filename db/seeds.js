@@ -51,6 +51,7 @@ const uSunny = new User({
   'email': 'sunny@sunny.com',
   'password': 'password',
   'passwordConfirmation': 'password',
+  'profileImage': 'http://www.stevensegallery.com/200/200',
   'recipes': []
 });
 const uLouis = new User({
@@ -58,6 +59,7 @@ const uLouis = new User({
   'email': 'louis@louis.com',
   'password': 'password',
   'passwordConfirmation': 'password',
+  'profileImage': 'http://www.stevensegallery.com/200/200',
   'recipes': []
 });
 const uDanai = new User({
@@ -65,6 +67,7 @@ const uDanai = new User({
   'email': 'danai@danai.com',
   'password': 'password',
   'passwordConfirmation': 'password',
+  'profileImage': 'http://www.stevensegallery.com/200/200',
   'recipes': []
 });
 const uDavid = new User({
@@ -72,6 +75,7 @@ const uDavid = new User({
   'email': 'david@david.com',
   'password': 'password',
   'passwordConfirmation': 'password',
+  'profileImage': 'http://www.stevensegallery.com/200/200',
   'recipes': []
 });
 // ingredients second
@@ -917,7 +921,7 @@ const rChickenPizza = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rChickenPizza._id);
+uDanai.recipes.push(rChickenPizza._id);
 
 
 // ##############################################
@@ -1063,7 +1067,7 @@ const rKungPaoChickenSpaghetti = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rKungPaoChickenSpaghetti._id);
+uDanai.recipes.push(rKungPaoChickenSpaghetti._id);
 
 // #################################################
 
@@ -1152,7 +1156,7 @@ const rSpicyChickenEnchiladaSoup = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rSpicyChickenEnchiladaSoup._id);
+uDavid.recipes.push(rSpicyChickenEnchiladaSoup._id);
 
 // #################################################
 
@@ -1220,7 +1224,7 @@ const rGreenChileNachoCheeseSauce = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rGreenChileNachoCheeseSauce ._id);
+uLouis.recipes.push(rGreenChileNachoCheeseSauce ._id);
 
 // #################################################
 
@@ -1274,7 +1278,7 @@ const rPumpkinCoconutCurry = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rPumpkinCoconutCurry._id);
+uDavid.recipes.push(rPumpkinCoconutCurry._id);
 
 // #################################################
 
@@ -1339,7 +1343,7 @@ const rSpicyMisoSesameChicken = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rSpicyMisoSesameChicken._id);
+uLouis.recipes.push(rSpicyMisoSesameChicken._id);
 
 // #################################################
 
@@ -1532,37 +1536,37 @@ User
           'name': 'English',
           'recipes': [rElvisBurger._id, rPineapleBurger._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/fishandchips.jpg'
           }
         },{
           'name': 'Italian',
           'recipes': [rLasagnaCups._id, rChickenPizza._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/pizza.jpg'
           }
         },{
           'name': 'Oriental',
           'recipes': [rChickenGreenCurry._id, rKungPaoChickenSpaghetti._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/download.jpeg'
           }
         },{
           'name': 'Mexican',
           'recipes': [rSpicyChickenEnchiladaSoup._id, rGreenChileNachoCheeseSauce._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/taco.jpg'
           }
         },{
           'name': 'Indian',
           'recipes': [rPumpkinCoconutCurry._id, rSpicyMisoSesameChicken._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/indianc.jpg'
           }
         },{
           'name': 'Nibbles',
           'recipes': [rChickenThaiSkewers._id, rTangyOrangeGrapeSkewers._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/nibs.jpg'
           }
         }
         // },{
