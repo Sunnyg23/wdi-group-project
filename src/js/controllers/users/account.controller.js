@@ -52,15 +52,17 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilt
   }
 
   function createIngredient() {
-    console.log(filterFilter(vm.allIngredients, {name: 'Salt'}));
-    // if(false) {
-    //   Ingredient
-    //     .save(vm.newIngredient)
-    //     .$promise
-    //     .then(ingredient => {
-    //       vm.newRecipe.ingredients.push(ingredient._id);
-    //     });
-    // }
+    const filtered = filterFilter(vm.allIngredients, {name: vm.newIngredient.name});
+    if(filtered.length < 1) {
+      Ingredient
+        .save(vm.newIngredient)
+        .$promise
+        .then(ingredient => {
+          vm.newRecipe.ingredients.push(ingredient._id);
+        });
+    } else {
+      vm.newRecipe.ingredients.push(filtered[0]._id);
+    }
   }
 
 }
