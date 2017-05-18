@@ -809,7 +809,7 @@ const rChickenPizza = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rChickenPizza._id);
+uDanai.recipes.push(rChickenPizza._id);
 
 
 // ##############################################
@@ -955,7 +955,7 @@ const rKungPaoChickenSpaghetti = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rKungPaoChickenSpaghetti._id);
+uDanai.recipes.push(rKungPaoChickenSpaghetti._id);
 
 // #################################################
 
@@ -1044,7 +1044,7 @@ const rSpicyChickenEnchiladaSoup = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rSpicyChickenEnchiladaSoup._id);
+uDavid.recipes.push(rSpicyChickenEnchiladaSoup._id);
 
 // #################################################
 
@@ -1112,7 +1112,7 @@ const rGreenChileNachoCheeseSauce = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rGreenChileNachoCheeseSauce ._id);
+uLouis.recipes.push(rGreenChileNachoCheeseSauce ._id);
 
 // #################################################
 
@@ -1166,7 +1166,7 @@ const rPumpkinCoconutCurry = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rPumpkinCoconutCurry._id);
+uDavid.recipes.push(rPumpkinCoconutCurry._id);
 
 // #################################################
 
@@ -1231,7 +1231,7 @@ const rSpicyMisoSesameChicken = new Recipe(
     }
   }
 );
-uSunny.recipes.push(rSpicyMisoSesameChicken._id);
+uLouis.recipes.push(rSpicyMisoSesameChicken._id);
 
 User
   .create([
