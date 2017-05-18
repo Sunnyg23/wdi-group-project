@@ -111,3 +111,21 @@ We found a way around this problem by tricking the test file to log in by storin
 Louis - When I pseudocode, I code.
 
 Sunny - (out of the blue) Opera singers can go very f*cking loud!!
+
+
+#Future plans
+--
+
+***Index of users / chefs***
+
+- We would like to allow users to browse Chefs, though at the moment we want to draw attention to the recipes as opposed to the individual Chefs. 
+
+***External API***
+
+- Perhaps we could source ingredients from an external API, we used a lot of ingredients from Beyond Meat, but they don't have an API for it. There are many, but it would have been a lot fo work to implement them.
+
+- There are other potential uses for external APIs.
+
+***External links for more information***
+
+- We would like to add an ingredients show page and provide more information about ingredients, an API would likely provide these features. 
