@@ -22,7 +22,7 @@
       <input ng-model="account.updatedUser.email" name="email" type="text" class="form-control" placeholder="Email" value="{{main.user.email}}">
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-default">Submit</button>
   </form>
 
 </div>
@@ -74,7 +74,7 @@
       <input ng-model="account.newRecipe.images.large" type="text" class="form-control" placeholder="Large Image">
     </div> -->
 
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-default">Create</button>
     <hr>
   </form>
 </div>
@@ -88,7 +88,7 @@
         {{ingredient.measurement}}: {{ingredient.ingredient}}
       </div>
 
-      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="submit" class="btn btn-default">Update</button>
     </form>
 
     <div class="form-group">
@@ -102,7 +102,7 @@
         <input ng-model="account.newIngredient.name" type="text" class="form-control" placeholder="Ingredient">
       </div>
 
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="submit" class="btn btn-default">Add</button>
     </form>
   </div>
 
@@ -113,7 +113,7 @@
         <label>Instruction</label>
         {{instruction.index}}: {{instruction.content}}
       </div>
-      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="submit" class="btn btn-default">Update</button>
     </form>
 
     <form ng-submit="account.addInstruction()">
@@ -123,7 +123,7 @@
         <input ng-model="account.newInstruction.content" type="text" class="form-control" placeholder="Instruction">
       </div>
 
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="submit" class="btn btn-default">Add</button>
     </form>
   </div>
 
