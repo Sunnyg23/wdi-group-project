@@ -1532,37 +1532,37 @@ User
           'name': 'English',
           'recipes': [rElvisBurger._id, rPineapleBurger._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/fishandchips.jpg'
           }
         },{
           'name': 'Italian',
           'recipes': [rLasagnaCups._id, rChickenPizza._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/pizza.jpg'
           }
         },{
           'name': 'Oriental',
           'recipes': [rChickenGreenCurry._id, rKungPaoChickenSpaghetti._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/download.jpeg'
           }
         },{
           'name': 'Mexican',
           'recipes': [rSpicyChickenEnchiladaSoup._id, rGreenChileNachoCheeseSauce._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/taco.jpg'
           }
         },{
           'name': 'Indian',
           'recipes': [rPumpkinCoconutCurry._id, rSpicyMisoSesameChicken._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/indianc.jpg'
           }
         },{
           'name': 'Nibbles',
           'recipes': [rChickenThaiSkewers._id, rTangyOrangeGrapeSkewers._id],
           'images': {
-            'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
+            'small': '/images/recipes/nibs.jpg'
           }
         }
         // },{
