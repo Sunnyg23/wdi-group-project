@@ -7,7 +7,8 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilt
   const vm = this;
   vm.userId = TokenService.decodeToken().id;
   vm.update = usersUpdate;
-  vm.createIngredient = createIngredient;
+  vm.addIngredient = addIngredient;
+  vm.addInstruction = addInstruction;
 
   vm.user = User.get({ id: vm.userId });
   vm.updatedUser = vm.user;
@@ -24,9 +25,7 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilt
   vm.newRecipe = {
     name: '',
     chef: vm.userId,
-    instructions: [{
-      content: ''
-    }],
+    instructions: [],
     ingredients: [],
     images: {
       small: '',
@@ -42,6 +41,10 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilt
     }
   };
 
+  vm.newInstruction = {
+    content: ''
+  };
+
   function usersUpdate() {
     User
       .update({ id: vm.userId }, vm.user)
@@ -51,7 +54,7 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilt
       });
   }
 
-  function createIngredient() {
+  function addIngredient() {
     const filtered = filterFilter(vm.allIngredients, {name: vm.newIngredient.name});
     if(filtered.length < 1) {
       Ingredient
@@ -63,10 +66,19 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, $state, filterFilt
     } else {
       vm.newRecipe.ingredients.push(filtered[0]._id);
     }
+    vm.newIngredient = {
+      name: '',
+      images: {
+        small: ''
+      }
+    };
   }
 
-  function createRecipe() {
-    
+  function addInstruction() {
+    vm.newRecipe.instructions.push(vm.newInstruction);
+    vm.newInstruction = {
+      content: ''
+    };
   }
 
 }

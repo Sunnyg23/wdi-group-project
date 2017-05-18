@@ -47,13 +47,10 @@
 
 </div>
 <hr>
-
-
-<hr>
 <div class="row">
 
   <h3>New Recipe</h3>
-  <form class="col-xs-12 col-sm-6" ng-submit="recipes.create()">
+  <form ng-submit="recipes.create()">
     <div class="form-group">
       <label>Name</label>
       <input ng-model="account.newRecipe.name" type="text" class="form-control" placeholder="Recipe name">
@@ -78,17 +75,22 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
+    <hr>
   </form>
+</div>
+
+<div class="row">
 
   <div class="col-xs-12 col-sm-6">
-    <form ng-show="account.newRecipe.ingredients.length > 0" ng-submit="account.updateRecipes()">
+    <form ng-show="account.newRecipe.ingredients.length > 0">
       <div ng-repeat="ingredient in account.newRecipe.ingredients" class="form-group">
         <label>Ingredient</label>
+        {{ingredient}}
       </div>
 
       <button type="submit" class="btn btn-primary">Update</button>
     </form>
-    <form ng-submit="account.createIngredient()">
+    <form ng-submit="account.addIngredient()">
       <div class="form-group">
         <label>Ingredient</label>
         <input ng-model="account.newIngredient.name" type="text" class="form-control" placeholder="Ingredient">
@@ -98,10 +100,30 @@
         <input ng-model="account.newIngredient.images.small" type="text" class="form-control" placeholder="Image">
       </div>
 
-      <button type="submit" class="btn btn-primary">Create New</button>
+      <button type="submit" class="btn btn-primary">Add</button>
     </form>
   </div>
 
 
+  <div class="col-xs-12 col-sm-6">
+
+    <form ng-show="account.newRecipe.instructions.length > 0">
+      <div ng-repeat="instruction in account.newRecipe.instructions" class="form-group">
+        <label>Instruction</label>
+        {{instruction.content}}
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+    <form ng-submit="account.addInstruction()">
+
+      <div class="form-group">
+        <label>Instruction</label>
+        <input ng-model="account.newInstruction.content" type="text" class="form-control" placeholder="Instruction">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
 
 </div>
