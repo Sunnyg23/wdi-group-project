@@ -1548,7 +1548,7 @@ User
           'name': 'Oriental',
           'recipes': [rChickenGreenCurry._id, rKungPaoChickenSpaghetti._id],
           'images': {
-            'small': '/images/recipes/download.jpeg'
+            'small': '/images/recipes/indianc.jpeg'
           }
         },{
           'name': 'Mexican',
@@ -1560,13 +1560,13 @@ User
           'name': 'Indian',
           'recipes': [rPumpkinCoconutCurry._id, rSpicyMisoSesameChicken._id],
           'images': {
-            'small': '/images/recipes/indianc.jpg'
+            'small': '/images/recipes/maxresdefault.jpg'
           }
         },{
           'name': 'Nibbles',
           'recipes': [rChickenThaiSkewers._id, rTangyOrangeGrapeSkewers._id],
           'images': {
-            'small': '/images/recipes/nibs.jpg'
+            'small': '/images/recipes/nibbles.jpg'
           }
         }
         // },{
