@@ -110,6 +110,8 @@ a:hover {
 .profile-recipe-image-2 {
   height: 400px;
   padding: 10px;
+
+
 }
 .icon {
   font-size: 25px;
@@ -139,4 +141,11 @@ footer {
 
 .fixIt{
   height: 20px;
+}
+
+.profPic  {
+  border-radius: 120px;
+  border-style: double;
+  border-width: 10px;
+  border-color: $color;
 }

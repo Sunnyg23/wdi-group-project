@@ -1,16 +1,16 @@
 angular
   .module('veganChef')
-  .directive('card', card);
+  .directive('recipe', recipe);
 
-card.$inject = [];
-function card() {
+recipe.$inject = [];
+function recipe() {
   const directive = {};
 
   directive.restrict = 'E';
   directive.replace  = true;
-  directive.templateUrl = '/js/views/templates/card.template.html';
+  directive.templateUrl = '/js/views/templates/recipe.template.html';
   directive.scope = {
-    question: '@'
+    recipe: '='
   };
 
   return directive;
