@@ -15,12 +15,14 @@
   </div>
 </div>
 
-<div class="row">
-  <h2>{{ profile.user.username }}'s Recipes</h2>
+<div class="row user_recipes">
+  <div class="chef_recipeidx">
+  <h2>{{ profile.user.username }}'s Cookbook</h2>
+  </div>
   <a ng-repeat="recipe in profile.user.recipes" ui-sref="recipesShow({id: recipe._id})">
     <div class=" profile-recipe-image-2 col-xs-12 col-sm-6 col-md-4">
       <div class="profile-recipe-image" style="background: url({{ recipe.images.small }}) no-repeat center center;">
-        <span class="recipe_name">{{recipe.name}}</span>
+        <span class="cuisine_name">{{recipe.name}}</span>
       </div>
     </div>
   </a>
