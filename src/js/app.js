@@ -6,7 +6,6 @@
       'ngResource',
       'angular-jwt',
       'ui.bootstrap',
-      'ngAnimate',
-      'ngMessages'
+      'ngAnimate'
     ]);
 })();
