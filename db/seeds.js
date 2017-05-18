@@ -51,7 +51,7 @@ const uSunny = new User({
   'email': 'sunny@sunny.com',
   'password': 'password',
   'passwordConfirmation': 'password',
-  'image': 'http://www.stevensegallery.com/200/200',
+  'profileImage': 'http://www.stevensegallery.com/200/200',
   'recipes': []
 });
 const uLouis = new User({
@@ -59,7 +59,7 @@ const uLouis = new User({
   'email': 'louis@louis.com',
   'password': 'password',
   'passwordConfirmation': 'password',
-  'image': 'http://www.stevensegallery.com/200/200',
+  'profileImage': 'http://www.stevensegallery.com/200/200',
   'recipes': []
 });
 const uDanai = new User({
@@ -67,7 +67,7 @@ const uDanai = new User({
   'email': 'danai@danai.com',
   'password': 'password',
   'passwordConfirmation': 'password',
-  'image': 'http://www.stevensegallery.com/200/200',
+  'profileImage': 'http://www.stevensegallery.com/200/200',
   'recipes': []
 });
 const uDavid = new User({
@@ -75,7 +75,7 @@ const uDavid = new User({
   'email': 'david@david.com',
   'password': 'password',
   'passwordConfirmation': 'password',
-  'image': 'http://www.stevensegallery.com/200/200',
+  'profileImage': 'http://www.stevensegallery.com/200/200',
   'recipes': []
 });
 // ingredients second
