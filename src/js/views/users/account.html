@@ -1,36 +1,33 @@
-<h1 class="page-header">Account page</h1>
-
-
-
-
-
+<h1 >Account page</h1>
+<!-- class="page-header" -->
 <div class="row">
+<h3>Change account details</h3>
 
-  <h3>Change account details</h3>
-
-<hr>
-  <!-- {{account.updatedUser}} -->
-<hr>
-
-  <form ng-submit="account.update()">
-
-    <div class="form-group">
+<form ng-submit="account.update()">
+    <div class="form-group col-md-4 col-md-offset-4">
       <label>Username</label>
       <input ng-model="account.updatedUser.username" name="username" type="text" class="form-control" placeholder="Username" value="{{main.user.username}}">
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-4 col-md-offset-4">
       <label>Email</label>
       <input ng-model="account.updatedUser.email" name="email" type="text" class="form-control" placeholder="Email" value="{{main.user.email}}">
     </div>
+    <div class="col-md-4 col-md-offset-4">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
 </div>
+<br>
 
-<h3>Your recipes</h3>
-<div class="row">
+
+<div class="chef_recipeidx">
+<h2>Your Cookbook</h2>
+</div>
+
+<div class="row user_recipes">
 
   <div class="col-xs-6 col-sm-4 col-lg-3" ng-repeat="recipe in main.user.recipes">
 
@@ -47,61 +44,91 @@
 
 </div>
 <hr>
-
-
-<hr>
 <div class="row">
-
+<div class="chef_recipeidx">
   <h3>New Recipe</h3>
-  <form class="col-xs-12 col-sm-6" ng-submit="recipes.create()">
-    <div class="form-group">
+</div>
+<br>
+
+  <div class="form-group col-md-4 col-md-offset-4">
+    <label>Cuisine category</label>
+    <select ng-model="account.newRecipeCategory" class="form-control">
+      <option>Select one</option>
+      <option ng-repeat="cuisine in account.cuisines track by $index" value="{{cuisine.name}}">{{cuisine.name}}</option>
+    </select>
+  </div>
+
+  <form ng-submit="account.createRecipe()">
+
+    <div class="form-group col-md-4 col-md-offset-4">
       <label>Name</label>
       <input ng-model="account.newRecipe.name" type="text" class="form-control" placeholder="Recipe name">
     </div>
 
-    <div class="form-group">
-      <label>Cuisine category</label>
-      <select class="form-control">
-        <option>Select one</option>
-        <option ng-repeat="cuisine in account.cuisines" value="{{cuisine.name}}">{{cuisine.name}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
+    <div class="form-group col-md-4 col-md-offset-4">
       <label>Small Image URL</label>
       <input ng-model="account.newRecipe.images.small" type="text" class="form-control" placeholder="Small Image">
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label>Large Image URL</label>
       <input ng-model="account.newRecipe.images.large" type="text" class="form-control" placeholder="Large Image">
-    </div>
+    </div> -->
+    <div class="col-md-4 col-md-offset-4">
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+      <button type="submit" class="btn btn-default form-control">Create</button>
+    </div>
   </form>
+</div>
+<br>
+<br>
+<div class="row">
 
   <div class="col-xs-12 col-sm-6">
-    <form ng-show="account.newRecipe.ingredients.length > 0" ng-submit="account.updateRecipes()">
-      <div ng-repeat="ingredient in account.newRecipe.ingredients" class="form-group">
+    <form ng-show="account.newRecipe.ingredients.length > 0">
+      <div ng-repeat="ingredient in account.newRecipe.ingredients track by $index" class="form-group">
         <label>Ingredient</label>
+        {{ingredient.measurement}}: {{ingredient.ingredient}}
       </div>
-
-      <button type="submit" class="btn btn-primary">Update</button>
+      <div class="col-md-4 col-md-offset-4">
+        <button type="submit" class="btn btn-default form-control">Update</button>
+      </div>
     </form>
-    <form ng-submit="account.createIngredient()">
+
+    <div class="form-group">
+      <label>Measurement</label>
+      <input ng-model="account.newIngredientMeasurement" type="text" class="form-control" placeholder="Measurement">
+    </div>
+
+    <form ng-submit="account.addIngredient()">
       <div class="form-group">
         <label>Ingredient</label>
         <input ng-model="account.newIngredient.name" type="text" class="form-control" placeholder="Ingredient">
       </div>
+        <button type="submit" class="btn btn-default form-control">Add</button>
+      </form>
+    </div>
+
+  <div class="col-xs-12 col-sm-6">
+
+    <form ng-show="account.newRecipe.instructions.length > 0">
+      <div ng-repeat="instruction in account.newRecipe.instructions track by $index" class="form-group">
+        <label>Instruction</label>
+        {{instruction.index}}: {{instruction.content}}
+      </div>
+      <button type="submit" class="btn btn-default form-control">Update</button>
+    </form>
+
+    <form ng-submit="account.addInstruction()">
+
       <div class="form-group">
-        <label>Image</label>
-        <input ng-model="account.newIngredient.images.small" type="text" class="form-control" placeholder="Image">
+        <label>Instruction</label>
+        <input ng-model="account.newInstruction.content" type="text" class="form-control" placeholder="Instruction">
       </div>
 
-      <button type="submit" class="btn btn-primary">Create New</button>
+      <button type="submit" class="btn btn-default form-control">Add</button>
     </form>
   </div>
-
-
 
 </div>

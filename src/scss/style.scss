@@ -105,13 +105,13 @@ a:hover {
 }
 
 .chef_recipeidx {
-  width: 350px;
-  border-bottom: 2px solid $hover;
-  border-top: 2px solid $hover;
-  padding: 5px;
-  margin: auto;
-  margin-bottom: 10px;
-
+     width: 350px;
+     border-bottom: 2px solid #6BE400 ;
+     border-top: 2px solid #6BE400 ;
+     padding-bottom: 15px;
+     margin: auto;
+     margin-bottom: 10px;
+     
   a {
     color: $hover;
     padding-left: 20px;
@@ -173,4 +173,21 @@ footer {
   border-style: double;
   border-width: 10px;
   border-color: $color;
+}
+
+.user_recipes {
+  margin-top: 50px;
+}
+
+.col-sm-6 p {
+  font-size: 18px;
+}
+
+.badge {
+  background-color: $hover;
+  border-radius: 0;
+  color: $color;
+  width: 200px;
+  height: 25px;
+  padding: 7px;
 }
