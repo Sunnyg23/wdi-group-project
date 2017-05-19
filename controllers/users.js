@@ -11,7 +11,6 @@ function usersIndex(req, res, next) {
 }
 
 function usersShow(req, res, next) {
-  console.log('id is: ', req.params._id);
   User
     .findById(req.params.id)
     .populate('recipes')
@@ -28,8 +27,11 @@ function usersUpdate(req, res, next) {
     .findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then(user => {
-      if(!user) return res.notFound();
-      return res.status(201).json(user);
+      if(!user) {
+        return res.notFound();
+      } else {
+        return res.status(201).json(user);
+      }
     })
     .catch(next);
 }

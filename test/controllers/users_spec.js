@@ -321,7 +321,6 @@ describe('Users and Auth test block', () => {
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '+myToken)
         .send({
-          username: 'louis'
         })
         .then(res => {
           expect(res.body)
@@ -342,7 +341,11 @@ describe('Users and Auth test block', () => {
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '+myToken)
         .send({
-          username: 'louis'
+        //   username: 'louis'
+        // },{
+          username: 'louis',
+          email: 'blah@blah.com',
+          recipes: []
         })
         .then(res => {
           expect(res.body.username)

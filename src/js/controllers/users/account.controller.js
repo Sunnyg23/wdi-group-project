@@ -2,8 +2,24 @@ angular
   .module('veganChef')
   .controller('AccountCtrl', AccountCtrl);
 
-AccountCtrl.$inject = ['User', 'TokenService', 'Cuisine', 'Ingredient', 'Recipe', '$state', 'filterFilter'];
-function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, filterFilter) {
+AccountCtrl.$inject = [
+  'User',
+  'Cuisine',
+  'Ingredient',
+  'Recipe',
+  'TokenService',
+  '$state',
+  'filterFilter'
+];
+function AccountCtrl(
+  User,
+  Cuisine,
+  Ingredient,
+  Recipe,
+  TokenService,
+  $state,
+  filterFilter
+) {
   const vm = this;
   vm.userId = TokenService.decodeToken().id;
   vm.update = usersUpdate;
@@ -12,11 +28,13 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
   vm.createRecipe = createRecipe;
   vm.instructionCount = 0;
 
-  vm.updatedUser = vm.user;
-
   function getUser() {
     vm.user = User.get({ id: vm.userId });
   }
+
+  getUser();
+
+  vm.updatedUser = vm.user;
 
   vm.cuisines = Cuisine.query(cuisines => {
     // console.log(cuisines[0].name+' account controller');
@@ -54,10 +72,13 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
 
   function usersUpdate() {
     User
-      .update({ id: vm.userId }, vm.user)
+      .update({ id: vm.userId }, vm.updatedUser)
       .$promise
-      .then(() => {
-        $state.go('account');
+      .then(user => {
+        console.log(user);
+        vm.user = user;
+        // $state.go('account');
+        getUser();
       });
   }
 
@@ -68,7 +89,6 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
         .save(vm.newIngredient)
         .$promise
         .then(ingredient => {
-          console.log(vm.newIngredientMeasurement);
           vm.newRecipe.ingredients.push({
             measurement: vm.newIngredientMeasurement,
             ingredient: ingredient._id
@@ -76,7 +96,6 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
           vm.newIngredientMeasurement = '';
         });
     } else {
-      console.log(vm.newIngredientMeasurement);
       vm.newRecipe.ingredients.push({
         measurement: vm.newIngredientMeasurement,
         ingredient: filtered[0]._id
@@ -106,7 +125,6 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
       Recipe.save(vm.newRecipe)
         .$promise
         .then(recipe => {
-          console.log(recipe+' recipe returned');
           filtered[0].recipes.push(recipe._id);
           vm.user.recipes.push(recipe._id);
           usersUpdate();
@@ -114,13 +132,13 @@ function AccountCtrl(User, TokenService, Cuisine, Ingredient, Recipe, $state, fi
             .update(filtered._id, filtered[0]);
         })
         .then(cuisine => {
-          console.log(cuisine.recipes+' after');
           getUser();
+          $state.go('account');
         });
     }
   }
 
-  getUser();
+  // getUser();
 }
 
 // const filtered = filterFilter(vm.cuisines, {name: vm.newRecipeCategory});

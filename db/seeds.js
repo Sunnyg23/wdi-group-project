@@ -13,38 +13,6 @@ Recipe.collection.drop();
 Ingredient.collection.drop();
 User.collection.drop();
 
-// const cuisines =  [
-//   {
-//     'name': 'Indian',
-//     'images': {
-//       'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
-//     }
-//   },
-//   {
-//     'name': 'Mexican',
-//     'images': {
-//       'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
-//     }
-//   }
-// ];
-
-// const recipes = [
-//
-//   {
-//     'name': 'lamb',
-//     'instructions': [{
-//       'index': '1' ,
-//       'content': 'blah'
-//     }],
-//     'ingredients': [{
-//       'measurement': '1'
-//     }],
-//     'images': {
-//       'small': 'http://www.kilnford.co.uk/wp-content/uploads/2017/03/Kilnford-indian-lamb-curry-5.jpg'
-//     }
-//   }
-// ];
-
 // users first
 const uSunny = new User({
   'username': 'Sunny',
