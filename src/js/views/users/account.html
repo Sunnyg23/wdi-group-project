@@ -29,7 +29,7 @@
 
 <div class="row user_recipes">
 
-  <div class="col-xs-6 col-sm-4 col-lg-3" ng-repeat="recipe in main.user.recipes">
+  <div class="col-xs-6 col-sm-4 col-lg-3" ng-repeat="recipe in account.user.recipes">
 
     <div class="thumbnail" style="height: 450px;">
       <img src="{{recipe.images.small}}" alt="{{recipe.name}}">
@@ -53,7 +53,7 @@
   <div class="form-group col-md-4 col-md-offset-4">
     <label>Cuisine category</label>
     <select ng-model="account.newRecipeCategory" class="form-control">
-      <option>Select one</option>
+      <!-- <option>Select one</option> -->
       <option ng-repeat="cuisine in account.cuisines track by $index" value="{{cuisine.name}}">{{cuisine.name}}</option>
     </select>
   </div>
@@ -92,7 +92,7 @@
         {{ingredient.measurement}}: {{ingredient.ingredient}}
       </div>
       <div class="col-md-4 col-md-offset-4">
-        <button type="submit" class="btn btn-default form-control">Update</button>
+        <!-- <button type="submit" class="btn btn-default form-control">Update</button> -->
       </div>
     </form>
 
@@ -117,7 +117,7 @@
         <label>Instruction</label>
         {{instruction.index}}: {{instruction.content}}
       </div>
-      <button type="submit" class="btn btn-default form-control">Update</button>
+      <!-- <button type="submit" class="btn btn-default form-control">Update</button> -->
     </form>
 
     <form ng-submit="account.addInstruction()">

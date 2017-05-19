@@ -74,7 +74,9 @@ function AccountCtrl(
     User
       .update({ id: vm.userId }, vm.updatedUser)
       .$promise
-      .then(() => {
+      .then(user => {
+        console.log(user);
+        vm.user = user;
         // $state.go('account');
         getUser();
       });
