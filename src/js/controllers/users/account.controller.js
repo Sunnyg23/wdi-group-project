@@ -87,7 +87,6 @@ function AccountCtrl(
         .save(vm.newIngredient)
         .$promise
         .then(ingredient => {
-          console.log(vm.newIngredientMeasurement);
           vm.newRecipe.ingredients.push({
             measurement: vm.newIngredientMeasurement,
             ingredient: ingredient._id
@@ -95,7 +94,6 @@ function AccountCtrl(
           vm.newIngredientMeasurement = '';
         });
     } else {
-      console.log(vm.newIngredientMeasurement);
       vm.newRecipe.ingredients.push({
         measurement: vm.newIngredientMeasurement,
         ingredient: filtered[0]._id
@@ -125,7 +123,6 @@ function AccountCtrl(
       Recipe.save(vm.newRecipe)
         .$promise
         .then(recipe => {
-          console.log(recipe+' recipe returned');
           filtered[0].recipes.push(recipe._id);
           vm.user.recipes.push(recipe._id);
           usersUpdate();
@@ -133,8 +130,8 @@ function AccountCtrl(
             .update(filtered._id, filtered[0]);
         })
         .then(cuisine => {
-          console.log(cuisine.recipes+' after');
           getUser();
+          $state.go('account');
         });
     }
   }
