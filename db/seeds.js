@@ -6,7 +6,7 @@ const Recipe = require('../models/recipe');
 const User = require('../models/user');
 const config  = require('../config/env');
 
-mongoose.connect(config.db['development']);
+mongoose.connect(config.db[process.env.NODE_ENV]);
 
 Cuisine.collection.drop();
 Recipe.collection.drop();
